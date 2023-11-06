@@ -20,17 +20,28 @@ import _Concurrency
 import _StringProcessing
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiFlow {
-  public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self)) -> some SwiftUI.View
+  public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) -> some SwiftUI.View
   
 }
-@available(iOS 14.0, *)
+@available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
 public struct HaapiFlowVCRepresentable : SwiftUI.UIViewControllerRepresentable {
+  @available(*, deprecated, message: "Use `HaapiFlowViewControllerRepresentable` instead. ")
+  public init(contentViewController: IdsvrHaapiUIKit.HaapiFlowViewController, presentationMode: IdsvrHaapiUIKit.PresentationMode)
   @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context) -> some UIKit.UIViewController
   
   @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: @_opaqueReturnTypeOf("$s15IdsvrHaapiUIKit0B19FlowVCRepresentableV20makeUIViewController7contextQr7SwiftUI0gH20RepresentableContextVyACG_tF", 0) __, context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context)
   public typealias Body = Swift.Never
   public typealias Coordinator = Swift.Void
   public typealias UIViewControllerType = @_opaqueReturnTypeOf("$s15IdsvrHaapiUIKit0B19FlowVCRepresentableV20makeUIViewController7contextQr7SwiftUI0gH20RepresentableContextVyACG_tF", 0) __
+}
+@available(iOS 14.0, *)
+public struct HaapiFlowViewControllerRepresentable : SwiftUI.UIViewControllerRepresentable {
+  public typealias UIViewControllerType = UIKit.UIViewController
+  public init(haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName: Swift.String?, bundle: Foundation.Bundle?, notificationCenter: Foundation.NotificationCenter = NotificationCenter.default)
+  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context) -> UIKit.UIViewController
+  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: UIKit.UIViewController, context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
 }
 @available(iOS 14.0, *)
 @frozen public enum PollingStatus : Swift.Decodable, Swift.Equatable {
@@ -168,6 +179,7 @@ public enum PresentationMode {
 }
 public enum AuthenticatorSelectionPresentation {
   case list
+  case tabs
   public static func == (a: IdsvrHaapiUIKit.AuthenticatorSelectionPresentation, b: IdsvrHaapiUIKit.AuthenticatorSelectionPresentation) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -484,6 +496,8 @@ public class HaapiUIKitConfigurationBuilder {
   @discardableResult
   public func setShouldConfirmInterruptionFlow(value: Swift.Bool) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
+  public func setUseDefaultExternalBrowser(value: Swift.Bool) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
   public func setKeyStoreAlias(alias: Swift.String) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setOauthAuthorizationParamsProvider(provider: @escaping IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
@@ -555,7 +569,7 @@ public protocol HaapiFlowResult {
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 @_Concurrency.MainActor(unsafe) public class HaapiFlowViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowDeepLinkable {
-  @_Concurrency.MainActor(unsafe) convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiFlowResult: (any IdsvrHaapiUIKit.HaapiFlowResult)?, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self)) throws
+  @_Concurrency.MainActor(unsafe) convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiFlowResult: (any IdsvrHaapiUIKit.HaapiFlowResult)?, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) throws
   @objc deinit
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)

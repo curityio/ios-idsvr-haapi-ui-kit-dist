@@ -774,6 +774,7 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit16HaapiTokenResult") SWIFT_AVAILABILITY(ios,in
 
 
 
+
 #endif
 #if defined(__cplusplus)
 #endif
@@ -1544,6 +1545,7 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit16HaapiTokenResult") SWIFT_AVAILABILITY(ios,in
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
