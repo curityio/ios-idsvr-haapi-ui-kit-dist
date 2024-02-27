@@ -726,7 +726,7 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit24HaapiTokenManagerBuilder") SWIFT_AVAILABILIT
 /// Initialize the <code>Builder</code> with the mandatory <code>tokenEndpoint</code> and <code>clientId</code> parameters
 - (nonnull instancetype)initWithTokenEndpoint:(NSURL * _Nonnull)tokenEndpoint clientId:(NSString * _Nonnull)clientId OBJC_DESIGNATED_INITIALIZER;
 /// Set a name for the <code>HaapiTokenManager</code>. The name is used as prefix in identifying the storage location where the <code>HaapiTokenManager</code> persists state.
-/// When nothing is set, a default of “haapi” is used as name.
+/// When nothing is set, the clientId is used as the default value.
 /// note:
 /// You cannot use two <code>HaapiTokenManager</code> instances with the same name. If this condition is not fulfill, an exception is thrown when build is invoked.
 - (HaapiTokenManagerBuilder * _Nonnull)setName:(NSString * _Nonnull)name;
@@ -1527,7 +1527,7 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit24HaapiTokenManagerBuilder") SWIFT_AVAILABILIT
 /// Initialize the <code>Builder</code> with the mandatory <code>tokenEndpoint</code> and <code>clientId</code> parameters
 - (nonnull instancetype)initWithTokenEndpoint:(NSURL * _Nonnull)tokenEndpoint clientId:(NSString * _Nonnull)clientId OBJC_DESIGNATED_INITIALIZER;
 /// Set a name for the <code>HaapiTokenManager</code>. The name is used as prefix in identifying the storage location where the <code>HaapiTokenManager</code> persists state.
-/// When nothing is set, a default of “haapi” is used as name.
+/// When nothing is set, the clientId is used as the default value.
 /// note:
 /// You cannot use two <code>HaapiTokenManager</code> instances with the same name. If this condition is not fulfill, an exception is thrown when build is invoked.
 - (HaapiTokenManagerBuilder * _Nonnull)setName:(NSString * _Nonnull)name;
