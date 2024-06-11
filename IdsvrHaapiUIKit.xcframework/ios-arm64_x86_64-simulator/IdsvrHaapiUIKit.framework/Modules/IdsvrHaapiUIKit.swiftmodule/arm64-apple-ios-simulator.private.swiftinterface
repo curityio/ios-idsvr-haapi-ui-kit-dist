@@ -440,6 +440,20 @@ public struct AttestationConfiguration {
   @objc public static var isSensitiveValueMasked: Swift.Bool
   @objc deinit
 }
+public enum LogType : Swift.String {
+  case debug
+  case error
+  case info
+  case warning
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol LogSink {
+  func writeLog(logType: IdsvrHaapiUIKit.LogType, followUpTag: any IdsvrHaapiUIKit.FollowUpTag, message: Swift.String, file: Swift.String, line: Swift.Int)
+}
 @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 public class HaapiFlow {
   public static func start(from presentedViewController: any IdsvrHaapiUIKit.HaapiFlowResultViewController, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, animated: Swift.Bool = true, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self)) throws
@@ -1497,6 +1511,9 @@ extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.Hashable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.RawRepresentable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.ClientOperationName : Swift.Sendable {}
+extension IdsvrHaapiUIKit.LogType : Swift.Equatable {}
+extension IdsvrHaapiUIKit.LogType : Swift.Hashable {}
+extension IdsvrHaapiUIKit.LogType : Swift.RawRepresentable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.TextFormField.Kind : Swift.Sendable {}
 @available(iOS 14.0, *)
