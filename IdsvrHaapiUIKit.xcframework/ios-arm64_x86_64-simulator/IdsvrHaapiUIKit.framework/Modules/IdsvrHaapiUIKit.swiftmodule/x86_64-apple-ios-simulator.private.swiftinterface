@@ -438,6 +438,7 @@ public struct AttestationConfiguration {
   @objc public static var isWarningEnabled: Swift.Bool
   @objc public static var isErrorEnabled: Swift.Bool
   @objc public static var isSensitiveValueMasked: Swift.Bool
+  public static func appendLogSink(_ logSink: any IdsvrHaapiUIKit.LogSink)
   @objc deinit
 }
 public enum LogType : Swift.String {
