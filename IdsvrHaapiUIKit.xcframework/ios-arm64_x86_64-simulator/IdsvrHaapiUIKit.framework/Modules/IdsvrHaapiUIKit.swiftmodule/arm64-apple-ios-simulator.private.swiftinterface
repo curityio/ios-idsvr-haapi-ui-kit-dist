@@ -280,8 +280,8 @@ final public class HaapiFlowViewModel : ObjectiveC.NSObject, Combine.ObservableO
   final public func start()
   final public func submit(form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any])
   final public func followLink(_ link: IdsvrHaapiUIKit.Link)
-  final public func fetchAccessToken(authorizationCode: Swift.String)
-  final public func refreshAccessToken(refreshToken: Swift.String)
+  final public func fetchAccessToken(authorizationCode: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
+  final public func refreshAccessToken(refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
 @available(iOS 14.0, *)
@@ -529,6 +529,19 @@ final public class HaapiManager : ObjectiveC.NSObject {
     get
   }
 }
+@_hasMissingDesignatedInitializers public class HTTPURLResponseContent {
+  final public let data: Foundation.Data?
+  final public let httpURLResponse: Foundation.HTTPURLResponse?
+  public var dataAsDictionary: [Swift.String : Any] {
+    get
+    set
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ErrorHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+  final public let error: any Swift.Error
+  @objc deinit
+}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiModel {
   public enum FormFieldFactory {
@@ -706,7 +719,8 @@ final public class HaapiConfiguration : IdsvrHaapiUIKit.HaapiConfigurable, Idsvr
   final public let minTokenTtl: Foundation.TimeInterval
   final public let attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration
   final public let tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration
-  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration())
+  final public let tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)?
+  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil)
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1050,7 +1064,7 @@ public enum SdkFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.Ca
 public typealias OAuthLifecycleResultListener = IdsvrHaapiUIKit.HaapiFlowResult
 @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 public class OAuthLifecycle {
-  public static func refreshToken(refreshToken: Swift.String, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, lifecycleResultListener: any IdsvrHaapiUIKit.HaapiFlowResult)
+  public static func refreshToken(refreshToken: Swift.String, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, lifecycleResultListener: any IdsvrHaapiUIKit.HaapiFlowResult, additionalParameters: [Swift.String : Swift.String]? = nil)
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1111,14 +1125,28 @@ public protocol OAuthTokenConfigurable {
   var urlSession: Foundation.URLSession { get }
   var revocationEndpointURL: Foundation.URL? { get }
   var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
+  var tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? { get }
 }
 @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 final public class OAuthTokenManager {
   convenience public init(oauthTokenConfiguration: any IdsvrHaapiUIKit.OAuthTokenConfigurable)
-  final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
-  final public func refreshAccessToken(with refreshToken: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
+  final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
+  final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
   final public func revokeAccessToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
   final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
+  public protocol TokenEndpointResponseListener : AnyObject {
+    func onSuccess(_ value: IdsvrHaapiUIKit.OAuthTokenManager.SuccessTokenHTTPURLResponseContent)
+    func onError(_ value: IdsvrHaapiUIKit.ErrorHTTPURLResponseContent)
+    func onTokenError(_ value: IdsvrHaapiUIKit.OAuthTokenManager.ErrorTokenHTTPURLResponseContent)
+  }
+  @_hasMissingDesignatedInitializers public class SuccessTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+    final public let successfulTokenResponse: IdsvrHaapiUIKit.SuccessfulTokenResponse
+    @objc deinit
+  }
+  @_hasMissingDesignatedInitializers public class ErrorTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+    final public let errorTokenResponse: IdsvrHaapiUIKit.ErrorTokenResponse
+    @objc deinit
+  }
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class Haapi : ObjectiveC.NSObject {
