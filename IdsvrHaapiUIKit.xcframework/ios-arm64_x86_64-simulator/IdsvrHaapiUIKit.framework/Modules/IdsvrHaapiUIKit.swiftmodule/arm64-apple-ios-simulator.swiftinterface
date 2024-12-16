@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name IdsvrHaapiUIKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AuthenticationServices
 import Combine
 import CommonCrypto
@@ -249,27 +250,32 @@ public struct GenericRepresentationStep : IdsvrHaapiUIKit.HaapiRepresentation, S
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiFlow {
-  public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) -> some SwiftUI.View
+  public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) -> some SwiftUICore.View
   
 }
 @available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
-public struct HaapiFlowVCRepresentable : SwiftUI.UIViewControllerRepresentable {
+@_Concurrency.MainActor @preconcurrency public struct HaapiFlowVCRepresentable : SwiftUI.UIViewControllerRepresentable {
   @available(*, deprecated, message: "Use `HaapiFlowViewControllerRepresentable` instead. ")
-  public init(contentViewController: IdsvrHaapiUIKit.HaapiFlowViewController, presentationMode: IdsvrHaapiUIKit.PresentationMode)
-  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context) -> some UIKit.UIViewController
+  @_Concurrency.MainActor @preconcurrency public init(contentViewController: IdsvrHaapiUIKit.HaapiFlowViewController, presentationMode: IdsvrHaapiUIKit.PresentationMode)
+  @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context) -> some UIKit.UIViewController
   
-  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: @_opaqueReturnTypeOf("$s15IdsvrHaapiUIKit0B19FlowVCRepresentableV20makeUIViewController7contextQr7SwiftUI0gH20RepresentableContextVyACG_tF", 0) __, context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context)
+  @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: @_opaqueReturnTypeOf("$s15IdsvrHaapiUIKit0B19FlowVCRepresentableV20makeUIViewController7contextQr7SwiftUI0gH20RepresentableContextVyACG_tF", 0) __, context: IdsvrHaapiUIKit.HaapiFlowVCRepresentable.Context)
+  @available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
   public typealias Body = Swift.Never
+  @available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
   public typealias Coordinator = Swift.Void
+  @available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
   public typealias UIViewControllerType = @_opaqueReturnTypeOf("$s15IdsvrHaapiUIKit0B19FlowVCRepresentableV20makeUIViewController7contextQr7SwiftUI0gH20RepresentableContextVyACG_tF", 0) __
 }
 @available(iOS 14.0, *)
-public struct HaapiFlowViewControllerRepresentable : SwiftUI.UIViewControllerRepresentable {
+@_Concurrency.MainActor @preconcurrency public struct HaapiFlowViewControllerRepresentable : SwiftUI.UIViewControllerRepresentable {
   public typealias UIViewControllerType = UIKit.UIViewController
-  public init(haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName: Swift.String?, bundle: Foundation.Bundle?, notificationCenter: Foundation.NotificationCenter = NotificationCenter.default)
-  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context) -> UIKit.UIViewController
-  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: UIKit.UIViewController, context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context)
+  @_Concurrency.MainActor @preconcurrency public init(haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName: Swift.String?, bundle: Foundation.Bundle?, notificationCenter: Foundation.NotificationCenter = NotificationCenter.default)
+  @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context) -> UIKit.UIViewController
+  @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: UIKit.UIViewController, context: IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable.Context)
+  @available(iOS 14.0, *)
   public typealias Body = Swift.Never
+  @available(iOS 14.0, *)
   public typealias Coordinator = Swift.Void
 }
 @objc @available(iOS 14.0, *)
@@ -282,6 +288,7 @@ final public class HaapiFlowViewModel : ObjectiveC.NSObject, Combine.ObservableO
   final public func followLink(_ link: IdsvrHaapiUIKit.Link)
   final public func fetchAccessToken(authorizationCode: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
   final public func refreshAccessToken(refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
+  @available(iOS 14.0, *)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
 @available(iOS 14.0, *)
@@ -332,18 +339,19 @@ public class HaapiUIKitApplicationBuilder {
   public func build() -> any IdsvrHaapiUIKit.HaapiUIKitApplication
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 final public class AuthorizationProblem : IdsvrHaapiUIKit.Problem {
-  final public let error: Swift.String
-  final public let errorDescription: Swift.String?
+  @objc final public let error: Swift.String
+  @objc final public let errorDescription: Swift.String?
   required public init(from decoder: any Swift.Decoder) throws
   override final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
-@available(iOS 14.0, *)
-public struct Metadata : Swift.Codable, Swift.Equatable {
-  public static func == (a: IdsvrHaapiUIKit.Metadata, b: IdsvrHaapiUIKit.Metadata) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class Metadata : ObjectiveC.NSObject, Swift.Codable {
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
 public enum PresentationMode {
@@ -505,31 +513,61 @@ final public class GenericClientOperationActionModel : IdsvrHaapiUIKit.ClientOpe
 }
 @available(iOS 14.0, *)
 public typealias HaapiCompletionHandler = (_ haapiResult: IdsvrHaapiUIKit.HaapiResult) -> Swift.Void
-@objc @available(iOS 14.0, *)
-final public class HaapiManager : ObjectiveC.NSObject {
-  public init(haapiConfiguration: any IdsvrHaapiUIKit.HaapiConfigurable) throws
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers final public class HaapiManager : ObjectiveC.NSObject {
+  @objc convenience public init(haapiConfiguration: any IdsvrHaapiUIKit.HaapiConfigurable) throws
   @objc deinit
-  final public func close()
-  public static var isSupported: Swift.Bool {
-    get
+  @objc final public func close()
+  @objc public static var isSupported: Swift.Bool {
+    @objc get
   }
   final public func start(completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-  #if compiler(>=5.3) && $AsyncAwait
   final public func start() async -> IdsvrHaapiUIKit.HaapiResult
-  #endif
   final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any], completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-  #if compiler(>=5.3) && $AsyncAwait
   final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any]) async -> IdsvrHaapiUIKit.HaapiResult
-  #endif
   final public func followLink(_ link: IdsvrHaapiUIKit.Link, completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-  #if compiler(>=5.3) && $AsyncAwait
   final public func followLink(_ link: IdsvrHaapiUIKit.Link) async -> IdsvrHaapiUIKit.HaapiResult
-  #endif
-  final public var dpop: IdsvrHaapiUIKit.Dpop? {
+  @objc final public var dpop: IdsvrHaapiUIKit.Dpop? {
+    @objc get
+  }
+}
+@available(iOS 14.0, *)
+@objc public protocol HaapiManagerAccessor {
+}
+@available(iOS 14.0, *)
+@objc public protocol OAuthAccessor : IdsvrHaapiUIKit.HaapiManagerAccessor {
+  @objc var oAuthTokenManager: IdsvrHaapiUIKit.OAuthTokenManager { get }
+}
+@available(iOS 14.0, *)
+@objc public protocol HaapiAccessor : IdsvrHaapiUIKit.OAuthAccessor {
+  @objc var haapiManager: IdsvrHaapiUIKit.HaapiManager { get }
+  @objc func close()
+}
+@objc public enum HaapiAccessorOption : Swift.Int {
+  case all
+  case oauth
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class HTTPURLResponseContent {
+@objc @available(iOS 14.0, *)
+@objcMembers final public class HaapiAccessorBuilder : ObjectiveC.NSObject {
+  @objc public init(haapiConfiguration: IdsvrHaapiUIKit.HaapiConfiguration)
+  @objc @discardableResult
+  final public func setHaapiAccessorOption(option: IdsvrHaapiUIKit.HaapiAccessorOption) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
+  @objc @discardableResult
+  final public func setDCRConfiguration(configuration: IdsvrHaapiUIKit.DCRConfiguration) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
+  final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping (Swift.Result<T, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void) where T : IdsvrHaapiUIKit.HaapiManagerAccessor
+  final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false) async throws -> T where T : IdsvrHaapiUIKit.HaapiManagerAccessor
+  @objc deinit
+}
+@available(*, unavailable)
+@objc extension IdsvrHaapiUIKit.HaapiAccessorBuilder {
+  @objc final public func build(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping ((any IdsvrHaapiUIKit.HaapiManagerAccessor)?, (any Swift.Error)?) -> Swift.Void)
+}
+@objc @_hasMissingDesignatedInitializers public class HTTPURLResponseContent : ObjectiveC.NSObject {
   final public let data: Foundation.Data?
   final public let httpURLResponse: Foundation.HTTPURLResponse?
   public var dataAsDictionary: [Swift.String : Any] {
@@ -538,7 +576,7 @@ final public class HaapiManager : ObjectiveC.NSObject {
   }
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class ErrorHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+@objc @_hasMissingDesignatedInitializers public class ErrorHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
   final public let error: any Swift.Error
   @objc deinit
 }
@@ -582,32 +620,35 @@ extension Foundation.URLResponse {
 extension Foundation.URLRequest {
   public mutating func addAuthorizationHeader(headerValue: Swift.String)
   public mutating func addDpopHeader(headerValue: Swift.String)
+  public mutating func addClientInfoHeader(headerValue: Swift.String)
   public mutating func addDpopAccessTokenHeaders(from dpopAccessTokenInfo: IdsvrHaapiUIKit.DpopAccessTokenInfo, httpMethod: Swift.String, url: Foundation.URL) throws
   public mutating func addHaapiMediaTypeAcceptHeader()
   public mutating func addHaapiSessionIdHeader(_ sessionId: Swift.String)
 }
-@available(iOS 14.0, *)
-public struct SuccessfulTokenResponse : Swift.Codable, Swift.Equatable {
-  public let accessToken: Swift.String
-  public let tokenType: Swift.String?
-  public let scope: Swift.String?
-  public let expiresIn: Swift.Int
-  public let refreshToken: Swift.String?
-  public let idToken: Swift.String?
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers final public class SuccessfulTokenResponse : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let accessToken: Swift.String
+  @objc final public let tokenType: Swift.String?
+  @objc final public let scope: Swift.String?
+  @objc final public let expiresIn: Swift.Int
+  @objc final public let refreshToken: Swift.String?
+  @objc final public let idToken: Swift.String?
   public init(from decoder: any Swift.Decoder) throws
-  public static func == (a: IdsvrHaapiUIKit.SuccessfulTokenResponse, b: IdsvrHaapiUIKit.SuccessfulTokenResponse) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
 }
-@available(iOS 14.0, *)
-public struct ErrorTokenResponse : Swift.Codable, Swift.CustomDebugStringConvertible, Swift.Equatable {
-  public let error: Swift.String
-  public let errorDescription: Swift.String
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers final public class ErrorTokenResponse : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let error: Swift.String
+  @objc final public let errorDescription: Swift.String
   public init(from decoder: any Swift.Decoder) throws
-  public var debugDescription: Swift.String {
-    get
+  @objc override final public var debugDescription: Swift.String {
+    @objc get
   }
-  public static func == (a: IdsvrHaapiUIKit.ErrorTokenResponse, b: IdsvrHaapiUIKit.ErrorTokenResponse) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiModel {
@@ -624,6 +665,76 @@ extension IdsvrHaapiUIKit.HaapiModel {
     public static func link(href: Swift.String, rel: Swift.String, title: IdsvrHaapiUIKit.Message?, type: Swift.String?) -> IdsvrHaapiUIKit.Link
   }
 }
+@objc public protocol ClientAuthenticationMethod {
+}
+@objc @_inheritsConvenienceInitializers final public class ClientAuthenticationMethodNone : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class ClientAuthenticationMethodSecret : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
+  @objc public init(secret: Swift.String)
+  @objc deinit
+}
+@objc @available(iOS 14.0, *)
+final public class KeyPinning : ObjectiveC.NSObject {
+  @objc public init(hostname: Swift.String, publicKeyHash: Swift.String)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class ClientAuthenticationMethodMTLS : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
+  @objc convenience public init(pkcs12Filename: Swift.String, pkcs12Passphrase: Swift.String, serverPEMFilename: Swift.String, isValidatingHostname: Swift.Bool, bundle: Foundation.Bundle = Bundle.main) throws
+  @objc convenience public init(pkcs12Filename: Swift.String, pkcs12Passphrase: Swift.String, serverKeyPinnings: [IdsvrHaapiUIKit.KeyPinning], bundle: Foundation.Bundle = Bundle.main) throws
+  @objc deinit
+}
+@available(iOS 14.0, *)
+@objc public enum JWTAsymmetricAlgorithm : Swift.Int {
+  case rs256
+  case rs384
+  case rs512
+  case ps256
+  case ps384
+  case ps512
+  case es256
+  case es384
+  case es512
+  public init?(rawValue: Swift.Int)
+  @available(iOS 14.0, *)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @available(iOS 14.0, *)
+final public class ClientAuthenticationMethodJWTAsymmetric : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
+  final public let signatureAlgorithm: IdsvrHaapiUIKit.JWTAsymmetricAlgorithm
+  final public let privateKey: Security.SecKey
+  @objc public init(pemFilename: Swift.String, signatureAlgorithm: IdsvrHaapiUIKit.JWTAsymmetricAlgorithm, bundle: Foundation.Bundle = Bundle.main) throws
+  @objc deinit
+}
+@available(iOS 14.0, *)
+@objc public enum JWTSymmetricAlgorithm : Swift.Int, Swift.CaseIterable {
+  case hs256
+  case hs384
+  case hs512
+  public init?(rawValue: Swift.Int)
+  @available(iOS 14.0, *)
+  public typealias AllCases = [IdsvrHaapiUIKit.JWTSymmetricAlgorithm]
+  @available(iOS 14.0, *)
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [IdsvrHaapiUIKit.JWTSymmetricAlgorithm] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @available(iOS 14.0, *)
+final public class ClientAuthenticationMethodJWTSymmetric : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
+  final public let signatureAlgorithm: IdsvrHaapiUIKit.JWTSymmetricAlgorithm
+  final public let secretKey: Swift.String
+  @objc public init(signatureAlgorithm: IdsvrHaapiUIKit.JWTSymmetricAlgorithm, secretKey: Swift.String)
+  @objc deinit
+}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiModel {
   public enum PropertiesFactory {
@@ -635,10 +746,10 @@ extension IdsvrHaapiUIKit.HaapiModel {
     public static func clientOperation(rawJsonString: Swift.String) -> IdsvrHaapiUIKit.ClientOperationAction.Properties
   }
 }
-@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 final public class InvalidInputProblem : IdsvrHaapiUIKit.Problem {
   final public let invalidFields: [IdsvrHaapiUIKit.InvalidInputProblem.InvalidField]
-  final public let errorDescription: Swift.String?
+  @objc final public let errorDescription: Swift.String?
   public struct InvalidField : Swift.Codable, Swift.Equatable {
     public let name: Swift.String
     public let reason: Swift.String?
@@ -665,7 +776,7 @@ public enum DriverFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift
   public init?(rawValue: Swift.String)
   public typealias AllCases = [IdsvrHaapiUIKit.DriverFollowUpTag]
   public typealias RawValue = Swift.String
-  public static var allCases: [IdsvrHaapiUIKit.DriverFollowUpTag] {
+  nonisolated public static var allCases: [IdsvrHaapiUIKit.DriverFollowUpTag] {
     get
   }
   public var rawValue: Swift.String {
@@ -681,39 +792,43 @@ public typealias HttpHeadersProvider = () -> [Swift.String : Swift.String]
 @available(iOS 14.0, *)
 public typealias OAuthAuthorizationParametersProvider = () -> IdsvrHaapiUIKit.OAuthAuthorizationParameters
 @available(iOS 14.0, *)
-public protocol HaapiConfigurable {
-  var name: Swift.String { get }
-  var clientId: Swift.String { get }
-  var baseURL: Foundation.URL { get }
-  var tokenEndpointURL: Foundation.URL { get }
-  var authorizationEndpointURL: Foundation.URL { get }
-  var appRedirect: Swift.String { get }
-  var urlSession: Foundation.URLSession { get }
-  var isAutoRedirect: Swift.Bool { get }
-  var httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider? { get }
-  var authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider? { get }
-  var minTokenTtl: Foundation.TimeInterval { get }
-  var attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration { get }
-  var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
+@objc public protocol HaapiConfigurable {
+  @objc var name: Swift.String { get }
+  @objc var clientId: Swift.String { get }
+  @objc var baseURL: Foundation.URL { get }
+  @objc var tokenEndpointURL: Foundation.URL { get }
+  @objc var authorizationEndpointURL: Foundation.URL { get }
+  @objc var appRedirect: Swift.String { get }
+  @objc var urlSession: Foundation.URLSession { get }
+  @objc var isAutoRedirect: Swift.Bool { get }
+  @objc var httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider? { get }
+  @objc var authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider? { get }
+  @objc var minTokenTtl: Foundation.TimeInterval { get }
+  @objc var attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration { get }
+  @objc var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
+  @objc var clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod { get }
+  @objc var applicationBundle: Foundation.Bundle? { get }
 }
-@available(iOS 14.0, *)
-final public class HaapiConfiguration : IdsvrHaapiUIKit.HaapiConfigurable, IdsvrHaapiUIKit.OAuthTokenConfigurable {
-  final public let name: Swift.String
-  final public let clientId: Swift.String
-  final public let baseURL: Foundation.URL
-  final public let tokenEndpointURL: Foundation.URL
-  final public let authorizationEndpointURL: Foundation.URL
-  final public let appRedirect: Swift.String
-  final public let httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?
-  final public let isAutoRedirect: Swift.Bool
-  final public let urlSession: Foundation.URLSession
-  final public let revocationEndpointURL: Foundation.URL?
-  final public let authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?
-  final public let minTokenTtl: Foundation.TimeInterval
-  final public let attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration
-  final public let tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration
-  final public let tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)?
-  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil)
+@objc @available(iOS 14.0, *)
+@objcMembers final public class HaapiConfiguration : ObjectiveC.NSObject, IdsvrHaapiUIKit.HaapiConfigurable, IdsvrHaapiUIKit.OAuthTokenConfigurable {
+  @objc final public let name: Swift.String
+  @objc final public let clientId: Swift.String
+  @objc final public let baseURL: Foundation.URL
+  @objc final public let tokenEndpointURL: Foundation.URL
+  @objc final public let authorizationEndpointURL: Foundation.URL
+  @objc final public let appRedirect: Swift.String
+  @objc final public let httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?
+  @objc final public let isAutoRedirect: Swift.Bool
+  @objc final public let urlSession: Foundation.URLSession
+  @objc final public let revocationEndpointURL: Foundation.URL?
+  @objc final public let authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?
+  @objc final public let minTokenTtl: Foundation.TimeInterval
+  @objc final public let attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration
+  @objc final public let tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration
+  @objc final public let tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)?
+  @objc final public let clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod
+  @objc final public let applicationBundle: Foundation.Bundle?
+  @objc public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil, clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod = ClientAuthenticationMethodNone(), applicationBundle: Foundation.Bundle? = nil)
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -722,9 +837,10 @@ extension Foundation.URLSessionConfiguration {
     get
   }
 }
-@available(iOS 14.0, *)
-public struct AttestationConfiguration {
-  public init(useAttestation: Swift.Bool = true, attestationMaxRetries: Swift.Int = 3)
+@objc @available(iOS 14.0, *)
+final public class AttestationConfiguration : ObjectiveC.NSObject {
+  @objc public init(useAttestation: Swift.Bool = true, attestationMaxRetries: Swift.Int = 3)
+  @objc deinit
 }
 @available(iOS 14.0, *)
 @frozen public enum ProblemType : Swift.Codable, Swift.Equatable {
@@ -1007,9 +1123,17 @@ public class HaapiUIKitConfigurationBuilder {
   @discardableResult
   public func setURLSession(session: Foundation.URLSession) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
+  public func setApplicationBundle(_ bundle: Foundation.Bundle) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
   public func setMinTokenTtl(value: Foundation.TimeInterval) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setRevocationEndpointUrl(endpoint: Foundation.URL) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
+  public func setDCRConfiguration(configuration: IdsvrHaapiUIKit.DCRConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
+  public func setClientAuthenticationMethod(method: any IdsvrHaapiUIKit.ClientAuthenticationMethod) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
+  public func setTokenBoundConfiguration(configuration: any IdsvrHaapiUIKit.TokenBoundConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   public func build() -> IdsvrHaapiUIKit.HaapiUIKitConfiguration
   @objc deinit
 }
@@ -1027,7 +1151,7 @@ public enum SdkFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.Ca
   public init?(rawValue: Swift.String)
   public typealias AllCases = [IdsvrHaapiUIKit.SdkFollowUpTag]
   public typealias RawValue = Swift.String
-  public static var allCases: [IdsvrHaapiUIKit.SdkFollowUpTag] {
+  nonisolated public static var allCases: [IdsvrHaapiUIKit.SdkFollowUpTag] {
     get
   }
   public var rawValue: Swift.String {
@@ -1057,7 +1181,7 @@ public enum SdkFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.Ca
 @available(iOS 14.0, *)
 @objc final public class BoundedTokenConfiguration : ObjectiveC.NSObject, IdsvrHaapiUIKit.TokenBoundConfiguration {
   @objc final public let keyPairType: IdsvrHaapiUIKit.CryptoKeyType
-  public init(keyPairType: IdsvrHaapiUIKit.CryptoKeyType = .secureEnclave)
+  @objc public init(keyPairType: IdsvrHaapiUIKit.CryptoKeyType = .secureEnclave)
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1099,6 +1223,10 @@ extension IdsvrHaapiUIKit.ClientOperationName : Swift.RawRepresentable {
   public func setAttestationMaxRetryCount(maxRetries: Swift.Int) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
   @objc @discardableResult
   public func setTokenBoundConfiguration(config: any IdsvrHaapiUIKit.TokenBoundConfiguration) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
+  @objc @discardableResult
+  public func setClientAuthenticationMethod(method: any IdsvrHaapiUIKit.ClientAuthenticationMethod) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
+  @objc @discardableResult
+  public func setApplicationBundle(_ bundle: Foundation.Bundle?) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
   @objc public func build() throws -> IdsvrHaapiUIKit.HaapiTokenManager
   @objc deinit
 }
@@ -1118,36 +1246,43 @@ public typealias OAuthRevocationCompletion = (_ response: IdsvrHaapiUIKit.TokenR
   case error(any Swift.Error)
 }
 @available(iOS 14.0, *)
-public protocol OAuthTokenConfigurable {
-  var clientId: Swift.String { get }
-  var tokenEndpointURL: Foundation.URL { get }
-  var appRedirect: Swift.String { get }
-  var urlSession: Foundation.URLSession { get }
-  var revocationEndpointURL: Foundation.URL? { get }
-  var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
-  var tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? { get }
+@objc public protocol OAuthTokenConfigurable {
+  @objc var clientId: Swift.String { get }
+  @objc var tokenEndpointURL: Foundation.URL { get }
+  @objc var appRedirect: Swift.String { get }
+  @objc var urlSession: Foundation.URLSession { get }
+  @objc var revocationEndpointURL: Foundation.URL? { get }
+  @objc var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
+  @objc var tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? { get }
+  @objc var clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod { get }
 }
-@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-final public class OAuthTokenManager {
-  convenience public init(oauthTokenConfiguration: any IdsvrHaapiUIKit.OAuthTokenConfigurable)
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers final public class OAuthTokenManager : ObjectiveC.NSObject {
+  @objc convenience public init(oauthTokenConfiguration: any IdsvrHaapiUIKit.OAuthTokenConfigurable)
   final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
   final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
   final public func revokeAccessToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
   final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
-  public protocol TokenEndpointResponseListener : AnyObject {
-    func onSuccess(_ value: IdsvrHaapiUIKit.OAuthTokenManager.SuccessTokenHTTPURLResponseContent)
-    func onError(_ value: IdsvrHaapiUIKit.ErrorHTTPURLResponseContent)
-    func onTokenError(_ value: IdsvrHaapiUIKit.OAuthTokenManager.ErrorTokenHTTPURLResponseContent)
+  @objc public protocol TokenEndpointResponseListener {
+    @objc func onSuccess(_ value: IdsvrHaapiUIKit.OAuthTokenManager.SuccessTokenHTTPURLResponseContent)
+    @objc func onError(_ value: IdsvrHaapiUIKit.ErrorHTTPURLResponseContent)
+    @objc func onTokenError(_ value: IdsvrHaapiUIKit.OAuthTokenManager.ErrorTokenHTTPURLResponseContent)
   }
-  @_hasMissingDesignatedInitializers public class SuccessTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+  @objc @_hasMissingDesignatedInitializers public class SuccessTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
     final public let successfulTokenResponse: IdsvrHaapiUIKit.SuccessfulTokenResponse
     @objc deinit
   }
-  @_hasMissingDesignatedInitializers public class ErrorTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
+  @objc @_hasMissingDesignatedInitializers public class ErrorTokenHTTPURLResponseContent : IdsvrHaapiUIKit.HTTPURLResponseContent {
     final public let errorTokenResponse: IdsvrHaapiUIKit.ErrorTokenResponse
     @objc deinit
   }
   @objc deinit
+}
+@available(*, unavailable)
+@objc extension IdsvrHaapiUIKit.OAuthTokenManager {
+  @objc final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
 }
 @objc @_inheritsConvenienceInitializers public class Haapi : ObjectiveC.NSObject {
   @objc public static var isSupported: Swift.Bool {
@@ -1186,26 +1321,26 @@ public protocol HaapiFlowResult {
   func didReceiveError(_ error: any Swift.Error)
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-@_Concurrency.MainActor(unsafe) public class HaapiFlowViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowDeepLinkable {
-  @_Concurrency.MainActor(unsafe) convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiFlowResult: (any IdsvrHaapiUIKit.HaapiFlowResult)?, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) throws
+@_Concurrency.MainActor @preconcurrency public class HaapiFlowViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowDeepLinkable {
+  @_Concurrency.MainActor @preconcurrency convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiFlowResult: (any IdsvrHaapiUIKit.HaapiFlowResult)?, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) throws
   @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var debugDescription: Swift.String {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var debugDescription: Swift.String {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) public func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) public func handleUrl(_ url: Foundation.URL)
+  @_Concurrency.MainActor @preconcurrency public func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func handleUrl(_ url: Foundation.URL)
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiFlowViewController : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiFlowViewController : UIKit.UIAdaptivePresentationControllerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func presentationControllerShouldDismiss(_ presentationController: UIKit.UIPresentationController) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func presentationControllerDidAttemptToDismiss(_ presentationController: UIKit.UIPresentationController)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationControllerShouldDismiss(_ presentationController: UIKit.UIPresentationController) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationControllerDidAttemptToDismiss(_ presentationController: UIKit.UIPresentationController)
 }
 @available(iOS 13.0, *)
 extension Combine.Publisher where Self.Failure == Swift.Never {
@@ -1276,13 +1411,14 @@ public protocol DataMapper {
   func mapProblemRepresentationToProblem(problemRepresentation: any IdsvrHaapiUIKit.ProblemRepresentation) throws -> (any IdsvrHaapiUIKit.UIProblemModel)?
   func mapRepresentationActionModelToUIInteractionModel(representationActionModel: any IdsvrHaapiUIKit.RepresentationActionModel) throws -> (any IdsvrHaapiUIKit.UIInteractionModel)?
 }
-@available(iOS 14.0, *)
-public struct OAuthAuthorizationParameters {
-  public let scopes: [Swift.String]
-  public let nonce: Swift.String?
-  public let acrValues: [Swift.String]
-  public let extraRequestParameters: [Swift.String : Swift.String]
-  public init(scopes: [Swift.String] = [], nonce: Swift.String? = nil, acrValues: [Swift.String] = [], extraRequestParameters: [Swift.String : Swift.String] = [:])
+@objc @available(iOS 14.0, *)
+@objcMembers final public class OAuthAuthorizationParameters : ObjectiveC.NSObject {
+  @objc final public let scopes: [Swift.String]
+  @objc final public let nonce: Swift.String?
+  @objc final public let acrValues: [Swift.String]
+  @objc final public let extraRequestParameters: [Swift.String : Swift.String]
+  @objc public init(scopes: [Swift.String] = [], nonce: Swift.String? = nil, acrValues: [Swift.String] = [], extraRequestParameters: [Swift.String : Swift.String] = [:])
+  @objc deinit
 }
 @available(iOS 14, *)
 public enum HttpHeaderNames {
@@ -1294,6 +1430,7 @@ public enum HttpHeaderNames {
   public static let haapiSetSessionId: Swift.String
   public static let dpopNonce: Swift.String
   public static let wwwAuthenticate: Swift.String
+  public static let clientInfo: Swift.String
 }
 @available(iOS 14, *)
 public enum MimeTypes : Swift.String {
@@ -1301,6 +1438,7 @@ public enum MimeTypes : Swift.String {
   case json
   case xWwwFormUrlEncoded
   public init?(rawValue: Swift.String)
+  @available(iOS 14, *)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1362,6 +1500,17 @@ extension IdsvrHaapiUIKit.HaapiUIKitError : Foundation.LocalizedError, Swift.Equ
     get
   }
 }
+public enum CryptoImportError : Swift.Error, Swift.CustomDebugStringConvertible {
+  case invalidPath(_: Swift.String)
+  case invalidPEMString(_: Swift.String, cause: (any Swift.Error)?)
+  case invalidPassphrase
+  case invalidType(_: Swift.String)
+  case outOfBounds
+  case failedToImport(_: Swift.String)
+  public var debugDescription: Swift.String {
+    get
+  }
+}
 public enum UIKitFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.CaseIterable {
   case data
   case component
@@ -1379,7 +1528,7 @@ public enum UIKitFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.
   public init?(rawValue: Swift.String)
   public typealias AllCases = [IdsvrHaapiUIKit.UIKitFollowUpTag]
   public typealias RawValue = Swift.String
-  public static var allCases: [IdsvrHaapiUIKit.UIKitFollowUpTag] {
+  nonisolated public static var allCases: [IdsvrHaapiUIKit.UIKitFollowUpTag] {
     get
   }
   public var rawValue: Swift.String {
@@ -1392,6 +1541,9 @@ extension Swift.StringProtocol {
     get
   }
   public var dataUtf8Encoding: Foundation.Data {
+    get
+  }
+  public var base64URLEncodedStringOfSHA256Hash: Swift.String {
     get
   }
 }
@@ -1543,6 +1695,10 @@ final public class SelectorAction : IdsvrHaapiUIKit.Action {
   override final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
+@objc final public class DCRConfiguration : ObjectiveC.NSObject {
+  @objc public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL)
+  @objc deinit
+}
 @available(iOS 14, *)
 public struct ResponseAndData {
   public let response: Foundation.URLResponse
@@ -1567,7 +1723,9 @@ public class HaapiClient : ObjectiveC.NSObject {
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiTokenManager {
-  @objc final public func createClient(urlSession: Foundation.URLSession? = nil) -> IdsvrHaapiUIKit.HaapiClient
+  @objc @available(*, deprecated, renamed: "createClient()", message: "  This method doesn't work with the current API design for Dpop and Client Authentication\n  management and it will be removed on next major version.")
+  final public func createClient(urlSession: Foundation.URLSession? = nil) -> IdsvrHaapiUIKit.HaapiClient
+  @objc final public func createClient() -> IdsvrHaapiUIKit.HaapiClient
   @objc @available(swift, obsoleted: 1.0)
   final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
   @objc @available(swift, obsoleted: 1.0)
@@ -1636,16 +1794,16 @@ public protocol OAuthTokenModel : IdsvrHaapiUIKit.OAuthModel {
   var refreshToken: Swift.String? { get }
   var idToken: Swift.String? { get }
 }
-@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-public class Problem : IdsvrHaapiUIKit.ProblemRepresentation, Swift.Equatable {
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers public class Problem : ObjectiveC.NSObject, IdsvrHaapiUIKit.ProblemRepresentation {
   final public let type: IdsvrHaapiUIKit.ProblemType
-  final public let metadata: IdsvrHaapiUIKit.Metadata?
-  final public let title: IdsvrHaapiUIKit.Message?
+  @objc final public let metadata: IdsvrHaapiUIKit.Metadata?
+  @objc final public let title: IdsvrHaapiUIKit.Message?
   final public let messages: [IdsvrHaapiUIKit.UserMessage]
   final public let links: [IdsvrHaapiUIKit.Link]
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.Problem, rhs: IdsvrHaapiUIKit.Problem) -> Swift.Bool
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
 }
 public protocol FollowUpTag {
@@ -1693,21 +1851,41 @@ public enum HaapiError : IdsvrHaapiUIKit.IdsvrError, Swift.Error {
     get
   }
 }
-@available(iOS 14.0, *)
-public struct Message : Swift.Codable, Swift.Equatable, Swift.CustomStringConvertible {
-  public let key: Swift.String?
-  public let literal: Swift.String
-  public var description: Swift.String {
-    get
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class Message : ObjectiveC.NSObject, Swift.Codable {
+  final public let key: Swift.String?
+  final public let literal: Swift.String
+  @objc override final public var description: Swift.String {
+    @objc get
   }
-  public static func == (a: IdsvrHaapiUIKit.Message, b: IdsvrHaapiUIKit.Message) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+@available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
+extension IdsvrHaapiUIKit.HaapiFlowVCRepresentable : Swift.Sendable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiFlowViewControllerRepresentable : Swift.Sendable {}
 extension IdsvrHaapiUIKit.PresentationMode : Swift.Equatable {}
 extension IdsvrHaapiUIKit.PresentationMode : Swift.Hashable {}
 extension IdsvrHaapiUIKit.AuthenticatorSelectionPresentation : Swift.Equatable {}
 extension IdsvrHaapiUIKit.AuthenticatorSelectionPresentation : Swift.Hashable {}
+extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.Equatable {}
+extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.Hashable {}
+extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.RawRepresentable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTAsymmetricAlgorithm : Swift.Equatable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTAsymmetricAlgorithm : Swift.Hashable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTAsymmetricAlgorithm : Swift.RawRepresentable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTSymmetricAlgorithm : Swift.Equatable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTSymmetricAlgorithm : Swift.Hashable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.JWTSymmetricAlgorithm : Swift.RawRepresentable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.Equatable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.Hashable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.RawRepresentable {}
@@ -1719,6 +1897,8 @@ extension IdsvrHaapiUIKit.TextFormField.Kind : Swift.Sendable {}
 extension IdsvrHaapiUIKit.PollingStatus : Swift.Hashable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.PollingStatus : Swift.Sendable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.PollingStatus : Swift.BitwiseCopyable {}
 extension IdsvrHaapiUIKit.SdkFollowUpTag : Swift.Equatable {}
 extension IdsvrHaapiUIKit.SdkFollowUpTag : Swift.Hashable {}
 extension IdsvrHaapiUIKit.SdkFollowUpTag : Swift.RawRepresentable {}
@@ -1744,6 +1924,8 @@ extension IdsvrHaapiUIKit.UIKitFollowUpTag : Swift.RawRepresentable {}
 extension IdsvrHaapiUIKit.RepresentationType : Swift.Hashable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.RepresentationType : Swift.Sendable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.RepresentationType : Swift.BitwiseCopyable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.ActionKind : Swift.Sendable {}
 extension IdsvrHaapiUIKit.RetryCondition : Swift.Equatable {}
