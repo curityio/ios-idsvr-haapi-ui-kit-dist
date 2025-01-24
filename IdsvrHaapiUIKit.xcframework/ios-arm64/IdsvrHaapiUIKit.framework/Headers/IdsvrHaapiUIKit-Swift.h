@@ -364,6 +364,7 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit7Problem") SWIFT_AVAILABILITY(ios,introduced=1
 @property (nonatomic, readonly, strong) Metadata * _Nullable metadata;
 /// An optional <code>Message</code> that represents the title of the problem.
 @property (nonatomic, readonly, strong) Message * _Nullable title;
+@property (nonatomic, readonly, copy) NSString * _Nullable rawJsonString;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1381,6 +1382,8 @@ SWIFT_CLASS("_TtC15IdsvrHaapiUIKit28OAuthAuthorizationParameters") SWIFT_AVAILAB
 /// <code>OAuthTokenManager</code> instances are used to fetch or refresh an access token.
 SWIFT_CLASS("_TtC15IdsvrHaapiUIKit17OAuthTokenManager") SWIFT_AVAILABILITY(ios,introduced=14.0)
 @interface OAuthTokenManager : NSObject
+/// The configuration used to build this instance.
+@property (nonatomic, readonly, strong) id <OAuthTokenConfigurable> _Nonnull oauthTokenConfiguration;
 /// Creates an OAuthTokenManager instance.
 /// \param oauthTokenConfiguration The configuration used to build this instance.
 ///
