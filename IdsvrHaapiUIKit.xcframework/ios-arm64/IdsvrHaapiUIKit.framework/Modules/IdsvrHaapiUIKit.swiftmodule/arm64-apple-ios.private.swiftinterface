@@ -675,6 +675,8 @@ public typealias HaapiCompletionHandler = (_ haapiResult: IdsvrHaapiUIKit.HaapiR
   final public func setDCRConfiguration(configuration: IdsvrHaapiUIKit.DCRConfiguration) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
   @objc @discardableResult
   final public func setAttestationValidationRetryCount(maxRetries: Swift.Int) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
+  @objc @discardableResult
+  final public func setAttestationValidationKeyName(keyName: Swift.String) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
   final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping (Swift.Result<T, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void) where T : IdsvrHaapiUIKit.HaapiManagerAccessor
   final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false) async throws -> T where T : IdsvrHaapiUIKit.HaapiManagerAccessor
   @objc deinit
@@ -1391,9 +1393,13 @@ public class HaapiUIKitConfigurationBuilder {
   @discardableResult
   public func setDCRConfiguration(configuration: IdsvrHaapiUIKit.DCRConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
+  public func setShouldClearExistingDCRClient(value: Swift.Bool) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
   public func setClientAuthenticationMethod(method: any IdsvrHaapiUIKit.ClientAuthenticationMethod) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setTokenBoundConfiguration(configuration: any IdsvrHaapiUIKit.TokenBoundConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
+  public func setAttestationConfiguration(configuration: IdsvrHaapiUIKit.AttestationConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   public func build() -> IdsvrHaapiUIKit.HaapiUIKitConfiguration
   @objc deinit
 }
@@ -1992,8 +1998,10 @@ final public class SelectorAction : IdsvrHaapiUIKit.Action {
   override final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
-@objc final public class DCRConfiguration : ObjectiveC.NSObject {
-  @objc public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL)
+@objc @available(iOS 14, *)
+final public class DCRConfiguration : ObjectiveC.NSObject {
+  @objc convenience public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL)
+  public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL, storage: any IdsvrHaapiUIKit.Storage)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
