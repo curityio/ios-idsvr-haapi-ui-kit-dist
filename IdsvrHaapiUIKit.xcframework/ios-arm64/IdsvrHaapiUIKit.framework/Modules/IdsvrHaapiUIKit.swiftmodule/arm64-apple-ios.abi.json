@@ -53900,6 +53900,16 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "IdsvrHaapiUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -81404,14 +81414,14 @@
     {
       "filePath": "\/Users\/curity\/build\/jenkins-agent\/workspace\/ios-cat_version_4.6\/frameworks\/IdsvrHaapiUIKit\/Source\/HaapiFlowViewController.swift",
       "kind": "StringLiteral",
-      "offset": 63404,
+      "offset": 63203,
       "length": 41,
       "value": "\"HaapiFlowSwiftUIConfirmFlowInterruption\""
     },
     {
       "filePath": "\/Users\/curity\/build\/jenkins-agent\/workspace\/ios-cat_version_4.6\/frameworks\/IdsvrHaapiUIKit\/Source\/HaapiFlowViewController.swift",
       "kind": "StringLiteral",
-      "offset": 63674,
+      "offset": 63473,
       "length": 45,
       "value": "\"HaapiFlowSwiftUIInterruptionOfFlowConfirmed\""
     },
