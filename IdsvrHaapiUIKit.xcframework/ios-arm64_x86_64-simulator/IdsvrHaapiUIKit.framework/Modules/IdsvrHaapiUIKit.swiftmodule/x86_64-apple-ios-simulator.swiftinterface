@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
-// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name IdsvrHaapiUIKit
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name IdsvrHaapiUIKit
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import AuthenticationServices
 import Combine
@@ -24,14 +24,14 @@ import _SwiftConcurrencyShims
 public struct AuthenticatorSelectorStep : IdsvrHaapiUIKit.HaapiRepresentation {
   public let title: IdsvrHaapiUIKit.Message
   public let authenticators: [IdsvrHaapiUIKit.AuthenticatorSelectorStep.AuthenticatorOption]
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
   public let properties: (any IdsvrHaapiUIKit.Properties)?
   public let rawJsonString: Swift.String?
   public let type: IdsvrHaapiUIKit.RepresentationType
-  public struct AuthenticatorOption : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  public struct AuthenticatorOption : Swift.Codable, Swift.Equatable {
     public let title: IdsvrHaapiUIKit.Message
     public let type: Swift.String?
     public let action: IdsvrHaapiUIKit.FormAction
@@ -59,7 +59,7 @@ public struct InteractiveFormStep : IdsvrHaapiUIKit.HaapiRepresentation {
 @available(iOS 14.0, *)
 public struct RedirectionStep : IdsvrHaapiUIKit.HaapiRepresentation {
   public let redirectAction: IdsvrHaapiUIKit.FormAction
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -74,7 +74,7 @@ public struct RedirectionStep : IdsvrHaapiUIKit.HaapiRepresentation {
 public struct PollingStep : IdsvrHaapiUIKit.HaapiRepresentation {
   public let mainAction: IdsvrHaapiUIKit.FormAction
   public let cancelAction: IdsvrHaapiUIKit.FormAction?
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let pollingProperties: IdsvrHaapiUIKit.PollingProperties
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let metadata: IdsvrHaapiUIKit.Metadata?
@@ -93,7 +93,7 @@ public struct PollingStep : IdsvrHaapiUIKit.HaapiRepresentation {
 @available(iOS 14.0, *)
 public struct OAuthAuthorizationResponseStep : IdsvrHaapiUIKit.HaapiRepresentation {
   public let oauthAuthorizationResponseProperties: IdsvrHaapiUIKit.OAuthAuthorizationResponseProperties
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -110,7 +110,7 @@ public struct OAuthAuthorizationResponseStep : IdsvrHaapiUIKit.HaapiRepresentati
 }
 @available(iOS 14.0, *)
 public struct ContinueSameStep : IdsvrHaapiUIKit.HaapiRepresentation {
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let links: [IdsvrHaapiUIKit.Link]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
@@ -123,7 +123,7 @@ public struct ContinueSameStep : IdsvrHaapiUIKit.HaapiRepresentation {
 }
 @available(iOS 14.0, *)
 public struct UserConsentStep : IdsvrHaapiUIKit.HaapiRepresentation {
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -137,14 +137,14 @@ public struct UserConsentStep : IdsvrHaapiUIKit.HaapiRepresentation {
 @available(iOS 14.0, *)
 public struct ExternalBrowserClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
   public let actionModel: IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let properties: (any IdsvrHaapiUIKit.Properties)?
   public let links: [IdsvrHaapiUIKit.Link]
   public let type: IdsvrHaapiUIKit.RepresentationType
   public let rawJsonString: Swift.String?
-  public var actionsToPresent: [any IdsvrHaapiUIKit.Action] {
+  public var actionsToPresent: [IdsvrHaapiUIKit.Action] {
     get
   }
   public var continueFormActionModel: IdsvrHaapiUIKit.FormActionModel {
@@ -162,7 +162,7 @@ public struct ExternalBrowserClientOperationStep : IdsvrHaapiUIKit.ClientOperati
 public struct BankIdClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
   public let activationLink: IdsvrHaapiUIKit.Link?
   public let actionModel: IdsvrHaapiUIKit.BankIdClientOperationActionModel
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -172,10 +172,10 @@ public struct BankIdClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
   #if compiler(>=5.3) && $NonescapableTypes
   public func urlToLaunch(redirectTo: Swift.String) -> Foundation.URL?
   #endif
-  public var continueActions: [any IdsvrHaapiUIKit.Action] {
+  public var continueActions: [IdsvrHaapiUIKit.Action] {
     get
   }
-  public var errorActions: [any IdsvrHaapiUIKit.Action] {
+  public var errorActions: [IdsvrHaapiUIKit.Action] {
     get
   }
   public init(from decoder: any Swift.Decoder) throws
@@ -185,7 +185,7 @@ public struct BankIdClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
 @available(iOS 14.0, *)
 public struct EncapClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
   public let actionModel: IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -197,10 +197,10 @@ public struct EncapClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
     get
   }
   #endif
-  public var continueActions: [any IdsvrHaapiUIKit.Action] {
+  public var continueActions: [IdsvrHaapiUIKit.Action] {
     get
   }
-  public var errorActions: [any IdsvrHaapiUIKit.Action] {
+  public var errorActions: [IdsvrHaapiUIKit.Action] {
     get
   }
   public init(from decoder: any Swift.Decoder) throws
@@ -210,7 +210,7 @@ public struct EncapClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
 @available(iOS 14.0, *)
 public struct WebAuthnRegistrationClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
   public let actionModel: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let links: [IdsvrHaapiUIKit.Link]
@@ -218,17 +218,17 @@ public struct WebAuthnRegistrationClientOperationStep : IdsvrHaapiUIKit.ClientOp
   public let rawJsonString: Swift.String?
   public let type: IdsvrHaapiUIKit.RepresentationType
   public let continueAction: IdsvrHaapiUIKit.FormAction
-  public var fallbackActions: [any IdsvrHaapiUIKit.Action] {
+  public var fallbackActions: [IdsvrHaapiUIKit.Action] {
     get
   }
-  public func formattedParametersForRegistration(credentialOptions: any IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions, attestationObject: Foundation.Data, rawClientDataJSON: Foundation.Data, credentialID: Foundation.Data, credentialParamType: Swift.String = "public-key") -> [Swift.String : Any]
+  public func formattedParametersForRegistration(credentialOptions: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions, attestationObject: Foundation.Data, rawClientDataJSON: Foundation.Data, credentialID: Foundation.Data, credentialParamType: Swift.String = "public-key") -> [Swift.String : Any]
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (lhs: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationStep, rhs: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationStep) -> Swift.Bool
 }
 @available(iOS 14.0, *)
 public struct WebAuthnAuthenticationClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let actionModel: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel
   public let continueAction: IdsvrHaapiUIKit.FormAction
   public let metadata: IdsvrHaapiUIKit.Metadata?
@@ -237,7 +237,7 @@ public struct WebAuthnAuthenticationClientOperationStep : IdsvrHaapiUIKit.Client
   public let properties: (any IdsvrHaapiUIKit.Properties)?
   public let rawJsonString: Swift.String?
   public let type: IdsvrHaapiUIKit.RepresentationType
-  public var fallbackActions: [any IdsvrHaapiUIKit.Action] {
+  public var fallbackActions: [IdsvrHaapiUIKit.Action] {
     get
   }
   #if compiler(>=5.3) && $NonescapableTypes
@@ -249,7 +249,7 @@ public struct WebAuthnAuthenticationClientOperationStep : IdsvrHaapiUIKit.Client
 }
 @available(iOS 14.0, *)
 public struct GenericClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let messages: [IdsvrHaapiUIKit.UserMessage]
@@ -263,7 +263,7 @@ public struct GenericClientOperationStep : IdsvrHaapiUIKit.ClientOperationStep {
 }
 @available(iOS 14.0, *)
 public struct GenericRepresentationStep : IdsvrHaapiUIKit.HaapiRepresentation {
-  public let actions: [any IdsvrHaapiUIKit.Action]
+  public let actions: [IdsvrHaapiUIKit.Action]
   public let messages: [IdsvrHaapiUIKit.UserMessage]
   public let metadata: IdsvrHaapiUIKit.Metadata?
   public let links: [IdsvrHaapiUIKit.Link]
@@ -275,9 +275,9 @@ public struct GenericRepresentationStep : IdsvrHaapiUIKit.HaapiRepresentation {
   public static func == (lhs: IdsvrHaapiUIKit.GenericRepresentationStep, rhs: IdsvrHaapiUIKit.GenericRepresentationStep) -> Swift.Bool
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor extension IdsvrHaapiUIKit.HaapiFlow {
+extension IdsvrHaapiUIKit.HaapiFlow {
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) -> some SwiftUICore.View
+  public static func start(_ haapiFlowResult: any IdsvrHaapiUIKit.HaapiFlowResult, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self), notificationCenter: Foundation.NotificationCenter = NotificationCenter.default) -> some SwiftUICore.View
   
   #endif
 }
@@ -334,45 +334,41 @@ extension IdsvrHaapiUIKit.WebAuthnViewController : AuthenticationServices.ASAuth
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationAnchor(for controller: AuthenticationServices.ASAuthorizationController) -> AuthenticationServices.ASPresentationAnchor
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor public protocol HaapiUIViewController : UIKit.UIViewController {
+public protocol HaapiUIViewController : UIKit.UIViewController {
   associatedtype AssociatedModel = any IdsvrHaapiUIKit.UIModel
-  associatedtype AssociatedStyle = any IdsvrHaapiUIKit.UIStyle
+  associatedtype AssociatedStyle = IdsvrHaapiUIKit.UIStyle
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor var haapiFlowViewControllerDelegate: (any IdsvrHaapiUIKit.HaapiFlowViewControllerDelegate)? { get set }
+  var haapiFlowViewControllerDelegate: (any IdsvrHaapiUIKit.HaapiFlowViewControllerDelegate)? { get set }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor var uiStylableThemeDelegate: (any IdsvrHaapiUIKit.UIStylableThemeDelegate)? { get set }
+  var uiStylableThemeDelegate: (any IdsvrHaapiUIKit.UIStylableThemeDelegate)? { get set }
   #endif
-  @_Concurrency.MainActor func stopLoading()
-  @_Concurrency.MainActor func hasLoading() -> Swift.Bool
-  @_Concurrency.MainActor func handleProblemModel(_ problemModel: any IdsvrHaapiUIKit.ProblemModel) -> Swift.Bool
-  @_Concurrency.MainActor func handleInfoMessageModels(_ infoMessageModels: [any IdsvrHaapiUIKit.InfoMessageModel])
-  @_Concurrency.MainActor func handleLinkItemModels(_ linkItemModels: [any IdsvrHaapiUIKit.LinkItemModel])
-  @_Concurrency.MainActor func handleFormModel(_ formModel: any IdsvrHaapiUIKit.FormModel) -> Swift.Bool
-  @_Concurrency.MainActor func preSubmit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : any Swift.Sendable], closure: @escaping (Swift.Bool, [Swift.String : any Swift.Sendable]) -> Swift.Void)
-  @_Concurrency.MainActor func preSelect(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel, closure: @escaping (Swift.Bool) -> Swift.Void)
-  @_Concurrency.MainActor func preFollow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel, closure: @escaping (Swift.Bool) -> Swift.Void)
+  func stopLoading()
+  func hasLoading() -> Swift.Bool
+  func handleProblemModel(_ problemModel: any IdsvrHaapiUIKit.ProblemModel) -> Swift.Bool
+  func handleInfoMessageModels(_ infoMessageModels: [any IdsvrHaapiUIKit.InfoMessageModel])
+  func handleLinkItemModels(_ linkItemModels: [any IdsvrHaapiUIKit.LinkItemModel])
+  func handleFormModel(_ formModel: any IdsvrHaapiUIKit.FormModel) -> Swift.Bool
+  func preSubmit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : Any], closure: @escaping (Swift.Bool, [Swift.String : Any]) -> Swift.Void)
+  func preSelect(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel, closure: @escaping (Swift.Bool) -> Swift.Void)
+  func preFollow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel, closure: @escaping (Swift.Bool) -> Swift.Void)
 }
 @objc @available(iOS 14.0, *)
-@_Concurrency.MainActor final public class HaapiFlowViewModel : ObjectiveC.NSObject, Combine.ObservableObject, Swift.Sendable {
-  @_Concurrency.MainActor convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication) throws
-  @_Concurrency.MainActor public init(haapiUIKitConfiguration: IdsvrHaapiUIKit.HaapiUIKitConfiguration, dataMapper: any IdsvrHaapiUIKit.DataMapper, oAuthDataMapper: any IdsvrHaapiUIKit.OAuthDataMapper = OAuthDataMapperBuilder().build()) throws
+final public class HaapiFlowViewModel : ObjectiveC.NSObject, Combine.ObservableObject {
+  convenience public init(haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication) throws
+  public init(haapiUIKitConfiguration: IdsvrHaapiUIKit.HaapiUIKitConfiguration, dataMapper: any IdsvrHaapiUIKit.DataMapper, oAuthDataMapper: any IdsvrHaapiUIKit.OAuthDataMapper = OAuthDataMapperBuilder().build()) throws
   @objc deinit
-  @_Concurrency.MainActor final public func start() async
-  @_Concurrency.MainActor final public func submit(form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : any Swift.Sendable]) async
-  @_Concurrency.MainActor final public func followLink(_ link: IdsvrHaapiUIKit.Link) async
+  final public func start()
+  final public func submit(form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any])
+  final public func followLink(_ link: IdsvrHaapiUIKit.Link)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor final public func fetchAccessToken(authorizationCode: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil) async
+  final public func fetchAccessToken(authorizationCode: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor final public func refreshAccessToken(refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil) async
+  final public func refreshAccessToken(refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil)
   #endif
   @available(iOS 14.0, *)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-}
-@available(iOS 14, *)
-extension IdsvrHaapiUIKit.RiskAssessmentConfiguration {
-  @_Concurrency.MainActor public init(_ bundle: Foundation.Bundle = Bundle.main) throws
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiModel {
@@ -393,7 +389,7 @@ extension IdsvrHaapiUIKit.HaapiModel {
 }
 @available(iOS 14.0, *)
 public typealias HaapiUIViewControllerFactory<T, S, H> = (T, S, IdsvrHaapiUIKit.HaapiUIViewControllerStyle) throws -> H where T : IdsvrHaapiUIKit.UIModel, T == H.AssociatedModel, S : IdsvrHaapiUIKit.UIStyle, S == H.AssociatedStyle, H : IdsvrHaapiUIKit.HaapiUIViewController
-public protocol HaapiUIKitApplication : AnyObject, Swift.Sendable {
+public protocol HaapiUIKitApplication : AnyObject {
   @available(iOS 14.0, *)
   var haapiUIKitConfiguration: IdsvrHaapiUIKit.HaapiUIKitConfiguration { get }
   @available(iOS 14.0, *)
@@ -404,23 +400,22 @@ public protocol HaapiUIKitApplication : AnyObject, Swift.Sendable {
   var genericClientOperationHandler: any IdsvrHaapiUIKit.GenericClientOperationHandler { get }
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor public protocol GenericClientOperationHandler : Swift.Sendable {
+public protocol GenericClientOperationHandler {
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor func handleGenericClientOperation(actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel, viewControllerProvider: ((UIKit.UIViewController) -> Swift.Void)?, onSuccess: @escaping (any IdsvrHaapiUIKit.RepresentationActionModel, [Swift.String : any Swift.Sendable]) -> Swift.Void, onError: @escaping () -> Swift.Void)
+  func handleGenericClientOperation(actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel, viewControllerProvider: ((UIKit.UIViewController) -> Swift.Void)?, onSuccess: @escaping (any IdsvrHaapiUIKit.RepresentationActionModel, [Swift.String : Any]) -> Swift.Void, onError: @escaping () -> Swift.Void)
   #endif
 }
-@available(iOS 13.0, *)
-public protocol HaapiDeepLinkManageable : Swift.Sendable {
+public protocol HaapiDeepLinkManageable {
   func registerHaapiFlowDeeplinkable(_ haapiFlowDeepLinkable: any IdsvrHaapiUIKit.HaapiFlowDeepLinkable)
-  func unregisterHaapiFlowDeeplinkable()
+  @discardableResult
+  func unregisterHaapiFlowDeeplinkable(_ haapiFlowDeepLinkable: any IdsvrHaapiUIKit.HaapiFlowDeepLinkable) -> Swift.Bool
 }
-@_hasMissingDesignatedInitializers @available(iOS 13.0, *)
-@_Concurrency.MainActor final public class HaapiDeepLinkManager : IdsvrHaapiUIKit.HaapiDeepLinkManageable, IdsvrHaapiUIKit.HaapiFlowDeepLinkable, Swift.Sendable {
-  @_Concurrency.MainActor public static let shared: IdsvrHaapiUIKit.HaapiDeepLinkManager
-  nonisolated final public func registerHaapiFlowDeeplinkable(_ haapiFlowDeepLinkable: any IdsvrHaapiUIKit.HaapiFlowDeepLinkable)
-  nonisolated final public func unregisterHaapiFlowDeeplinkable()
-  @_Concurrency.MainActor final public func canHandleUrl(_ url: Foundation.URL) async -> Swift.Bool
-  @_Concurrency.MainActor final public func handleUrl(_ url: Foundation.URL) async
+@_hasMissingDesignatedInitializers public class HaapiDeepLinkManager : IdsvrHaapiUIKit.HaapiDeepLinkManageable, IdsvrHaapiUIKit.HaapiFlowDeepLinkable {
+  public static let shared: IdsvrHaapiUIKit.HaapiDeepLinkManager
+  public func registerHaapiFlowDeeplinkable(_ haapiFlowDeepLinkable: any IdsvrHaapiUIKit.HaapiFlowDeepLinkable)
+  public func unregisterHaapiFlowDeeplinkable(_ haapiFlowDeepLinkable: any IdsvrHaapiUIKit.HaapiFlowDeepLinkable) -> Swift.Bool
+  public func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
+  public func handleUrl(_ url: Foundation.URL)
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -436,29 +431,26 @@ public class HaapiUIKitApplicationBuilder {
   public func setGenericClientOperationHandler(_ value: any IdsvrHaapiUIKit.GenericClientOperationHandler) -> IdsvrHaapiUIKit.HaapiUIKitApplicationBuilder
   @discardableResult
   public func setViewControllerFactoryRegistry(registry: IdsvrHaapiUIKit.ViewControllerFactoryRegistry) -> IdsvrHaapiUIKit.HaapiUIKitApplicationBuilder
-  @_Concurrency.MainActor public func buildOrThrow() throws -> any IdsvrHaapiUIKit.HaapiUIKitApplication
+  public func buildOrThrow() throws -> any IdsvrHaapiUIKit.HaapiUIKitApplication
   @available(*, deprecated, renamed: "buildOrThrow", message: "This function will be removed with the next major release. Use buildOrThrow instead.")
-  @_Concurrency.MainActor public func build() -> any IdsvrHaapiUIKit.HaapiUIKitApplication
+  public func build() -> any IdsvrHaapiUIKit.HaapiUIKitApplication
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class AuthorizationProblem : IdsvrHaapiUIKit.Problem {
+  @objc final public let error: Swift.String
+  @objc final public let errorDescription: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-public struct AuthorizationProblem : IdsvrHaapiUIKit.ProblemRepresentation {
-  public let metadata: IdsvrHaapiUIKit.Metadata?
-  public let messages: [IdsvrHaapiUIKit.UserMessage]
-  public let links: [IdsvrHaapiUIKit.Link]
-  public let rawJsonString: Swift.String?
-  public let title: IdsvrHaapiUIKit.Message?
-  public let type: IdsvrHaapiUIKit.ProblemType
-  public let error: Swift.String
-  public let errorDescription: Swift.String?
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.AuthorizationProblem, rhs: IdsvrHaapiUIKit.AuthorizationProblem) -> Swift.Bool
-}
+public typealias UIModelFactory = (any IdsvrHaapiUIKit.HaapiResponse) throws -> any IdsvrHaapiUIKit.UIModel
 @available(iOS 14.0, *)
-public typealias UIModelFactory = @Sendable (any IdsvrHaapiUIKit.HaapiResponse) throws -> any IdsvrHaapiUIKit.UIModel
-@available(iOS 14.0, *)
-public typealias OAuthModelFactory = @Sendable (any IdsvrHaapiUIKit.OAuthResponse) throws -> any IdsvrHaapiUIKit.OAuthModel
+public typealias OAuthModelFactory = (any IdsvrHaapiUIKit.OAuthResponse) throws -> any IdsvrHaapiUIKit.OAuthModel
 @available(iOS 14.0, *)
 public class DataMapperBuilder {
   public init(redirectTo: Swift.String, autoPollingDuration: Foundation.TimeInterval, authSelectionPresentation: IdsvrHaapiUIKit.AuthenticatorSelectionPresentation)
@@ -467,7 +459,7 @@ public class DataMapperBuilder {
   @objc deinit
 }
 @available(iOS 14.0, *)
-public protocol DataMapper : Swift.Sendable {
+public protocol DataMapper {
   func mapHaapiResultToUIModel(haapiResult: IdsvrHaapiUIKit.HaapiResult) throws -> any IdsvrHaapiUIKit.UIModel
   func mapRepresentationActionModelToUIInteractionModel(representationActionModel: any IdsvrHaapiUIKit.RepresentationActionModel) throws -> any IdsvrHaapiUIKit.UIInteractionModel
   func mapHaapiRepresentationToInteraction(haapiRepresentation: any IdsvrHaapiUIKit.HaapiRepresentation) throws -> any IdsvrHaapiUIKit.UIInteractionModel
@@ -480,20 +472,18 @@ public class OAuthDataMapperBuilder {
   @objc deinit
 }
 @available(iOS 14.0, *)
-public protocol OAuthDataMapper : Swift.Sendable {
+public protocol OAuthDataMapper {
   func mapTokenResponseToOAuthModel(tokenResponse: IdsvrHaapiUIKit.TokenResponse) throws -> any IdsvrHaapiUIKit.OAuthModel
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class StackViewStyle : IdsvrHaapiUIKit.UIStyle, Swift.Equatable {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public let spacing: Swift.Double
-  final public let alignment: UIKit.UIStackView.Alignment
-  convenience public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.StackViewStyle, rhs: IdsvrHaapiUIKit.StackViewStyle) -> Swift.Bool
+final public class StackViewStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(spacing: Swift.Double, alignment: UIKit.UIStackView.Alignment, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-final public class Metadata : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
+final public class Metadata : ObjectiveC.NSObject, Swift.Codable {
   final public let templateArea: Swift.String?
   final public let viewName: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
@@ -503,7 +493,7 @@ final public class Metadata : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-public enum PresentationMode : Swift.Sendable {
+public enum PresentationMode {
   case modal
   case stack
   public static func == (a: IdsvrHaapiUIKit.PresentationMode, b: IdsvrHaapiUIKit.PresentationMode) -> Swift.Bool
@@ -512,7 +502,7 @@ public enum PresentationMode : Swift.Sendable {
     get
   }
 }
-public enum AuthenticatorSelectionPresentation : Swift.Sendable {
+public enum AuthenticatorSelectionPresentation {
   case list
   case tabs
   public static func == (a: IdsvrHaapiUIKit.AuthenticatorSelectionPresentation, b: IdsvrHaapiUIKit.AuthenticatorSelectionPresentation) -> Swift.Bool
@@ -522,12 +512,10 @@ public enum AuthenticatorSelectionPresentation : Swift.Sendable {
   }
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class PollingViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  final public let loadingIndicatorSideDimension: Swift.Double
-  final public let contentStyle: IdsvrHaapiUIKit.StackViewStyle
-  final public let loadingIndicatorViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle
-  convenience public init(from decoder: any Swift.Decoder) throws
+final public class PollingViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contentStyle: IdsvrHaapiUIKit.StackViewStyle, loadingIndicatorViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle, loadingIndicatorSideDimension: Swift.Double, headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -536,9 +524,7 @@ extension IdsvrHaapiUIKit.HaapiModel {
     #if compiler(>=5.3) && $NonescapableTypes
     public static func success(accessToken: Swift.String, tokenType: Swift.String?, scope: Swift.String?, expiresIn: Swift.Int, refreshToken: Swift.String?, idToken: Swift.String?) -> IdsvrHaapiUIKit.SuccessfulTokenResponse
     #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    public static func error(error: Swift.String, errorDescription: Swift.String?, errorUri: Swift.String? = nil) -> IdsvrHaapiUIKit.ErrorTokenResponse
-    #endif
+    public static func error(error: Swift.String, errorDescription: Swift.String) -> IdsvrHaapiUIKit.ErrorTokenResponse
   }
 }
 @available(iOS 14.0, *)
@@ -555,64 +541,22 @@ extension IdsvrHaapiUIKit.HaapiModel {
     #endif
   }
 }
-@available(iOS 14.0, *)
-public protocol UIStyle : Swift.Decodable, Swift.Sendable {
-  var commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle { get }
-}
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.UIStyle {
-  public var paddingLeft: Swift.Double {
-    get
-  }
-  public var paddingTop: Swift.Double {
-    get
-  }
-  public var paddingRight: Swift.Double {
-    get
-  }
-  public var paddingBottom: Swift.Double {
-    get
-  }
+@available(iOS 14, *)
+open class UIStyle : Swift.Decodable {
   #if compiler(>=5.3) && $NonescapableTypes
-  public var backgroundColor: UIKit.UIColor? {
-    get
-  }
+  public init(paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
   #endif
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14, *)
-public protocol UIViewControllerStyle : IdsvrHaapiUIKit.UIStyle {
-  var commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle { get }
-  var headerTextAppearance: IdsvrHaapiUIKit.TextAppearance { get }
-  var headerTextColor: UIKit.UIColor { get }
-  var messagesStyle: IdsvrHaapiUIKit.StackViewStyle { get }
-  var linksStyle: IdsvrHaapiUIKit.StackViewStyle { get }
-}
-@available(iOS 14, *)
-extension IdsvrHaapiUIKit.UIViewControllerStyle {
-  public var commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle {
-    get
-  }
-  public var headerTextAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  public var headerTextColor: UIKit.UIColor {
-    get
-  }
-  public var messagesStyle: IdsvrHaapiUIKit.StackViewStyle {
-    get
-  }
-  public var linksStyle: IdsvrHaapiUIKit.StackViewStyle {
-    get
-  }
-}
-public protocol RepresentationActionModel : Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
+public protocol RepresentationActionModel : Swift.Decodable, Swift.Encodable, Swift.Equatable {
 }
 @available(iOS 14.0, *)
 public struct FormActionModel : IdsvrHaapiUIKit.RepresentationActionModel {
   public let actionTitle: IdsvrHaapiUIKit.Message?
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public let fields: [any IdsvrHaapiUIKit.FormField]
+  public let continueActions: [IdsvrHaapiUIKit.Action]
+  public let errorActions: [IdsvrHaapiUIKit.Action]
+  public let fields: [IdsvrHaapiUIKit.FormField]
   public let type: Swift.String
   public let method: Swift.String
   public let href: Swift.String
@@ -622,177 +566,114 @@ public struct FormActionModel : IdsvrHaapiUIKit.RepresentationActionModel {
 }
 @available(iOS 14.0, *)
 public struct SelectorActionModel : IdsvrHaapiUIKit.RepresentationActionModel {
-  public let options: [any IdsvrHaapiUIKit.Action]
+  public let options: [IdsvrHaapiUIKit.Action]
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (lhs: IdsvrHaapiUIKit.SelectorActionModel, rhs: IdsvrHaapiUIKit.SelectorActionModel) -> Swift.Bool
 }
-@available(iOS 14.0, *)
-public protocol ClientOperationActionModelRepresentation : IdsvrHaapiUIKit.RepresentationActionModel {
-  var name: IdsvrHaapiUIKit.ClientOperationName { get }
-  var arguments: [Swift.String : any Swift.Sendable] { get }
-  var continueActions: [any IdsvrHaapiUIKit.Action] { get }
-  var errorActions: [any IdsvrHaapiUIKit.Action] { get }
-}
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+public class ClientOperationActionModel : IdsvrHaapiUIKit.RepresentationActionModel {
+  final public let name: IdsvrHaapiUIKit.ClientOperationName
+  final public let arguments: [Swift.String : Any]
+  final public let continueActions: [IdsvrHaapiUIKit.Action]
+  final public let errorActions: [IdsvrHaapiUIKit.Action]
+  required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
-}
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public func isEqualTo(_ other: any IdsvrHaapiUIKit.ClientOperationActionModelRepresentation) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-public struct ClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public init(from decoder: any Swift.Decoder) throws
   public static func == (lhs: IdsvrHaapiUIKit.ClientOperationActionModel, rhs: IdsvrHaapiUIKit.ClientOperationActionModel) -> Swift.Bool
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct ExternalBrowserClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public let href: Swift.String
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class ExternalBrowserClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  final public let href: Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  public func urlToLaunch(redirectTo: Swift.String) -> Foundation.URL?
+  final public func urlToLaunch(redirectTo: Swift.String) -> Foundation.URL?
   #endif
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel, rhs: IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct BankIdClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public let autoStartToken: Swift.String
-  public let redirect: Swift.String
-  public let href: Swift.String
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class BankIdClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  final public let autoStartToken: Swift.String
+  final public let redirect: Swift.String
+  final public let href: Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  public func urlToLaunch(redirectTo: Swift.String) -> Foundation.URL?
+  final public func urlToLaunch(redirectTo: Swift.String) -> Foundation.URL?
   #endif
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.BankIdClientOperationActionModel, rhs: IdsvrHaapiUIKit.BankIdClientOperationActionModel) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct EncapAutoActivationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public let activationCode: Swift.String
-  public let href: Swift.String
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class EncapAutoActivationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  final public let activationCode: Swift.String
+  final public let href: Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  public var urlToLaunch: Foundation.URL? {
+  final public var urlToLaunch: Foundation.URL? {
     get
   }
   #endif
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel, rhs: IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct WebAuthnRegistrationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public var platformOptions: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.PlatformCredentialRequestOptions?
-  public var crossPlatformOptions: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CrossPlatformCredentialRequestOptions?
-  public var fallbackActions: [any IdsvrHaapiUIKit.Action] {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class WebAuthnRegistrationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  final public var platformOptions: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.PlatformCredentialRequestOptions?
+  final public var crossPlatformOptions: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CrossPlatformCredentialRequestOptions?
+  final public var fallbackActions: [IdsvrHaapiUIKit.Action] {
     get
   }
-  public protocol CredentialRequestOptions : Swift.Sendable {
-    #if compiler(>=5.3) && $NonescapableTypes
-    var relyingPartyId: Swift.String? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var challengeData: Foundation.Data? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var userIdData: Foundation.Data? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var userName: Swift.String? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var displayName: Swift.String? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var userVerification: Swift.String? { get }
-    #endif
-    #if compiler(>=5.3) && $NonescapableTypes
-    var attestation: Swift.String? { get }
-    #endif
+  @_hasMissingDesignatedInitializers public class CredentialRequestOptions {
+    final public let relyingPartyId: Swift.String?
+    final public let challengeData: Foundation.Data?
+    final public let userIdData: Foundation.Data?
+    final public let userName: Swift.String?
+    final public let displayName: Swift.String?
+    final public let userVerification: Swift.String?
+    final public let attestation: Swift.String?
+    @objc deinit
   }
-  public struct PlatformCredentialRequestOptions : IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions {
-    public let relyingPartyId: Swift.String?
-    public let challengeData: Foundation.Data?
-    public let userIdData: Foundation.Data?
-    public let userName: Swift.String?
-    public let displayName: Swift.String?
-    public let userVerification: Swift.String?
-    public let attestation: Swift.String?
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PlatformCredentialRequestOptions : IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions {
+    @objc deinit
   }
-  public struct CrossPlatformCredentialRequestOptions : IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions {
-    public let relyingPartyId: Swift.String?
-    public let challengeData: Foundation.Data?
-    public let userIdData: Foundation.Data?
-    public let userName: Swift.String?
-    public let displayName: Swift.String?
-    public let userVerification: Swift.String?
-    public let attestation: Swift.String?
-    public let publicKeyCredParams: [IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialParams]?
-    public let excludedCredentials: [IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.ExcludedCredential]?
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CrossPlatformCredentialRequestOptions : IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialRequestOptions {
+    final public let publicKeyCredParams: [IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.CredentialParams]?
+    final public let excludedCredentials: [IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel.ExcludedCredential]?
+    @objc deinit
   }
-  public struct CredentialParams : Swift.Sendable {
+  public struct CredentialParams {
     public let algorithmId: Swift.Int
     public let type: Swift.String
   }
-  public struct ExcludedCredential : Swift.Sendable {
+  public struct ExcludedCredential {
     public let credentialID: Foundation.Data
     public let type: Swift.String
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel, rhs: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct WebAuthnAuthenticationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public let credentialOptions: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel.CredentialRequestOptions
-  public var fallbackActions: [any IdsvrHaapiUIKit.Action] {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class WebAuthnAuthenticationClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  final public var credentialOptions: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel.CredentialRequestOptions
+  final public var fallbackActions: [IdsvrHaapiUIKit.Action] {
     get
   }
-  public struct CredentialRequestOptions : Swift.Sendable {
+  public struct CredentialRequestOptions {
     public let relyingPartyId: Swift.String?
     public let challengeData: Foundation.Data?
     public let platformAllowCredentials: [IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel.AllowedCredential]?
     public let crossPlatformAllowCredentials: [IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel.AllowedCredential]?
     public let userVerificationPreference: Swift.String?
   }
-  public struct AllowedCredential : Swift.Sendable {
+  public struct AllowedCredential {
     public let credentialID: Foundation.Data
     public let type: Swift.String
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel, rhs: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct GenericClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModelRepresentation {
-  public let name: IdsvrHaapiUIKit.ClientOperationName
-  public let arguments: [Swift.String : any Swift.Sendable]
-  public let continueActions: [any IdsvrHaapiUIKit.Action]
-  public let errorActions: [any IdsvrHaapiUIKit.Action]
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.GenericClientOperationActionModel, rhs: IdsvrHaapiUIKit.GenericClientOperationActionModel) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class GenericClientOperationActionModel : IdsvrHaapiUIKit.ClientOperationActionModel {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @available(iOS 14.0, *)
 @_Concurrency.MainActor @preconcurrency open class ProblemViewController : IdsvrHaapiUIKit.BaseViewController<any IdsvrHaapiUIKit.ProblemModel, IdsvrHaapiUIKit.ProblemViewControllerStyle> {
@@ -806,17 +687,20 @@ public struct GenericClientOperationActionModel : IdsvrHaapiUIKit.ClientOperatio
   @_Concurrency.MainActor @preconcurrency override public func hasLoading() -> Swift.Bool
 }
 @available(iOS 14.0, *)
-public typealias HaapiCompletionHandler = @Sendable (_ haapiResult: IdsvrHaapiUIKit.HaapiResult) -> Swift.Void
+public typealias HaapiCompletionHandler = (_ haapiResult: IdsvrHaapiUIKit.HaapiResult) -> Swift.Void
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-@objcMembers final public class HaapiManager : ObjectiveC.NSObject, Swift.Sendable {
-  convenience public init(haapiConfiguration: any IdsvrHaapiUIKit.HaapiConfigurable) throws
+@objcMembers final public class HaapiManager : ObjectiveC.NSObject {
+  @objc convenience public init(haapiConfiguration: any IdsvrHaapiUIKit.HaapiConfigurable) throws
   @objc deinit
   @objc final public func close()
   @objc public static var isSupported: Swift.Bool {
     @objc get
   }
+  final public func start(completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
   final public func start() async -> IdsvrHaapiUIKit.HaapiResult
-  final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : any Swift.Sendable]) async -> IdsvrHaapiUIKit.HaapiResult
+  final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any], completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
+  final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : Any]) async -> IdsvrHaapiUIKit.HaapiResult
+  final public func followLink(_ link: IdsvrHaapiUIKit.Link, completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
   final public func followLink(_ link: IdsvrHaapiUIKit.Link) async -> IdsvrHaapiUIKit.HaapiResult
   #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var dpop: IdsvrHaapiUIKit.Dpop? {
@@ -825,16 +709,7 @@ public typealias HaapiCompletionHandler = @Sendable (_ haapiResult: IdsvrHaapiUI
   #endif
 }
 @available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.HaapiManager {
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async start")
-  final public func start(completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async submitForm")
-  final public func submitForm(_ form: IdsvrHaapiUIKit.FormActionModel, parameters: [Swift.String : any Swift.Sendable], completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async followLink")
-  final public func followLink(_ link: IdsvrHaapiUIKit.Link, completionHandler: @escaping IdsvrHaapiUIKit.HaapiCompletionHandler)
-}
-@available(iOS 14.0, *)
-@objc public protocol HaapiManagerAccessor : Swift.Sendable {
+@objc public protocol HaapiManagerAccessor {
 }
 @available(iOS 14.0, *)
 @objc public protocol OAuthAccessor : IdsvrHaapiUIKit.HaapiManagerAccessor {
@@ -845,7 +720,7 @@ extension IdsvrHaapiUIKit.HaapiManager {
   @objc var haapiManager: IdsvrHaapiUIKit.HaapiManager { get }
   @objc func close()
 }
-@objc public enum HaapiAccessorOption : Swift.Int, Swift.Sendable {
+@objc public enum HaapiAccessorOption : Swift.Int {
   case all
   case oauth
   #if compiler(>=5.3) && $NonescapableTypes
@@ -857,7 +732,7 @@ extension IdsvrHaapiUIKit.HaapiManager {
   }
 }
 @objc @available(iOS 14.0, *)
-@objcMembers final public class HaapiAccessorBuilder : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers final public class HaapiAccessorBuilder : ObjectiveC.NSObject {
   @objc public init(haapiConfiguration: IdsvrHaapiUIKit.HaapiConfiguration)
   @objc @discardableResult
   final public func setHaapiAccessorOption(option: IdsvrHaapiUIKit.HaapiAccessorOption) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
@@ -868,8 +743,7 @@ extension IdsvrHaapiUIKit.HaapiManager {
   @objc @discardableResult
   final public func setAttestationValidationKeyName(keyName: Swift.String) -> IdsvrHaapiUIKit.HaapiAccessorBuilder
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async build")
-  final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping @Sendable (Swift.Result<T, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void) where T : IdsvrHaapiUIKit.HaapiManagerAccessor
+  final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping (Swift.Result<T, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void) where T : IdsvrHaapiUIKit.HaapiManagerAccessor
   #endif
   final public func build<T>(shouldClearExistingDCRClient: Swift.Bool = false) async throws -> T where T : IdsvrHaapiUIKit.HaapiManagerAccessor
   @objc deinit
@@ -877,8 +751,7 @@ extension IdsvrHaapiUIKit.HaapiManager {
 @available(*, unavailable)
 @objc extension IdsvrHaapiUIKit.HaapiAccessorBuilder {
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async build")
-  final public func build(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping @Sendable ((any IdsvrHaapiUIKit.HaapiManagerAccessor)?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func build(shouldClearExistingDCRClient: Swift.Bool = false, completionHandler: @escaping ((any IdsvrHaapiUIKit.HaapiManagerAccessor)?, (any Swift.Error)?) -> Swift.Void)
   #endif
 }
 @objc @_hasMissingDesignatedInitializers public class HTTPURLResponseContent : ObjectiveC.NSObject {
@@ -935,7 +808,7 @@ extension IdsvrHaapiUIKit.StorageError : Foundation.LocalizedError {
   #endif
 }
 @available(iOS 14, *)
-public protocol Storage : Swift.Sendable {
+public protocol Storage {
   #if compiler(>=5.3) && $NonescapableTypes
   func read(key: Swift.String) throws -> Foundation.Data?
   #endif
@@ -960,7 +833,14 @@ extension Foundation.URLRequest {
   public mutating func addHaapiMediaTypeAcceptHeader()
   public mutating func addHaapiSessionIdHeader(_ sessionId: Swift.String)
 }
-public protocol OAuthResponse : Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
+public class BaseViewControllerStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
+  @objc deinit
+}
+public protocol OAuthResponse : Swift.Decodable, Swift.Encodable, Swift.Equatable {
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 @objcMembers final public class SuccessfulTokenResponse : ObjectiveC.NSObject, IdsvrHaapiUIKit.OAuthResponse {
@@ -980,8 +860,7 @@ public protocol OAuthResponse : Swift.Decodable, Swift.Encodable, Swift.Equatabl
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 @objcMembers final public class ErrorTokenResponse : ObjectiveC.NSObject, IdsvrHaapiUIKit.OAuthResponse {
   @objc final public let error: Swift.String
-  @objc final public let errorDescription: Swift.String?
-  @objc final public let errorUri: Swift.String?
+  @objc final public let errorDescription: Swift.String
   public init(from decoder: any Swift.Decoder) throws
   @objc override final public var debugDescription: Swift.String {
     @objc get
@@ -996,22 +875,22 @@ public protocol OAuthResponse : Swift.Decodable, Swift.Encodable, Swift.Equatabl
 extension IdsvrHaapiUIKit.HaapiModel {
   public enum ActionModelFactory {
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func form(actionTitle: IdsvrHaapiUIKit.Message?, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action], fields: [any IdsvrHaapiUIKit.FormField], type: Swift.String?, method: Swift.String, href: Swift.String) -> IdsvrHaapiUIKit.FormActionModel
+    public static func form(actionTitle: IdsvrHaapiUIKit.Message?, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action], fields: [IdsvrHaapiUIKit.FormField], type: Swift.String?, method: Swift.String, href: Swift.String) -> IdsvrHaapiUIKit.FormActionModel
     #endif
-    public static func selector(options: [any IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.SelectorActionModel
-    public static func clientOperation(arguments: [Swift.String : any Swift.Sendable], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.ClientOperationActionModel
-    public static func externalBrowserClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel
-    public static func bankIdClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.BankIdClientOperationActionModel
-    public static func encapClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel
-    public static func webAuthnRegistrationClientOperation(arguments: [Swift.String : any Swift.Sendable], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel
-    public static func webauthnAuthenticationClientOperation(arguments: [Swift.String : any Swift.Sendable], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel
-    public static func genericClientOperation(arguments: [Swift.String : any Swift.Sendable], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [any IdsvrHaapiUIKit.Action], errorActions: [any IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.GenericClientOperationActionModel
+    public static func selector(options: [IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.SelectorActionModel
+    public static func clientOperation(arguments: [Swift.String : Any], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.ClientOperationActionModel
+    public static func externalBrowserClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel
+    public static func bankIdClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.BankIdClientOperationActionModel
+    public static func encapClientOperation(arguments: [Swift.String : Swift.String], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel
+    public static func webAuthnRegistrationClientOperation(arguments: [Swift.String : Any], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel
+    public static func webauthnAuthenticationClientOperation(arguments: [Swift.String : Any], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) throws -> IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel
+    public static func genericClientOperation(arguments: [Swift.String : Any], name: IdsvrHaapiUIKit.ClientOperationName, continueActions: [IdsvrHaapiUIKit.Action], errorActions: [IdsvrHaapiUIKit.Action]) -> IdsvrHaapiUIKit.GenericClientOperationActionModel
     #if compiler(>=5.3) && $NonescapableTypes
     public static func link(href: Swift.String, rel: Swift.String, title: IdsvrHaapiUIKit.Message?, type: Swift.String?) -> IdsvrHaapiUIKit.Link
     #endif
   }
 }
-@objc public protocol ClientAuthenticationMethod : Swift.Sendable {
+@objc public protocol ClientAuthenticationMethod {
 }
 @objc @_inheritsConvenienceInitializers final public class ClientAuthenticationMethodNone : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
   @objc override dynamic public init()
@@ -1022,7 +901,7 @@ extension IdsvrHaapiUIKit.HaapiModel {
   @objc deinit
 }
 @objc @available(iOS 14.0, *)
-final public class KeyPinning : ObjectiveC.NSObject, Swift.Sendable {
+final public class KeyPinning : ObjectiveC.NSObject {
   @objc public init(hostname: Swift.String, publicKeyHash: Swift.String)
   @objc deinit
 }
@@ -1033,7 +912,7 @@ final public class ClientAuthenticationMethodMTLS : ObjectiveC.NSObject, IdsvrHa
   @objc deinit
 }
 @available(iOS 14.0, *)
-@objc public enum JWTAsymmetricAlgorithm : Swift.Int, Swift.CaseIterable, Swift.Sendable {
+@objc public enum JWTAsymmetricAlgorithm : Swift.Int {
   case rs256
   case rs384
   case rs512
@@ -1047,25 +926,20 @@ final public class ClientAuthenticationMethodMTLS : ObjectiveC.NSObject, IdsvrHa
   public init?(rawValue: Swift.Int)
   #endif
   @available(iOS 14.0, *)
-  public typealias AllCases = [IdsvrHaapiUIKit.JWTAsymmetricAlgorithm]
-  @available(iOS 14.0, *)
   public typealias RawValue = Swift.Int
-  nonisolated public static var allCases: [IdsvrHaapiUIKit.JWTAsymmetricAlgorithm] {
-    get
-  }
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc @available(iOS 14.0, *)
-final public class ClientAuthenticationMethodJWTAsymmetric : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod, Swift.Sendable {
+final public class ClientAuthenticationMethodJWTAsymmetric : ObjectiveC.NSObject, IdsvrHaapiUIKit.ClientAuthenticationMethod {
   final public let signatureAlgorithm: IdsvrHaapiUIKit.JWTAsymmetricAlgorithm
-  nonisolated(unsafe) final public let privateKey: Security.SecKey
+  final public let privateKey: Security.SecKey
   @objc public init(pemFilename: Swift.String, signatureAlgorithm: IdsvrHaapiUIKit.JWTAsymmetricAlgorithm, bundle: Foundation.Bundle = Bundle.main) throws
   @objc deinit
 }
 @available(iOS 14.0, *)
-@objc public enum JWTSymmetricAlgorithm : Swift.Int, Swift.CaseIterable, Swift.Sendable {
+@objc public enum JWTSymmetricAlgorithm : Swift.Int, Swift.CaseIterable {
   case hs256
   case hs384
   case hs512
@@ -1092,12 +966,6 @@ final public class ClientAuthenticationMethodJWTSymmetric : ObjectiveC.NSObject,
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
 final public class HaapiFlowViewControllerStyle : IdsvrHaapiUIKit.UIStyle {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public let closeButtonMinHeight: Swift.Double
-  final public let closeButtonMinWidth: Swift.Double
-  final public let closeButtonImage: UIKit.UIImage
-  final public let closeButtonTintColor: UIKit.UIColor?
-  convenience public init(from decoder: any Swift.Decoder) throws
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1117,31 +985,16 @@ extension IdsvrHaapiUIKit.HaapiModel {
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
 final public class TextAppearance : IdsvrHaapiUIKit.UIStyle {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public let fontSymbolicTrait: UIKit.UIFontDescriptor.SymbolicTraits?
-  final public let textAlignment: UIKit.NSTextAlignment
-  final public let fontTextStyle: UIKit.UIFont.TextStyle
-  final public let lineHeightMultiple: Swift.Double
-  final public let kern: Swift.Double
-  final public let fontText: UIKit.UIFont
-  convenience public init(from decoder: any Swift.Decoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(textAlignment: UIKit.NSTextAlignment, fontTextStyle: UIKit.UIFont.TextStyle, lineHeightMultiple: Swift.Double, kern: Swift.Double, fontText: UIKit.UIFont, fontSymbolicTrait: UIKit.UIFontDescriptor.SymbolicTraits?, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
-@available(iOS 14, *)
-extension IdsvrHaapiUIKit.TextAppearance : Swift.Equatable {
-  public static func == (lhs: IdsvrHaapiUIKit.TextAppearance, rhs: IdsvrHaapiUIKit.TextAppearance) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-public struct InvalidInputProblem : IdsvrHaapiUIKit.ProblemRepresentation {
-  public let metadata: IdsvrHaapiUIKit.Metadata?
-  public let messages: [IdsvrHaapiUIKit.UserMessage]
-  public let links: [IdsvrHaapiUIKit.Link]
-  public let rawJsonString: Swift.String?
-  public let title: IdsvrHaapiUIKit.Message?
-  public let type: IdsvrHaapiUIKit.ProblemType
-  public let errorDescription: Swift.String?
-  public let invalidFields: [IdsvrHaapiUIKit.InvalidInputProblem.InvalidField]
-  public struct InvalidField : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class InvalidInputProblem : IdsvrHaapiUIKit.Problem {
+  @objc final public let errorDescription: Swift.String?
+  final public let invalidFields: [IdsvrHaapiUIKit.InvalidInputProblem.InvalidField]
+  public struct InvalidField : Swift.Codable, Swift.Equatable {
     public let name: Swift.String
     public let reason: Swift.String?
     public let detail: IdsvrHaapiUIKit.Message
@@ -1149,13 +1002,17 @@ public struct InvalidInputProblem : IdsvrHaapiUIKit.ProblemRepresentation {
     public func encode(to encoder: any Swift.Encoder) throws
     public static func == (a: IdsvrHaapiUIKit.InvalidInputProblem.InvalidField, b: IdsvrHaapiUIKit.InvalidInputProblem.InvalidField) -> Swift.Bool
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.InvalidInputProblem, rhs: IdsvrHaapiUIKit.InvalidInputProblem) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
+  @objc deinit
 }
 @available(iOS 14, *)
-public struct HaapiUIViewControllerStyle : Swift.Sendable {
-  public struct MessageViewStyles : Swift.Sendable {
+public struct HaapiUIViewControllerStyle {
+  public init(linkViewStyle: IdsvrHaapiUIKit.LinkViewStyle, messageViewStyles: IdsvrHaapiUIKit.HaapiUIViewControllerStyle.MessageViewStyles, loadingViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle, inputTextFieldStyleName: Swift.String, inputTextFieldStyle: IdsvrHaapiUIKit.InputTextFieldStyle, textPickerViewStyle: IdsvrHaapiUIKit.TextPickerViewStyle, notificationBannerViewStyle: IdsvrHaapiUIKit.NotificationBannerViewStyle)
+  public struct MessageViewStyles {
     public init(error: IdsvrHaapiUIKit.MessageViewStyle, warn: IdsvrHaapiUIKit.MessageViewStyle, info: IdsvrHaapiUIKit.MessageViewStyle, recipientOfCommunication: IdsvrHaapiUIKit.MessageViewStyle, content: IdsvrHaapiUIKit.MessageViewStyle, heading: IdsvrHaapiUIKit.MessageViewStyle, username: IdsvrHaapiUIKit.MessageViewStyle)
   }
 }
@@ -1166,6 +1023,7 @@ public protocol UIStylableThemeDelegate : AnyObject {
   func imageOptional(named: Swift.String?) -> UIKit.UIImage?
   #endif
   func styleOrThrowFor<U>(stylableType: any IdsvrHaapiUIKit.UIStylable.Type) throws -> U where U : IdsvrHaapiUIKit.UIStyle
+  func styleFor<U>(stylableType: any IdsvrHaapiUIKit.UIStylable.Type) -> U where U : IdsvrHaapiUIKit.UIStyle
   #if compiler(>=5.3) && $NonescapableTypes
   func colorOptional(named: Swift.String?) -> UIKit.UIColor?
   #endif
@@ -1201,68 +1059,45 @@ extension UIKit.UIImage {
   #endif
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class InputTextFieldStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(titleMinimumHeight: Swift.Double, titlePaddingLeft: Swift.Double, titlePaddingRight: Swift.Double, textFieldMinimumHeight: Swift.Double, textFieldContentPaddingLeft: Swift.Double, textFieldContentPaddingTop: Swift.Double, textFieldContentPaddingRight: Swift.Double, textFieldContentPaddingBottom: Swift.Double, iconPadding: Swift.Double, borderWidth: Swift.Double, cornerRadius: Swift.Double, titleTextAppearance: IdsvrHaapiUIKit.TextAppearance, titleColor: UIKit.UIColor, textFieldTextAppearance: IdsvrHaapiUIKit.TextAppearance, textFieldColor: UIKit.UIColor, errorColor: UIKit.UIColor, errorTextAppearance: IdsvrHaapiUIKit.TextAppearance, borderColor: UIKit.UIColor, titleBackgroundColor: UIKit.UIColor?, textFieldBackgroundColor: UIKit.UIColor?, textFieldPlaceholderColor: UIKit.UIColor?, textFieldShowPasswordImage: UIKit.UIImage?, textFieldHidePasswordImage: UIKit.UIImage?, textFieldPasswordImageTintColor: UIKit.UIColor?, errorImage: UIKit.UIImage?, tintColor: UIKit.UIColor?, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
 final public class MessageViewStyle : IdsvrHaapiUIKit.UIStyle {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public let iconTextPadding: Swift.Double
-  final public let alignment: UIKit.UIStackView.Alignment
-  final public var textAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  final public var textColor: UIKit.UIColor {
-    get
-  }
-  final public let image: UIKit.UIImage?
-  final public var borderColor: UIKit.UIColor {
-    get
-  }
-  final public var borderWidth: Swift.Double {
-    get
-  }
-  final public var cornerRadius: Swift.Double {
-    get
-  }
-  final public let imageTintColor: UIKit.UIColor?
-  convenience public init(from decoder: any Swift.Decoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(iconTextPadding: Swift.Double, alignment: UIKit.UIStackView.Alignment, borderWidth: Swift.Double, cornerRadius: Swift.Double, textAppearance: IdsvrHaapiUIKit.TextAppearance, textColor: UIKit.UIColor, borderColor: UIKit.UIColor, image: UIKit.UIImage?, imageTintColor: UIKit.UIColor?, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-public struct PaddingStyle : Swift.Equatable {
-  public let top: Swift.Double
-  public let right: Swift.Double
-  public let bottom: Swift.Double
-  public let left: Swift.Double
-  public static func == (lhs: IdsvrHaapiUIKit.PaddingStyle, rhs: IdsvrHaapiUIKit.PaddingStyle) -> Swift.Bool
-}
+public typealias HttpHeadersProvider = () -> [Swift.String : Swift.String]
 @available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.PaddingStyle : Swift.Decodable {
-  public init(from decoder: any Swift.Decoder) throws
-}
+public typealias OAuthAuthorizationParametersProvider = () -> IdsvrHaapiUIKit.OAuthAuthorizationParameters
 @available(iOS 14.0, *)
-public typealias HttpHeadersProvider = @Sendable () -> [Swift.String : Swift.String]
-@available(iOS 14.0, *)
-public typealias OAuthAuthorizationParametersProvider = @Sendable () -> IdsvrHaapiUIKit.OAuthAuthorizationParameters
-@available(iOS 14.0, *)
-public protocol HaapiConfigurable : Swift.Sendable {
-  var name: Swift.String { get }
-  var clientId: Swift.String { get }
-  var baseURL: Foundation.URL { get }
-  var tokenEndpointURL: Foundation.URL { get }
-  var authorizationEndpointURL: Foundation.URL { get }
-  var appRedirect: Swift.String { get }
-  var urlSession: Foundation.URLSession { get }
-  var isAutoRedirect: Swift.Bool { get }
+@objc public protocol HaapiConfigurable {
+  @objc var name: Swift.String { get }
+  @objc var clientId: Swift.String { get }
+  @objc var baseURL: Foundation.URL { get }
+  @objc var tokenEndpointURL: Foundation.URL { get }
+  @objc var authorizationEndpointURL: Foundation.URL { get }
+  @objc var appRedirect: Swift.String { get }
+  @objc var urlSession: Foundation.URLSession { get }
+  @objc var isAutoRedirect: Swift.Bool { get }
   #if compiler(>=5.3) && $NonescapableTypes
-  var httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider? { get }
+  @objc var httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider? { get }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  var authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider? { get }
+  @objc var authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider? { get }
   #endif
-  var minTokenTtl: Foundation.TimeInterval { get }
-  var attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration { get }
-  var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
-  var clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod { get }
+  @objc var minTokenTtl: Foundation.TimeInterval { get }
+  @objc var attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration { get }
+  @objc var tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration { get }
+  @objc var clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod { get }
   #if compiler(>=5.3) && $NonescapableTypes
-  var riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration? { get }
+  @objc var applicationBundle: Foundation.Bundle? { get }
   #endif
 }
 @objc @available(iOS 14.0, *)
@@ -1283,9 +1118,9 @@ public protocol HaapiConfigurable : Swift.Sendable {
   @objc final public let tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration
   @objc final public let tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)?
   @objc final public let clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod
-  final public let riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration?
+  @objc final public let applicationBundle: Foundation.Bundle?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil, clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod = ClientAuthenticationMethodNone(), riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration? = nil)
+  @objc public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil, clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod = ClientAuthenticationMethodNone(), applicationBundle: Foundation.Bundle? = nil)
   #endif
   @objc deinit
 }
@@ -1296,7 +1131,7 @@ extension Foundation.URLSessionConfiguration {
   }
 }
 @objc @available(iOS 14.0, *)
-final public class AttestationConfiguration : ObjectiveC.NSObject, Swift.Sendable {
+final public class AttestationConfiguration : ObjectiveC.NSObject {
   @objc public init(useAttestation: Swift.Bool = true, attestationMaxRetries: Swift.Int = 3)
   @objc deinit
 }
@@ -1313,7 +1148,7 @@ final public class AttestationConfiguration : ObjectiveC.NSObject, Swift.Sendabl
   @_Concurrency.MainActor @preconcurrency override public func apply(style: IdsvrHaapiUIKit.SelectorViewControllerStyle)
 }
 @available(iOS 14.0, *)
-@frozen public enum ProblemType : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@frozen public enum ProblemType : Swift.Codable, Swift.Equatable {
   case authenticationFailedProblem
   case invalidInputProblem
   case incorrectCredentialsProblem
@@ -1335,9 +1170,16 @@ extension IdsvrHaapiUIKit.ProblemType : Swift.RawRepresentable {
   }
 }
 @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-@_Concurrency.MainActor public class HaapiFlow {
+public class HaapiFlow {
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor public static func start(from presentedViewController: any IdsvrHaapiUIKit.HaapiFlowResultViewController, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, animated: Swift.Bool = true, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self)) throws
+  public static func start(from presentedViewController: any IdsvrHaapiUIKit.HaapiFlowResultViewController, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, haapiDeepLinkManageable: (any IdsvrHaapiUIKit.HaapiDeepLinkManageable)?, animated: Swift.Bool = true, nibName nibNameOrNil: Swift.String? = "HaapiFlowViewController", bundle nibBundleOrNil: Foundation.Bundle? = Bundle(for: HaapiFlowViewController.self)) throws
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class TextPickerViewStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(itemBackgroundColor: UIKit.UIColor, toolbarBackgroundColor: UIKit.UIColor, toolbarTextTintColor: UIKit.UIColor, textAppearance: IdsvrHaapiUIKit.TextAppearance, textColor: UIKit.UIColor, itemViewClassName: Swift.String?, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
   #endif
   @objc deinit
 }
@@ -1386,48 +1228,32 @@ public struct Link : IdsvrHaapiUIKit.RepresentationActionModel {
   @objc final public let error: (any Swift.Error)?
   @objc deinit
 }
-@available(iOS 14.0, *)
-public protocol FormField : Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
-  var name: Swift.String { get }
-  #if compiler(>=5.3) && $NonescapableTypes
-  var label: IdsvrHaapiUIKit.Message? { get }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  var placeholder: IdsvrHaapiUIKit.Message? { get }
-  #endif
-  func isEqualTo(_ other: any IdsvrHaapiUIKit.FormField) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.FormField {
-  public func isEqualTo(_ other: any IdsvrHaapiUIKit.FormField) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-public struct PasswordFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let value: Swift.String?
-  public init(from decoder: any Swift.Decoder) throws
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+public class FormField : Swift.Codable, Swift.Equatable {
+  final public let label: IdsvrHaapiUIKit.Message?
+  final public let name: Swift.String
+  final public let placeholder: IdsvrHaapiUIKit.Message?
   public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.PasswordFormField, rhs: IdsvrHaapiUIKit.PasswordFormField) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  public static func == (lhs: IdsvrHaapiUIKit.FormField, rhs: IdsvrHaapiUIKit.FormField) -> Swift.Bool
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct UsernameFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let value: Swift.String?
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.UsernameFormField, rhs: IdsvrHaapiUIKit.UsernameFormField) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class PasswordFormField : IdsvrHaapiUIKit.FormField {
+  final public let value: Swift.String?
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct TextFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let kind: IdsvrHaapiUIKit.TextFormField.Kind?
-  public let value: Swift.String?
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class UsernameFormField : IdsvrHaapiUIKit.FormField {
+  final public let value: Swift.String?
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class TextFormField : IdsvrHaapiUIKit.FormField {
+  final public let kind: IdsvrHaapiUIKit.TextFormField.Kind?
+  final public let value: Swift.String?
   @frozen public enum Kind : Swift.RawRepresentable, Swift.Codable, Swift.Equatable {
     public typealias RawValue = Swift.String
     case number
@@ -1441,18 +1267,14 @@ public struct TextFormField : IdsvrHaapiUIKit.FormField {
       get
     }
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.TextFormField, rhs: IdsvrHaapiUIKit.TextFormField) -> Swift.Bool
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct SelectFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let options: [IdsvrHaapiUIKit.SelectFormField.Option]
-  public let value: Swift.String?
-  public struct Option : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class SelectFormField : IdsvrHaapiUIKit.FormField {
+  final public let options: [IdsvrHaapiUIKit.SelectFormField.Option]
+  final public let value: Swift.String?
+  public struct Option : Swift.Codable, Swift.Equatable {
     public let label: IdsvrHaapiUIKit.Message
     public let value: Swift.String
     public let selected: Swift.Bool
@@ -1460,59 +1282,45 @@ public struct SelectFormField : IdsvrHaapiUIKit.FormField {
     public func encode(to encoder: any Swift.Encoder) throws
     public static func == (a: IdsvrHaapiUIKit.SelectFormField.Option, b: IdsvrHaapiUIKit.SelectFormField.Option) -> Swift.Bool
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.SelectFormField, rhs: IdsvrHaapiUIKit.SelectFormField) -> Swift.Bool
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct CheckboxFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let checked: Swift.Bool
-  public let readonly: Swift.Bool
-  public let value: Swift.String?
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.CheckboxFormField, rhs: IdsvrHaapiUIKit.CheckboxFormField) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class CheckboxFormField : IdsvrHaapiUIKit.FormField {
+  final public let checked: Swift.Bool
+  final public let readonly: Swift.Bool
+  final public let value: Swift.String?
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct ContextFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.ContextFormField, rhs: IdsvrHaapiUIKit.ContextFormField) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class ContextFormField : IdsvrHaapiUIKit.FormField {
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct HiddenFormField : IdsvrHaapiUIKit.FormField {
-  public let name: Swift.String
-  public let label: IdsvrHaapiUIKit.Message?
-  public let placeholder: IdsvrHaapiUIKit.Message?
-  public let value: Swift.String
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.HiddenFormField, rhs: IdsvrHaapiUIKit.HiddenFormField) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class HiddenFormField : IdsvrHaapiUIKit.FormField {
+  final public let value: Swift.String
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class KeychainStorage : IdsvrHaapiUIKit.Storage {
-  final public func write(key: Swift.String, data: Foundation.Data) throws
+public class KeychainStorage : IdsvrHaapiUIKit.Storage {
+  public func write(key: Swift.String, data: Foundation.Data) throws
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func read(key: Swift.String) throws -> Foundation.Data?
+  public func read(key: Swift.String) throws -> Foundation.Data?
   #endif
-  final public func delete(key: Swift.String) throws
+  public func delete(key: Swift.String) throws
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class SelectorViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  final public let contentStyle: IdsvrHaapiUIKit.StackViewStyle
-  convenience public init(from decoder: any Swift.Decoder) throws
+final public class SelectorViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contentStyle: IdsvrHaapiUIKit.StackViewStyle, headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-public protocol Properties : Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
+public protocol Properties : Swift.Decodable, Swift.Encodable, Swift.Equatable {
   var rawJsonString: Swift.String { get }
 }
 @available(iOS 14.0, *)
@@ -1544,26 +1352,14 @@ public struct PollingProperties : IdsvrHaapiUIKit.Properties {
   public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class NotificationBannerViewStyle : IdsvrHaapiUIKit.UIStyle, Swift.Equatable {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public var actionTextAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  final public var actionTextColor: UIKit.UIColor {
-    get
-  }
-  final public var textAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  final public var textColor: UIKit.UIColor {
-    get
-  }
-  convenience public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.NotificationBannerViewStyle, rhs: IdsvrHaapiUIKit.NotificationBannerViewStyle) -> Swift.Bool
+final public class NotificationBannerViewStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(actionTextAppearanceName: Swift.String, actionTextColorName: Swift.String, textAppearanceName: Swift.String, textColorName: Swift.String, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14, *)
-@objcMembers final public class AccessToken : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers final public class AccessToken : ObjectiveC.NSObject {
   @objc final public let value: Swift.String
   @objc final public let expiresOn: Foundation.Date
   @objc override final public var description: Swift.String {
@@ -1579,27 +1375,27 @@ final public class NotificationBannerViewStyle : IdsvrHaapiUIKit.UIStyle, Swift.
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14, *)
-@objcMembers final public class DpopAccessTokenInfo : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers public class DpopAccessTokenInfo : ObjectiveC.NSObject {
   @objc final public let accessToken: IdsvrHaapiUIKit.AccessToken
   @objc final public let dpop: IdsvrHaapiUIKit.Dpop
   @objc final public let dpopNonce: Swift.String?
-  @objc override final public var description: Swift.String {
+  @objc override dynamic public var description: Swift.String {
     @objc get
   }
-  @objc override final public var debugDescription: Swift.String {
+  @objc override dynamic public var debugDescription: Swift.String {
     @objc get
   }
-  @objc final public func dpopHeaderValue(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
-  @objc final public func authorizationHeaderValue() -> Swift.String
+  @objc public func dpopHeaderValue(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
+  @objc public func authorizationHeaderValue() -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor @preconcurrency open class BaseViewController<AssociatedModel, AssociatedStyle> : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiUIViewController, IdsvrHaapiUIKit.UIStylable where AssociatedStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
+@_Concurrency.MainActor @preconcurrency open class BaseViewController<AssociatedModel, AssociatedStyle> : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiUIViewController, IdsvrHaapiUIKit.UIStylable where AssociatedStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
   @_Concurrency.MainActor @preconcurrency final public let model: AssociatedModel
-  @_Concurrency.MainActor weak public var mainView: UIKit.UIView? {
+  @_Concurrency.MainActor @preconcurrency weak public var mainView: UIKit.UIView? {
     get
   }
   @_Concurrency.MainActor @preconcurrency public var messagesStackView: UIKit.UIStackView {
@@ -1616,32 +1412,35 @@ final public class NotificationBannerViewStyle : IdsvrHaapiUIKit.UIStyle, Swift.
   @available(*, unavailable)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
-  @_Concurrency.MainActor weak public var haapiFlowViewControllerDelegate: (any IdsvrHaapiUIKit.HaapiFlowViewControllerDelegate)?
-  @_Concurrency.MainActor weak public var uiStylableThemeDelegate: (any IdsvrHaapiUIKit.UIStylableThemeDelegate)?
-  @_Concurrency.MainActor open func stopLoading()
-  @_Concurrency.MainActor open func hasLoading() -> Swift.Bool
-  @_Concurrency.MainActor open func handleProblemModel(_ problemModel: any IdsvrHaapiUIKit.ProblemModel) -> Swift.Bool
-  @_Concurrency.MainActor open func handleInfoMessageModels(_ infoMessageModels: [any IdsvrHaapiUIKit.InfoMessageModel])
-  @_Concurrency.MainActor open func handleLinkItemModels(_ linkItemModels: [any IdsvrHaapiUIKit.LinkItemModel])
-  @_Concurrency.MainActor open func handleFormModel(_ formModel: any IdsvrHaapiUIKit.FormModel) -> Swift.Bool
-  @_Concurrency.MainActor public func preSubmit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : any Swift.Sendable], closure: @escaping (Swift.Bool, [Swift.String : any Swift.Sendable]) -> Swift.Void)
-  @_Concurrency.MainActor open func preSelect(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel, closure: @escaping (Swift.Bool) -> Swift.Void)
-  @_Concurrency.MainActor open func preFollow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel, closure: @escaping (Swift.Bool) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency weak public var haapiFlowViewControllerDelegate: (any IdsvrHaapiUIKit.HaapiFlowViewControllerDelegate)?
+  @_Concurrency.MainActor @preconcurrency weak public var uiStylableThemeDelegate: (any IdsvrHaapiUIKit.UIStylableThemeDelegate)?
+  @_Concurrency.MainActor @preconcurrency open func stopLoading()
+  @_Concurrency.MainActor @preconcurrency open func hasLoading() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency open func handleProblemModel(_ problemModel: any IdsvrHaapiUIKit.ProblemModel) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency open func handleInfoMessageModels(_ infoMessageModels: [any IdsvrHaapiUIKit.InfoMessageModel])
+  @_Concurrency.MainActor @preconcurrency open func handleLinkItemModels(_ linkItemModels: [any IdsvrHaapiUIKit.LinkItemModel])
+  @_Concurrency.MainActor @preconcurrency open func handleFormModel(_ formModel: any IdsvrHaapiUIKit.FormModel) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency open func preSubmit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : Any], closure: @escaping (Swift.Bool, [Swift.String : Any]) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency open func preSelect(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel, closure: @escaping (Swift.Bool) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency open func preFollow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel, closure: @escaping (Swift.Bool) -> Swift.Void)
   @_Concurrency.MainActor @preconcurrency open func preRender(uiModel: AssociatedModel)
-  @_Concurrency.MainActor public func apply(style: AssociatedStyle)
+  @_Concurrency.MainActor @preconcurrency public func apply(style: AssociatedStyle)
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func insertView(_ view: UIKit.UIView, aboveView: UIKit.UIView) -> Swift.Bool
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func insertView(_ view: UIKit.UIView, belowView: UIKit.UIView) -> Swift.Bool
 }
 @available(iOS 14.0, *)
-public struct UserMessage : Swift.Codable, Swift.Equatable, Swift.Sendable {
+public struct UserMessage : Swift.Codable, Swift.Equatable {
   public let text: IdsvrHaapiUIKit.Message
   public let classList: [Swift.String]
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.UserMessage, rhs: IdsvrHaapiUIKit.UserMessage) -> Swift.Bool
+  public static func == (a: IdsvrHaapiUIKit.UserMessage, b: IdsvrHaapiUIKit.UserMessage) -> Swift.Bool
 }
 @available(iOS 14.0, *)
 @frozen public enum PollingStatus : Swift.Codable, Swift.Equatable {
@@ -1666,16 +1465,16 @@ extension IdsvrHaapiUIKit.HaapiModel {
     public static func authenticatorOption(title: IdsvrHaapiUIKit.Message, type: Swift.String?, action: IdsvrHaapiUIKit.FormAction) -> IdsvrHaapiUIKit.AuthenticatorSelectorStep.AuthenticatorOption
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func authenticatorSelector(title: IdsvrHaapiUIKit.Message, authenticators: [IdsvrHaapiUIKit.AuthenticatorSelectorStep.AuthenticatorOption], metadata: IdsvrHaapiUIKit.Metadata?, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.AuthenticatorSelectorStep
+    public static func authenticatorSelector(title: IdsvrHaapiUIKit.Message, authenticators: [IdsvrHaapiUIKit.AuthenticatorSelectorStep.AuthenticatorOption], metadata: IdsvrHaapiUIKit.Metadata?, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.AuthenticatorSelectorStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
     public static func interactiveForm(actions: [IdsvrHaapiUIKit.FormAction], type: IdsvrHaapiUIKit.RepresentationType, metadata: IdsvrHaapiUIKit.Metadata?, messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.InteractiveFormStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func redirection(redirectAction: IdsvrHaapiUIKit.FormAction, metadata: IdsvrHaapiUIKit.Metadata?, actions: [any IdsvrHaapiUIKit.Action], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.RedirectionStep
+    public static func redirection(redirectAction: IdsvrHaapiUIKit.FormAction, metadata: IdsvrHaapiUIKit.Metadata?, actions: [IdsvrHaapiUIKit.Action], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.RedirectionStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func polling(mainAction: IdsvrHaapiUIKit.FormAction, cancelAction: IdsvrHaapiUIKit.FormAction?, metadata: IdsvrHaapiUIKit.Metadata?, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.PollingProperties, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.PollingStep
+    public static func polling(mainAction: IdsvrHaapiUIKit.FormAction, cancelAction: IdsvrHaapiUIKit.FormAction?, metadata: IdsvrHaapiUIKit.Metadata?, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.PollingProperties, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.PollingStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
     public static func oAuthAuthorization(metadata: IdsvrHaapiUIKit.Metadata?, messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.OAuthAuthorizationResponseProperties, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.OAuthAuthorizationResponseStep
@@ -1684,28 +1483,28 @@ extension IdsvrHaapiUIKit.HaapiModel {
     public static func continueSame(metadata: IdsvrHaapiUIKit.Metadata?, messages: [IdsvrHaapiUIKit.UserMessage], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.ContinueSameStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func userConsent(metadata: IdsvrHaapiUIKit.Metadata?, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.UserConsentStep
+    public static func userConsent(metadata: IdsvrHaapiUIKit.Metadata?, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.UserConsentStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func externalBrowserClientOperation(actionModel: IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.ExternalBrowserClientOperationStep
+    public static func externalBrowserClientOperation(actionModel: IdsvrHaapiUIKit.ExternalBrowserClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.ExternalBrowserClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func bankIdClientOperation(activationLink: IdsvrHaapiUIKit.Link?, actionModel: IdsvrHaapiUIKit.BankIdClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.BankIdClientOperationStep
+    public static func bankIdClientOperation(activationLink: IdsvrHaapiUIKit.Link?, actionModel: IdsvrHaapiUIKit.BankIdClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.BankIdClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func encapClientOperation(actionModel: IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.EncapClientOperationStep
+    public static func encapClientOperation(actionModel: IdsvrHaapiUIKit.EncapAutoActivationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.EncapClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func webauthnRegistrationClientOperation(actionModel: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) throws -> IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationStep
+    public static func webauthnRegistrationClientOperation(actionModel: IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) throws -> IdsvrHaapiUIKit.WebAuthnRegistrationClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func webAuthnAuthenticationClientOperation(actionModel: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) throws -> IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationStep
+    public static func webAuthnAuthenticationClientOperation(actionModel: IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) throws -> IdsvrHaapiUIKit.WebAuthnAuthenticationClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func genericClientOperation(actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.GenericClientOperationStep
+    public static func genericClientOperation(actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel, metadata: IdsvrHaapiUIKit.Metadata?, type: IdsvrHaapiUIKit.RepresentationType, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: IdsvrHaapiUIKit.GenericProperties?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.GenericClientOperationStep
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func genericRepresentation(type: IdsvrHaapiUIKit.RepresentationType, metadata: IdsvrHaapiUIKit.Metadata?, actions: [any IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: (any IdsvrHaapiUIKit.Properties)?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.GenericRepresentationStep
+    public static func genericRepresentation(type: IdsvrHaapiUIKit.RepresentationType, metadata: IdsvrHaapiUIKit.Metadata?, actions: [IdsvrHaapiUIKit.Action], messages: [IdsvrHaapiUIKit.UserMessage], links: [IdsvrHaapiUIKit.Link], properties: (any IdsvrHaapiUIKit.Properties)?, rawJsonString: Swift.String? = nil) -> IdsvrHaapiUIKit.GenericRepresentationStep
     #endif
   }
 }
@@ -1715,12 +1514,12 @@ public protocol RawJsonRepresentable {
   #endif
 }
 @available(iOS 14.0, *)
-@frozen public enum HaapiResult : Swift.Sendable {
+@frozen public enum HaapiResult {
   case representation(any IdsvrHaapiUIKit.HaapiRepresentation)
   case problem(any IdsvrHaapiUIKit.ProblemRepresentation)
   case error(any Swift.Error)
 }
-public protocol HaapiResponse : IdsvrHaapiUIKit.RawJsonRepresentable, Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
+public protocol HaapiResponse : IdsvrHaapiUIKit.RawJsonRepresentable, Swift.Decodable, Swift.Encodable, Swift.Equatable {
 }
 @available(iOS 14.0, *)
 public protocol HaapiRepresentation : IdsvrHaapiUIKit.HaapiResponse {
@@ -1749,14 +1548,15 @@ public protocol ProblemRepresentation : IdsvrHaapiUIKit.HaapiResponse {
 @available(iOS 14.0, *)
 public protocol ClientOperationStep : IdsvrHaapiUIKit.HaapiRepresentation {
 }
-@_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class GenericViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  public init(from decoder: any Swift.Decoder) throws
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class GenericViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  override public init(headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-public struct HaapiUIKitConfiguration : Swift.Sendable {
+public struct HaapiUIKitConfiguration {
 }
 @available(iOS 14.0, *)
 public class HaapiUIKitConfigurationBuilder {
@@ -1784,10 +1584,7 @@ public class HaapiUIKitConfigurationBuilder {
   @discardableResult
   public func setURLSession(session: Foundation.URLSession) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
-  @available(*, unavailable, renamed: "setRiskAssessmentConfiguration(_:)", message: "Use setRiskAssessmentConfiguration(_:) instead.")
   public func setApplicationBundle(_ bundle: Foundation.Bundle) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
-  @discardableResult
-  public func setRiskAssessmentConfiguration(_ configuration: IdsvrHaapiUIKit.RiskAssessmentConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setMinTokenTtl(value: Foundation.TimeInterval) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
@@ -1828,7 +1625,7 @@ public enum SdkFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.Ca
     get
   }
 }
-@objc public enum CryptoKeyType : Swift.Int, Swift.RawRepresentable, Swift.Sendable {
+@objc public enum CryptoKeyType : Swift.Int, Swift.RawRepresentable {
   case p256
   case secureEnclave
   case security
@@ -1841,12 +1638,12 @@ public enum SdkFollowUpTag : Swift.String, IdsvrHaapiUIKit.FollowUpTag, Swift.Ca
   }
 }
 @available(iOS 14.0, *)
-@objc public protocol TokenBoundConfiguration : Swift.Sendable {
+@objc public protocol TokenBoundConfiguration {
   @objc var keyPairType: IdsvrHaapiUIKit.CryptoKeyType { get }
 }
 @_inheritsConvenienceInitializers @available(iOS 14.0, *)
 @objc final public class UnboundedTokenConfiguration : ObjectiveC.NSObject, IdsvrHaapiUIKit.TokenBoundConfiguration {
-  @objc final public let keyPairType: IdsvrHaapiUIKit.CryptoKeyType
+  @objc final public var keyPairType: IdsvrHaapiUIKit.CryptoKeyType
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1861,14 +1658,8 @@ public typealias OAuthLifecycleResultListener = IdsvrHaapiUIKit.HaapiFlowResult
 @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 public class OAuthLifecycle {
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async refreshToken")
   public static func refreshToken(refreshToken: Swift.String, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, lifecycleResultListener: any IdsvrHaapiUIKit.HaapiFlowResult, additionalParameters: [Swift.String : Swift.String]? = nil)
   #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func refreshToken(_ refreshToken: Swift.String, haapiUIKitApplication: any IdsvrHaapiUIKit.HaapiUIKitApplication, additionalParameters: [Swift.String : Swift.String]? = nil) async throws -> any IdsvrHaapiUIKit.OAuthModel
-  #endif
-  public static func revokeAccessToken(_ accessToken: Swift.String, haapiUIKitConfiguration: IdsvrHaapiUIKit.HaapiUIKitConfiguration) async throws
-  public static func revokeRefreshToken(_ refreshToken: Swift.String, haapiUIKitConfiguration: IdsvrHaapiUIKit.HaapiUIKitConfiguration) async throws
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1907,20 +1698,17 @@ extension IdsvrHaapiUIKit.ClientOperationName : Swift.RawRepresentable {
   public func setClientAuthenticationMethod(method: any IdsvrHaapiUIKit.ClientAuthenticationMethod) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
   #if compiler(>=5.3) && $NonescapableTypes
   @objc @discardableResult
-  @available(*, unavailable, renamed: "setRiskAssessmentConfiguration(_:)", message: "Use setRiskAssessmentConfiguration(_:) instead.")
   public func setApplicationBundle(_ bundle: Foundation.Bundle?) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
   #endif
-  @discardableResult
-  public func setRiskAssessmentConfiguration(_ configuration: IdsvrHaapiUIKit.RiskAssessmentConfiguration) -> IdsvrHaapiUIKit.HaapiTokenManagerBuilder
   @objc public func build() throws -> IdsvrHaapiUIKit.HaapiTokenManager
   @objc deinit
 }
 @available(iOS 14.0, *)
-public typealias OAuthCompletion = @Sendable (_ tokenResponse: IdsvrHaapiUIKit.TokenResponse) -> Swift.Void
+public typealias OAuthCompletion = (_ tokenResponse: IdsvrHaapiUIKit.TokenResponse) -> Swift.Void
 @available(iOS 14.0, *)
-public typealias OAuthRevocationCompletion = @Sendable (_ response: IdsvrHaapiUIKit.TokenRevocationResponse) -> Swift.Void
+public typealias OAuthRevocationCompletion = (_ response: IdsvrHaapiUIKit.TokenRevocationResponse) -> Swift.Void
 @available(iOS 14.0, *)
-@frozen public enum TokenResponse : Swift.Sendable {
+@frozen public enum TokenResponse {
   case successfulToken(IdsvrHaapiUIKit.SuccessfulTokenResponse)
   case errorToken(IdsvrHaapiUIKit.ErrorTokenResponse)
   case error(any Swift.Error)
@@ -1931,7 +1719,7 @@ public typealias OAuthRevocationCompletion = @Sendable (_ response: IdsvrHaapiUI
   case error(any Swift.Error)
 }
 @available(iOS 14.0, *)
-@objc public protocol OAuthTokenConfigurable : Swift.Sendable {
+@objc public protocol OAuthTokenConfigurable {
   @objc var clientId: Swift.String { get }
   @objc var tokenEndpointURL: Foundation.URL { get }
   @objc var appRedirect: Swift.String { get }
@@ -1946,10 +1734,18 @@ public typealias OAuthRevocationCompletion = @Sendable (_ response: IdsvrHaapiUI
   @objc var clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod { get }
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-@objcMembers final public class OAuthTokenManager : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers final public class OAuthTokenManager : ObjectiveC.NSObject {
   @objc final public let oauthTokenConfiguration: any IdsvrHaapiUIKit.OAuthTokenConfigurable
   @objc convenience public init(oauthTokenConfiguration: any IdsvrHaapiUIKit.OAuthTokenConfigurable)
-  @objc public protocol TokenEndpointResponseListener : Swift.Sendable {
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
+  #endif
+  final public func revokeAccessToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
+  final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
+  @objc public protocol TokenEndpointResponseListener {
     @objc func onSuccess(_ value: IdsvrHaapiUIKit.OAuthTokenManager.SuccessTokenHTTPURLResponseContent)
     @objc func onError(_ value: IdsvrHaapiUIKit.ErrorHTTPURLResponseContent)
     @objc func onTokenError(_ value: IdsvrHaapiUIKit.OAuthTokenManager.ErrorTokenHTTPURLResponseContent)
@@ -1964,49 +1760,23 @@ public typealias OAuthRevocationCompletion = @Sendable (_ response: IdsvrHaapiUI
   }
   @objc deinit
 }
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.OAuthTokenManager {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async fetchAccessToken")
-  final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async refreshAccessToken")
-  final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping IdsvrHaapiUIKit.OAuthCompletion)
-  #endif
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async revokeAccessToken")
-  final public func revokeAccessToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async revokeRefreshToken")
-  final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping IdsvrHaapiUIKit.OAuthRevocationCompletion)
-}
 @available(*, unavailable)
 @objc extension IdsvrHaapiUIKit.OAuthTokenManager {
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async fetchAccessToken")
-  final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping @Sendable (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func fetchAccessToken(with authorizationCode: Swift.String, dpop: IdsvrHaapiUIKit.Dpop? = nil, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async refreshAccessToken")
-  final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping @Sendable (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func refreshAccessToken(with refreshToken: Swift.String, additionalParameters: [Swift.String : Swift.String]? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.SuccessfulTokenResponse?, IdsvrHaapiUIKit.ErrorTokenResponse?, (any Swift.Error)?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async revokeRefreshToken")
-  final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping @Sendable (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func revokeRefreshToken(with token: Swift.String, completionHandler: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   #endif
 }
-@available(iOS 14, *)
-public struct CommonViewControllerStyle {
-  public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  public let headerTextAppearance: IdsvrHaapiUIKit.TextAppearance
-  public let headerTextColor: UIKit.UIColor
-  public let messagesStyle: IdsvrHaapiUIKit.StackViewStyle
-  public let linksStyle: IdsvrHaapiUIKit.StackViewStyle
-  public init(from decoder: any Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class ProblemViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  public init(from decoder: any Swift.Decoder) throws
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class ProblemViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  override public init(headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class Haapi : ObjectiveC.NSObject {
@@ -2018,51 +1788,50 @@ final public class ProblemViewControllerStyle : IdsvrHaapiUIKit.UIViewController
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14, *)
-@objcMembers final public class Dpop : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
-  @objc final public var jwkThumbprint: Swift.String {
+@objcMembers public class Dpop : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var jwkThumbprint: Swift.String {
     @objc get
   }
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   #endif
-  final public func encode(to encoder: any Swift.Encoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
   @objc @available(swift, obsoleted: 0.1, message: "Use `createProof(httpMethod: String, url: URL, nonce: String?, accessToken: String?)` instead")
-  final public func createProof(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
+  public func createProof(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func createProof(httpMethod: Swift.String, url: Foundation.URL, nonce: Swift.String? = nil, accessToken: Swift.String? = nil) throws -> Swift.String
+  @objc public func createProof(httpMethod: Swift.String, url: Foundation.URL, nonce: Swift.String? = nil, accessToken: Swift.String? = nil) throws -> Swift.String
   #endif
   @objc @available(swift, obsoleted: 0.1, message: "Use `getHeaderValue(httpMethod: String, url: URL, nonce: String?, accessToken: String?)` instead")
-  final public func getHeaderValue(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
+  public func getHeaderValue(httpMethod: Swift.String, url: Foundation.URL) throws -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func getHeaderValue(httpMethod: Swift.String, url: Foundation.URL, nonce: Swift.String? = nil, accessToken: Swift.String? = nil) throws -> Swift.String
+  @objc public func getHeaderValue(httpMethod: Swift.String, url: Foundation.URL, nonce: Swift.String? = nil, accessToken: Swift.String? = nil) throws -> Swift.String
   #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor public protocol HaapiFlowViewControllerDelegate : UIKit.UIViewController {
-  @_Concurrency.MainActor func submit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : any Swift.Sendable])
-  @_Concurrency.MainActor func select(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel)
-  @_Concurrency.MainActor func follow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel)
-  @_Concurrency.MainActor func handleUIProblem(_ uiProblem: any IdsvrHaapiUIKit.UIProblemModel)
+public protocol HaapiFlowViewControllerDelegate : UIKit.UIViewController {
+  func submit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : Any])
+  func select(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel)
+  func follow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel)
+  func handleUIProblem(_ uiProblem: any IdsvrHaapiUIKit.UIProblemModel)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor func interruptHaapiFlowForError(_ error: any Swift.Error, title: Swift.String?, message: Swift.String?)
+  func interruptHaapiFlowForError(_ error: any Swift.Error, title: Swift.String?, message: Swift.String?)
   #endif
-  @_Concurrency.MainActor func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
-  @_Concurrency.MainActor func openURL(_ url: Foundation.URL)
+  func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
+  func openURL(_ url: Foundation.URL)
 }
-@available(iOS 13.0, *)
-@_Concurrency.MainActor public protocol HaapiFlowDeepLinkable : AnyObject, Swift.Sendable {
-  @_Concurrency.MainActor func canHandleUrl(_ url: Foundation.URL) async -> Swift.Bool
-  @_Concurrency.MainActor func handleUrl(_ url: Foundation.URL) async
-}
-@available(iOS 14.0, *)
-@_Concurrency.MainActor public protocol HaapiFlowResultViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowResult {
+public protocol HaapiFlowDeepLinkable : AnyObject {
+  func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
+  func handleUrl(_ url: Foundation.URL)
 }
 @available(iOS 14.0, *)
-@_Concurrency.MainActor public protocol HaapiFlowResult : Swift.Sendable {
-  @_Concurrency.MainActor func didReceiveOAuthModel(_ oAuthModel: any IdsvrHaapiUIKit.OAuthModel)
-  @_Concurrency.MainActor func didReceiveError(_ error: any Swift.Error)
+public protocol HaapiFlowResultViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowResult {
+}
+@available(iOS 14.0, *)
+public protocol HaapiFlowResult {
+  func didReceiveOAuthModel(_ oAuthModel: any IdsvrHaapiUIKit.OAuthModel)
+  func didReceiveError(_ error: any Swift.Error)
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
 @_Concurrency.MainActor @preconcurrency public class HaapiFlowViewController : UIKit.UIViewController, IdsvrHaapiUIKit.HaapiFlowViewControllerDelegate, IdsvrHaapiUIKit.UIStylable, IdsvrHaapiUIKit.HaapiFlowDeepLinkable {
@@ -2074,18 +1843,21 @@ final public class ProblemViewControllerStyle : IdsvrHaapiUIKit.UIViewController
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor public func submit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : any Swift.Sendable])
-  @_Concurrency.MainActor public func select(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel)
-  @_Concurrency.MainActor public func follow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel)
-  @_Concurrency.MainActor public func handleUIProblem(_ uiProblem: any IdsvrHaapiUIKit.UIProblemModel)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency public func submit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func select(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel)
+  @_Concurrency.MainActor @preconcurrency public func follow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel)
+  @_Concurrency.MainActor @preconcurrency public func handleUIProblem(_ uiProblem: any IdsvrHaapiUIKit.UIProblemModel)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor public func interruptHaapiFlowForError(_ error: any Swift.Error, title: Swift.String?, message: Swift.String?)
+  @_Concurrency.MainActor @preconcurrency public func interruptHaapiFlowForError(_ error: any Swift.Error, title: Swift.String?, message: Swift.String?)
   #endif
-  @_Concurrency.MainActor public func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
-  @_Concurrency.MainActor public func openURL(_ url: Foundation.URL)
-  @_Concurrency.MainActor public func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
-  @_Concurrency.MainActor public func handleUrl(_ url: Foundation.URL)
-  @_Concurrency.MainActor public func apply(style: IdsvrHaapiUIKit.HaapiFlowViewControllerStyle)
+  @_Concurrency.MainActor @preconcurrency public func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func openURL(_ url: Foundation.URL)
+  @_Concurrency.MainActor @preconcurrency public func canHandleUrl(_ url: Foundation.URL) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func handleUrl(_ url: Foundation.URL)
+  @_Concurrency.MainActor @preconcurrency public func apply(style: IdsvrHaapiUIKit.HaapiFlowViewControllerStyle)
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiFlowViewController : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
@@ -2158,62 +1930,20 @@ extension Swift.String {
 extension IdsvrHaapiUIKit.CryptoKeyType : Swift.Codable {
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class WebAuthnViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  final public let loadingIndicatorSideDimension: Swift.Double
-  final public let textualKeys: IdsvrHaapiUIKit.WebAuthnViewControllerStyle.TextualKeys
-  final public let contentStyle: IdsvrHaapiUIKit.StackViewStyle
-  final public var contentTextAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  final public var contentTextColor: UIKit.UIColor {
-    get
-  }
-  final public let loadingIndicatorViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle
-  final public let successNotificationBannerViewStyle: IdsvrHaapiUIKit.NotificationBannerViewStyle
-  convenience public init(from decoder: any Swift.Decoder) throws
-  @_hasMissingDesignatedInitializers final public class TextualKeys : Swift.Sendable {
-    final public let platformButtonTextKey: Swift.String
-    final public let platformMessageTextKey: Swift.String
-    final public let crossPlatformButtonTextKey: Swift.String
-    final public let crossPlatformMessageTextKey: Swift.String
-    final public let errorButtonTextKey: Swift.String
-    final public let errorMessageTextKey: Swift.String
-    final public let registrationSuccessMessageTextKey: Swift.String
-    final public let retryButtonTextKey: Swift.String
-    final public let retryMessageTextKey: Swift.String
-    final public let appAssociationErrorMessageTextKey: Swift.String
-    final public let noCredentialsMessageTextKey: Swift.String
-    final public let platformButtonText: Swift.String
-    final public let platformMessageText: Swift.String
-    final public let crossPlatformButtonText: Swift.String
-    final public let crossPlatformMessageText: Swift.String
-    final public let errorButtonText: Swift.String
-    final public let errorMessageText: Swift.String
-    final public let registrationSuccessMessageText: Swift.String
-    final public let retryButtonText: Swift.String
-    final public let retryMessageText: Swift.String
-    final public let appAssociationErrorMessageText: Swift.String
-    final public let noCredentialsMessageText: Swift.String
+final public class WebAuthnViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  @_hasMissingDesignatedInitializers public class TextualKeys {
+    public init(otherTextualKeys: IdsvrHaapiUIKit.WebAuthnViewControllerStyle.TextualKeys)
     @objc deinit
   }
   @objc deinit
 }
-@available(iOS 14, *)
-public struct CommonUIStyle : Swift.Equatable {
-  public let paddingStyle: IdsvrHaapiUIKit.PaddingStyle
-  public let backgroundColor: UIKit.UIColor?
-  public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.CommonUIStyle, rhs: IdsvrHaapiUIKit.CommonUIStyle) -> Swift.Bool
-}
-@available(iOS 14, *)
-extension IdsvrHaapiUIKit.CommonUIStyle : IdsvrHaapiUIKit.UIStyle {
-  public var commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle {
-    get
-  }
+public protocol ViewLoadable : AnyObject {
+  func startLoading()
+  func stopLoading()
+  var isLoading: Swift.Bool { get }
 }
 @objc @available(iOS 14.0, *)
-@objcMembers final public class OAuthAuthorizationParameters : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers final public class OAuthAuthorizationParameters : ObjectiveC.NSObject {
   @objc final public let scopes: [Swift.String]
   @objc final public let nonce: Swift.String?
   @objc final public let acrValues: [Swift.String]
@@ -2254,26 +1984,11 @@ public enum MimeTypes : Swift.String {
     get
     set
   }
-  @objc public static var isDebugEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc public static var isInfoEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc public static var isWarningEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc public static var isErrorEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc public static var isSensitiveValueMasked: Swift.Bool {
-    @objc get
-    @objc set
-  }
+  @objc public static var isDebugEnabled: Swift.Bool
+  @objc public static var isInfoEnabled: Swift.Bool
+  @objc public static var isWarningEnabled: Swift.Bool
+  @objc public static var isErrorEnabled: Swift.Bool
+  @objc public static var isSensitiveValueMasked: Swift.Bool
   public static func appendLogSink(_ logSink: any IdsvrHaapiUIKit.LogSink)
   @objc deinit
 }
@@ -2290,12 +2005,8 @@ public enum LogType : Swift.String {
     get
   }
 }
-public protocol LogSink : Swift.Sendable {
+public protocol LogSink {
   func writeLog(logType: IdsvrHaapiUIKit.LogType, followUpTag: any IdsvrHaapiUIKit.FollowUpTag, message: Swift.String, file: Swift.String, line: Swift.Int)
-}
-public protocol FollowUpTag : Swift.Sendable {
-  var subsystem: Swift.String { get }
-  var tagName: Swift.String { get }
 }
 @available(iOS 14.0, *)
 public enum HaapiUIKitError : Swift.Error {
@@ -2408,7 +2119,7 @@ extension IdsvrHaapiUIKit.RepresentationType : Swift.RawRepresentable {
   }
 }
 @available(iOS 14.0, *)
-@frozen public enum ActionKind : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@frozen public enum ActionKind : Swift.Codable, Swift.Equatable {
   case cancel
   case deviceOption
   case login
@@ -2502,149 +2213,155 @@ public enum TestingArgument : Swift.String {
   @_Concurrency.MainActor @preconcurrency override public func handleProblemModel(_ problemModel: any IdsvrHaapiUIKit.ProblemModel) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency override public func handleInfoMessageModels(_ infoMessageModels: [any IdsvrHaapiUIKit.InfoMessageModel])
 }
-public struct RiskAssessmentConfiguration : Swift.Equatable, Swift.Sendable {
-  public init(operatingSystemName: Swift.String, operatingSystemVersion: Swift.String, deviceModelName: Swift.String, applicatonIdentifier: Swift.String)
-  public static func == (a: IdsvrHaapiUIKit.RiskAssessmentConfiguration, b: IdsvrHaapiUIKit.RiskAssessmentConfiguration) -> Swift.Bool
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+public class Action : Swift.Codable, Swift.Equatable {
+  final public let kind: IdsvrHaapiUIKit.ActionKind
+  final public let title: IdsvrHaapiUIKit.Message?
+  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (lhs: IdsvrHaapiUIKit.Action, rhs: IdsvrHaapiUIKit.Action) -> Swift.Bool
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public protocol Action : Swift.Decodable, Swift.Encodable, Swift.Equatable, Swift.Sendable {
-  var kind: IdsvrHaapiUIKit.ActionKind { get }
-  #if compiler(>=5.3) && $NonescapableTypes
-  var title: IdsvrHaapiUIKit.Message? { get }
-  #endif
-  func isEqualTo(_ other: any IdsvrHaapiUIKit.Action) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.Action {
-  public func isEqualTo(_ other: any IdsvrHaapiUIKit.Action) -> Swift.Bool
-}
-@available(iOS 14.0, *)
-public struct ClientOperationAction : IdsvrHaapiUIKit.Action {
-  public let kind: IdsvrHaapiUIKit.ActionKind
-  public let title: IdsvrHaapiUIKit.Message?
-  public let model: any IdsvrHaapiUIKit.ClientOperationActionModelRepresentation
-  public let properties: IdsvrHaapiUIKit.ClientOperationAction.Properties?
-  public struct Properties : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class ClientOperationAction : IdsvrHaapiUIKit.Action {
+  final public let model: IdsvrHaapiUIKit.ClientOperationActionModel
+  final public let properties: IdsvrHaapiUIKit.ClientOperationAction.Properties?
+  public struct Properties : Swift.Codable, Swift.Equatable {
     public let rawJsonString: Swift.String
     public static func == (lhs: IdsvrHaapiUIKit.ClientOperationAction.Properties, rhs: IdsvrHaapiUIKit.ClientOperationAction.Properties) -> Swift.Bool
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.ClientOperationAction, rhs: IdsvrHaapiUIKit.ClientOperationAction) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct FormAction : IdsvrHaapiUIKit.Action {
-  public let kind: IdsvrHaapiUIKit.ActionKind
-  public let title: IdsvrHaapiUIKit.Message?
-  public let model: IdsvrHaapiUIKit.FormActionModel
-  public let properties: IdsvrHaapiUIKit.FormAction.Properties?
-  public struct Properties : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class FormAction : IdsvrHaapiUIKit.Action {
+  final public let model: IdsvrHaapiUIKit.FormActionModel
+  final public let properties: IdsvrHaapiUIKit.FormAction.Properties?
+  public struct Properties : Swift.Codable, Swift.Equatable {
     public let authenticatorType: Swift.String
     public let rawJsonString: Swift.String
     public static func == (lhs: IdsvrHaapiUIKit.FormAction.Properties, rhs: IdsvrHaapiUIKit.FormAction.Properties) -> Swift.Bool
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.FormAction, rhs: IdsvrHaapiUIKit.FormAction) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
-@available(iOS 14.0, *)
-public struct SelectorAction : IdsvrHaapiUIKit.Action {
-  public let kind: IdsvrHaapiUIKit.ActionKind
-  public let title: IdsvrHaapiUIKit.Message?
-  public let model: IdsvrHaapiUIKit.SelectorActionModel
-  public let properties: IdsvrHaapiUIKit.SelectorAction.Properties?
-  public struct Properties : Swift.Codable, Swift.Equatable, Swift.Sendable {
+@_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+final public class SelectorAction : IdsvrHaapiUIKit.Action {
+  final public let model: IdsvrHaapiUIKit.SelectorActionModel
+  final public let properties: IdsvrHaapiUIKit.SelectorAction.Properties?
+  public struct Properties : Swift.Codable, Swift.Equatable {
     public let rawJsonString: Swift.String
     public static func == (lhs: IdsvrHaapiUIKit.SelectorAction.Properties, rhs: IdsvrHaapiUIKit.SelectorAction.Properties) -> Swift.Bool
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.SelectorAction, rhs: IdsvrHaapiUIKit.SelectorAction) -> Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
 }
 @objc @available(iOS 14, *)
-final public class DCRConfiguration : ObjectiveC.NSObject, Swift.Sendable {
+final public class DCRConfiguration : ObjectiveC.NSObject {
   @objc convenience public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL)
   public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL, storage: any IdsvrHaapiUIKit.Storage)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class LinkViewStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(alignment: UIKit.UIStackView.Alignment, loadingIndicatorSideDimension: Swift.Double, actionableButtonStyle: IdsvrHaapiUIKit.ActionableButtonStyle, loadingIndicatorViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
+  @objc deinit
+}
 @available(iOS 14, *)
-public struct ResponseAndData : Swift.Sendable {
+public struct ResponseAndData {
   public let response: Foundation.URLResponse
   public let data: Foundation.Data?
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-public class HaapiClient : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+public class HaapiClient : ObjectiveC.NSObject {
   #if compiler(>=5.3) && $NonescapableTypes
   public var dpop: IdsvrHaapiUIKit.Dpop? {
     get
   }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use async performDataTask")
-  public func performDataTask(for urlRequest: Foundation.URLRequest, completionHandler: @escaping @Sendable (Swift.Result<IdsvrHaapiUIKit.ResponseAndData, any Swift.Error>) -> Swift.Void)
+  public func performDataTask(for urlRequest: Foundation.URLRequest, completionHandler: @escaping (Swift.Result<IdsvrHaapiUIKit.ResponseAndData, any Swift.Error>) -> Swift.Void)
   #endif
-  public func performDataTask(for urlRequest: Foundation.URLRequest) async throws -> IdsvrHaapiUIKit.ResponseAndData
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(swift, deprecated: 1.0, obsoleted: 1.0, message: "Objective-c will not be supported in the next major version")
-  @objc public func performDataTask(for urlRequest: Foundation.URLRequest, completionHandler: @escaping @Sendable (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  @available(swift, obsoleted: 1.0)
+  @objc public func performDataTask(for urlRequest: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
   #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-final public class HaapiTokenManager : ObjectiveC.NSObject, Swift.Sendable {
+@objcMembers final public class HaapiTokenManager : ObjectiveC.NSObject {
   #if compiler(>=5.3) && $NonescapableTypes
-  final public var dpop: IdsvrHaapiUIKit.Dpop? {
-    get
+  @objc final public var dpop: IdsvrHaapiUIKit.Dpop? {
+    @objc get
   }
   #endif
   @objc deinit
 }
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.HaapiTokenManager {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @available(*, deprecated, renamed: "createClient()", message: "  This method doesn't work with the current API design for Dpop and Client Authentication\n  management and it will be removed on next major version.")
+  final public func createClient(urlSession: Foundation.URLSession? = nil) -> IdsvrHaapiUIKit.HaapiClient
+  #endif
   @objc final public func createClient() -> IdsvrHaapiUIKit.HaapiClient
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(swift, deprecated: 1.0, obsoleted: 1.0, message: "Objective-c will not be supported in the next major version")
-  @objc final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping @Sendable (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
+  @objc @available(swift, obsoleted: 1.0)
+  final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(swift, deprecated: 1.0, obsoleted: 1.0, message: "Objective-c will not be supported in the next major version")
-  @objc final public func getHaapiToken(forceFresh: Swift.Bool = false, completionHandler: @escaping @Sendable (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
+  @objc @available(swift, obsoleted: 1.0)
+  final public func getHaapiToken(forceFresh: Swift.Bool = false, completionHandler: @escaping (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil) async throws -> IdsvrHaapiUIKit.DpopAccessTokenInfo
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use getHaapiTokenAsync")
-  final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping @Sendable (Swift.Result<IdsvrHaapiUIKit.DpopAccessTokenInfo, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void)
+  final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping (Swift.Result<IdsvrHaapiUIKit.DpopAccessTokenInfo, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void)
   #endif
   @objc final public func close()
   @objc final public func clearState()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, unavailable, renamed: "getHaapiToken(forceFresh:dpopNonce:completionHandler:)", message: "Deprecated. Please use getHaapiToken(forceFresh:dpopNonce:completionHandler:)")
+  final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false, callbackDispatchQueue: Dispatch.DispatchQueue = DispatchQueue.main, dpopNonce: Swift.String? = nil, completionHandler: @escaping (Swift.Result<IdsvrHaapiUIKit.DpopAccessTokenInfo, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @available(*, unavailable, renamed: "getHaapiTokenWithForceFresh", message: "Deprecated. Please use getHaapiTokenWithForceFresh:dpopNonce:completionHandler:")
+  final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false, callbackDispatchQueue: Dispatch.DispatchQueue = DispatchQueue.main, completionHandler: @escaping (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @available(*, unavailable, renamed: "getHaapiTokenWithForceFresh", message: "Deprecated. Please use getHaapiTokenWithForceFresh:dpopNonce:completionHandler:")
+  final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false, callbackDispatchQueue: Dispatch.DispatchQueue = DispatchQueue.main, dpopNonce: Swift.String? = nil, completionHandler: @escaping (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @available(*, unavailable, renamed: "getHaapiTokenWithForceFresh", message: "Deprecated. Please use getHaapiTokenWithForceFresh:dpopNonce:completionHandler:")
+  final public func getHaapiToken(forceFresh: Swift.Bool = false) -> IdsvrHaapiUIKit.HaapiTokenResult?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @available(*, unavailable, renamed: "getHaapiTokenWithForceFresh", message: "Deprecated. Please use getHaapiTokenWithForceFresh:dpopNonce:completionHandler:")
+  final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String?) -> IdsvrHaapiUIKit.HaapiTokenResult?
+  #endif
 }
 @available(iOS 14, *)
 public protocol UIStylable {
   associatedtype AssociatedStyle : IdsvrHaapiUIKit.UIStyle
-  @_Concurrency.MainActor func apply(style: Self.AssociatedStyle)
+  func apply(style: Self.AssociatedStyle)
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class FormViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
-  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
-  final public var contentTextAppearance: IdsvrHaapiUIKit.TextAppearance {
-    get
-  }
-  final public var contentTextColor: UIKit.UIColor {
-    get
-  }
-  final public let contentStyle: IdsvrHaapiUIKit.StackViewStyle
-  convenience public init(from decoder: any Swift.Decoder) throws
+final public class FormViewControllerStyle : IdsvrHaapiUIKit.BaseViewControllerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contentTextAppearance: IdsvrHaapiUIKit.TextAppearance, contentTextColor: UIKit.UIColor, contentStyle: IdsvrHaapiUIKit.StackViewStyle, headerTextAppearance: IdsvrHaapiUIKit.TextAppearance, headerTextColor: UIKit.UIColor, messagesStyle: IdsvrHaapiUIKit.StackViewStyle, linksStyle: IdsvrHaapiUIKit.StackViewStyle, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
-public protocol UIModel : IdsvrHaapiUIKit.Masking, Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible, Swift.Sendable {
+public protocol UIModel : IdsvrHaapiUIKit.Masking, Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
 }
 extension IdsvrHaapiUIKit.UIModel {
   public var masked: Swift.String {
@@ -2688,13 +2405,10 @@ public protocol UIInteractionModel : IdsvrHaapiUIKit.UIModel {
 public protocol OAuthModel : IdsvrHaapiUIKit.UIModel {
 }
 public protocol OAuthErrorModel : IdsvrHaapiUIKit.OAuthModel {
-  var error: Swift.String { get }
   #if compiler(>=5.3) && $NonescapableTypes
-  var errorDescription: Swift.String? { get }
+  var error: Swift.String? { get }
   #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  var errorUri: Swift.String? { get }
-  #endif
+  var errorDescription: Swift.String { get }
 }
 public protocol OAuthTokenModel : IdsvrHaapiUIKit.OAuthModel {
   var accessToken: Swift.String { get }
@@ -2769,7 +2483,7 @@ public protocol SelectorModel : IdsvrHaapiUIKit.UIInteractionModel {
   var linkItems: [any IdsvrHaapiUIKit.LinkItemModel] { get }
 }
 @available(iOS 14.0, *)
-public enum HandleableProblemType : Swift.String, Swift.Codable, Swift.Sendable {
+public enum HandleableProblemType : Swift.String, Swift.Codable {
   case authenticationFailedProblem
   case invalidInputProblem
   case incorrectCredentialsProblem
@@ -2790,22 +2504,22 @@ public protocol PollingOperationModel : IdsvrHaapiUIKit.UIOperationModel where S
 @available(iOS 14.0, *)
 public protocol FormOperationModel : IdsvrHaapiUIKit.UIOperationModel where Self.ErrorInteractionModelType == any IdsvrHaapiUIKit.UIInteractionModel, Self.InteractionModelType == any IdsvrHaapiUIKit.FormModel {
   var formActionModel: IdsvrHaapiUIKit.FormActionModel { get }
-  var buildParameters: @Sendable (Foundation.URL) throws -> [Swift.String : any Swift.Sendable] { get }
+  var buildParameters: (Foundation.URL) throws -> [Swift.String : Any] { get }
 }
 @available(iOS 14.0, *)
 public protocol GenericOperationModel : IdsvrHaapiUIKit.UIOperationModel where Self.ErrorInteractionModelType == any IdsvrHaapiUIKit.UIInteractionModel, Self.InteractionModelType == any IdsvrHaapiUIKit.FormModel {
   var actionModel: IdsvrHaapiUIKit.GenericClientOperationActionModel { get }
 }
-public protocol WebAuthnOperationParametersModel : Swift.Sendable {
+public protocol WebAuthnOperationParametersModel {
 }
 @available(iOS 14.0, *)
 public protocol WebAuthnOperationModel : IdsvrHaapiUIKit.UIOperationModel where Self.ErrorInteractionModelType == any IdsvrHaapiUIKit.UIInteractionModel, Self.InteractionModelType == any IdsvrHaapiUIKit.FormModel {
   var actionModel: any IdsvrHaapiUIKit.RepresentationActionModel { get }
   var otherActions: [any IdsvrHaapiUIKit.UIInteractionModel] { get }
-  var buildParametersWrapper: @Sendable (any IdsvrHaapiUIKit.WebAuthnOperationParametersModel) -> [Swift.String : any Swift.Sendable] { get }
+  var buildParametersWrapper: (any IdsvrHaapiUIKit.WebAuthnOperationParametersModel) -> [Swift.String : Any] { get }
 }
 @available(iOS 14.0, *)
-public protocol InfoMessageModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible, Swift.Sendable {
+public protocol InfoMessageModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
   #if compiler(>=5.3) && $NonescapableTypes
   var key: Swift.String? { get }
   #endif
@@ -2827,7 +2541,7 @@ extension IdsvrHaapiUIKit.InfoMessageModel {
   }
 }
 @available(iOS 14.0, *)
-public enum MessageStyleAttribute : Swift.String, Swift.Codable, Swift.Sendable {
+public enum MessageStyleAttribute : Swift.String, Swift.Codable {
   case heading
   case info
   case error
@@ -2846,10 +2560,10 @@ public enum MessageStyleAttribute : Swift.String, Swift.Codable, Swift.Sendable 
 }
 public protocol InteractionErrorModel {
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor var error: Swift.String? { get set }
+  var error: Swift.String? { get set }
   #endif
 }
-public protocol InteractionItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible, Swift.Sendable {
+public protocol InteractionItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
   var key: Swift.String { get }
   var label: Swift.String { get }
 }
@@ -2861,8 +2575,8 @@ extension IdsvrHaapiUIKit.InteractionItemModel {
     get
   }
 }
-public protocol InteractionValueModel : Swift.Sendable {
-  @_Concurrency.MainActor var value: Swift.String { get set }
+public protocol InteractionValueModel {
+  var value: Swift.String { get set }
 }
 public protocol InteractionActionModel {
   var action: any IdsvrHaapiUIKit.RepresentationActionModel { get }
@@ -2872,14 +2586,14 @@ public protocol InteractionItemSectionModel : IdsvrHaapiUIKit.InteractionItemMod
 @available(iOS 14.0, *)
 public protocol InteractionItemSelectModel : IdsvrHaapiUIKit.InteractionItemModel, IdsvrHaapiUIKit.InteractionValueModel {
   #if compiler(>=5.3) && $NonescapableTypes
-  var action: (any IdsvrHaapiUIKit.Action)? { get }
+  var action: IdsvrHaapiUIKit.Action? { get }
   #endif
   var options: [(Swift.String, Swift.String)] { get }
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor var selectedPosition: Swift.Int? { get set }
+  var selectedPosition: Swift.Int? { get set }
   #endif
 }
-public enum InteractionItemButtonType : Swift.String, Swift.Sendable {
+public enum InteractionItemButtonType : Swift.String {
   case primary
   case secondary
   case text
@@ -2900,7 +2614,7 @@ public protocol InteractionItemButtonModel : IdsvrHaapiUIKit.InteractionActionMo
 }
 public protocol InteractionItemTextContentModel : IdsvrHaapiUIKit.InteractionItemModel {
 }
-public struct InputTextConfiguration : Swift.Equatable, Swift.Sendable {
+public struct InputTextConfiguration : Swift.Equatable {
   public static func == (a: IdsvrHaapiUIKit.InputTextConfiguration, b: IdsvrHaapiUIKit.InputTextConfiguration) -> Swift.Bool
 }
 public protocol InteractionItemInputTextModel : IdsvrHaapiUIKit.InteractionErrorModel, IdsvrHaapiUIKit.InteractionItemModel, IdsvrHaapiUIKit.InteractionValueModel {
@@ -2911,10 +2625,10 @@ public protocol InteractionItemInputTextModel : IdsvrHaapiUIKit.InteractionError
 }
 public protocol InteractionItemCheckboxModel : IdsvrHaapiUIKit.InteractionItemModel, IdsvrHaapiUIKit.InteractionValueModel {
   var isReadOnly: Swift.Bool { get }
-  @_Concurrency.MainActor var isChecked: Swift.Bool { get set }
+  var isChecked: Swift.Bool { get set }
 }
 @available(iOS 14.0, *)
-public protocol LinkItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible, Swift.Sendable {
+public protocol LinkItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
   #if compiler(>=5.3) && $NonescapableTypes
   var text: Swift.String? { get }
   #endif
@@ -2934,7 +2648,7 @@ extension IdsvrHaapiUIKit.LinkItemModel {
     get
   }
 }
-public protocol SelectorItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible, Swift.Sendable {
+public protocol SelectorItemModel : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
   var title: Swift.String { get }
 }
 extension IdsvrHaapiUIKit.SelectorItemModel {
@@ -2955,28 +2669,46 @@ public protocol SelectorItemInteractionActionModel : IdsvrHaapiUIKit.Interaction
   #endif
   var shouldKeepFocus: Swift.Bool { get }
 }
-@available(iOS 14.0, *)
-public struct Problem : IdsvrHaapiUIKit.ProblemRepresentation {
-  public let metadata: IdsvrHaapiUIKit.Metadata?
-  public let messages: [IdsvrHaapiUIKit.UserMessage]
-  public let links: [IdsvrHaapiUIKit.Link]
-  public let rawJsonString: Swift.String?
-  public let title: IdsvrHaapiUIKit.Message?
-  public let type: IdsvrHaapiUIKit.ProblemType
-  public init(from decoder: any Swift.Decoder) throws
+@objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@objcMembers public class Problem : ObjectiveC.NSObject, IdsvrHaapiUIKit.ProblemRepresentation {
+  @objc final public let metadata: IdsvrHaapiUIKit.Metadata?
+  final public let messages: [IdsvrHaapiUIKit.UserMessage]
+  final public let links: [IdsvrHaapiUIKit.Link]
+  @objc final public let rawJsonString: Swift.String?
+  @objc final public let title: IdsvrHaapiUIKit.Message?
+  final public let type: IdsvrHaapiUIKit.ProblemType
+  required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.Problem, rhs: IdsvrHaapiUIKit.Problem) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
+  @objc deinit
+}
+public protocol FollowUpTag {
+  var subsystem: Swift.String { get }
+  var tagName: Swift.String { get }
+}
+extension IdsvrHaapiUIKit.FollowUpTag {
+  public var osLog: os.OSLog {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class LoadingIndicatorViewStyle : IdsvrHaapiUIKit.UIStyle, Swift.Equatable {
-  final public let commonUIStyle: IdsvrHaapiUIKit.CommonUIStyle
-  final public let strokeColor: UIKit.UIColor
-  convenience public init(from decoder: any Swift.Decoder) throws
-  public static func == (lhs: IdsvrHaapiUIKit.LoadingIndicatorViewStyle, rhs: IdsvrHaapiUIKit.LoadingIndicatorViewStyle) -> Swift.Bool
+final public class LoadingIndicatorViewStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(strokeColor: UIKit.UIColor, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class ActionableButtonStyle : IdsvrHaapiUIKit.UIStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(iconTextPadding: Swift.Double, borderWidth: Swift.Double, cornerRadius: Swift.Double, loadingIndicatorViewStyle: IdsvrHaapiUIKit.LoadingIndicatorViewStyle, textAppearance: IdsvrHaapiUIKit.TextAppearance, textColor: UIKit.UIColor, borderColor: UIKit.UIColor, image: UIKit.UIImage?, minHeight: Swift.Double?, paddingLeft: Swift.Double, paddingTop: Swift.Double, paddingRight: Swift.Double, paddingBottom: Swift.Double, backgroundColor: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
 @available(iOS 14, *)
-public enum HaapiError : IdsvrHaapiUIKit.IdsvrError, Swift.Error, Swift.Sendable {
+public enum HaapiError : IdsvrHaapiUIKit.IdsvrError, Swift.Error {
   case communication(message: Swift.String, cause: (any Swift.Error)? = nil)
   case serverError(_: Swift.String, errorDescription: Swift.String, statusCode: Swift.Int)
   @available(*, deprecated, message: "This case is being replaced by `serverError`.")
@@ -3016,7 +2748,7 @@ public enum HaapiError : IdsvrHaapiUIKit.IdsvrError, Swift.Error, Swift.Sendable
   }
 }
 @objc @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
-final public class Message : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
+final public class Message : ObjectiveC.NSObject, Swift.Codable {
   final public let key: Swift.String?
   final public let literal: Swift.String
   @objc override final public var description: Swift.String {
@@ -3045,8 +2777,6 @@ final public class Message : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable 
   @_Concurrency.MainActor @preconcurrency override public func hasLoading() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency override public func apply(style: IdsvrHaapiUIKit.FormViewControllerStyle)
 }
-@available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.HaapiFlow : Swift.Sendable {}
 @available(iOS, introduced: 14.0, deprecated: 16.0, message: "Cannot be used in iOS 17. Use `HaapiFlowViewControllerRepresentable` instead.")
 extension IdsvrHaapiUIKit.HaapiFlowVCRepresentable : Swift.Sendable {}
 @available(iOS 14.0, *)
@@ -3074,7 +2804,7 @@ extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.Equatable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.Hashable {}
 extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.RawRepresentable {}
 @available(iOS 14.0, *)
-extension IdsvrHaapiUIKit.PaddingStyle : Swift.Sendable {}
+extension IdsvrHaapiUIKit.ProblemType : Swift.Sendable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.TextFormField.Kind : Swift.Sendable {}
 @available(iOS 14.0, *)
@@ -3093,8 +2823,6 @@ extension IdsvrHaapiUIKit.ClientOperationName : Swift.Sendable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.TokenRevocationResponse : Swift.Sendable {}
 @available(iOS 14, *)
-extension IdsvrHaapiUIKit.CommonViewControllerStyle : Swift.Sendable {}
-@available(iOS 14, *)
 extension IdsvrHaapiUIKit.MimeTypes : Swift.Equatable {}
 @available(iOS 14, *)
 extension IdsvrHaapiUIKit.MimeTypes : Swift.Hashable {}
@@ -3112,6 +2840,8 @@ extension IdsvrHaapiUIKit.RepresentationType : Swift.Hashable {}
 extension IdsvrHaapiUIKit.RepresentationType : Swift.Sendable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.RepresentationType : Swift.BitwiseCopyable {}
+@available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.ActionKind : Swift.Sendable {}
 extension IdsvrHaapiUIKit.RetryCondition : Swift.Equatable {}
 extension IdsvrHaapiUIKit.RetryCondition : Swift.Hashable {}
 extension IdsvrHaapiUIKit.TestingEnvironment : Swift.Equatable {}
