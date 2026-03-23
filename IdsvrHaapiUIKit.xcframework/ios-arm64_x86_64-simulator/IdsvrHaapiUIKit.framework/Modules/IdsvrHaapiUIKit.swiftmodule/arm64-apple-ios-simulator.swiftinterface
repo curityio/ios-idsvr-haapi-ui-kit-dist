@@ -370,6 +370,49 @@ extension IdsvrHaapiUIKit.WebAuthnViewController : AuthenticationServices.ASAuth
   @available(iOS 14.0, *)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
+@_inheritsConvenienceInitializers @available(iOS 14.0, *)
+@_Concurrency.MainActor @preconcurrency open class BankIdViewController : IdsvrHaapiUIKit.BaseViewController<any IdsvrHaapiUIKit.BankIdModel, IdsvrHaapiUIKit.BankIdViewControllerStyle>, IdsvrHaapiUIKit.PollingModelUpdatable {
+  @_Concurrency.MainActor @preconcurrency public var bankIdImageView: UIKit.UIImageView {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var progressBar: UIKit.UIProgressView {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var countLabel: UIKit.UILabel {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var bankIdStackView: UIKit.UIStackView {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var expandableView: UIKit.UIControl {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var orLabel: UIKit.UILabel {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var cancelButton: UIKit.UIButton {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public init(_ model: any IdsvrHaapiUIKit.BankIdModel, style: IdsvrHaapiUIKit.BankIdViewControllerStyle, commonStyle: IdsvrHaapiUIKit.HaapiUIViewControllerStyle, notificationCenter: Foundation.NotificationCenter = NotificationCenter.default)
+  @_Concurrency.MainActor @preconcurrency override convenience public init(_ model: any IdsvrHaapiUIKit.BankIdModel, style: IdsvrHaapiUIKit.BankIdViewControllerStyle, commonStyle: IdsvrHaapiUIKit.HaapiUIViewControllerStyle)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, unavailable)
+  @_Concurrency.MainActor @preconcurrency required public init?(coder: Foundation.NSCoder)
+  #endif
+  @objc deinit
+  @_Concurrency.MainActor @preconcurrency override open func hasLoading() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency override open func handleLinkItemModels(_ linkItemModels: [any IdsvrHaapiUIKit.LinkItemModel])
+  @_Concurrency.MainActor public func update(model: any IdsvrHaapiUIKit.PollingModel)
+  @_Concurrency.MainActor @preconcurrency override public func apply(style: IdsvrHaapiUIKit.BankIdViewControllerStyle)
+}
 @available(iOS 14, *)
 extension IdsvrHaapiUIKit.RiskAssessmentConfiguration {
   @_Concurrency.MainActor public init(_ bundle: Foundation.Bundle = Bundle.main) throws
@@ -1244,6 +1287,22 @@ public struct PaddingStyle : Swift.Equatable {
 extension IdsvrHaapiUIKit.PaddingStyle : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
+@_hasMissingDesignatedInitializers @available(iOS 14, *)
+final public class BankIdViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
+  final public let commonVCStyle: IdsvrHaapiUIKit.CommonViewControllerStyle
+  final public let contentStyle: IdsvrHaapiUIKit.StackViewStyle
+  final public var contentTextAppearance: IdsvrHaapiUIKit.TextAppearance {
+    get
+  }
+  final public var contentTextColor: UIKit.UIColor {
+    get
+  }
+  convenience public init(from decoder: any Swift.Decoder) throws
+  @_hasMissingDesignatedInitializers final public class Textual : Swift.Sendable {
+    @objc deinit
+  }
+  @objc deinit
+}
 @available(iOS 14.0, *)
 public typealias HttpHeadersProvider = @Sendable () -> [Swift.String : Swift.String]
 @available(iOS 14.0, *)
@@ -1361,8 +1420,12 @@ public class ViewControllerFactoryRegistry {
   public func registerViewControllerFactoryGenericModel(factory: @escaping (any IdsvrHaapiUIKit.GenericModel, IdsvrHaapiUIKit.GenericViewControllerStyle, IdsvrHaapiUIKit.HaapiUIViewControllerStyle) throws -> any IdsvrHaapiUIKit.HaapiUIViewController) -> IdsvrHaapiUIKit.ViewControllerFactoryRegistry
   @objc deinit
 }
+@available(iOS 14.0, *)
+@_Concurrency.MainActor public protocol PollingModelUpdatable {
+  @_Concurrency.MainActor func update(model: any IdsvrHaapiUIKit.PollingModel)
+}
 @_inheritsConvenienceInitializers @available(iOS 14.0, *)
-@_Concurrency.MainActor @preconcurrency open class PollingViewController : IdsvrHaapiUIKit.BaseViewController<any IdsvrHaapiUIKit.PollingModel, IdsvrHaapiUIKit.PollingViewControllerStyle> {
+@_Concurrency.MainActor @preconcurrency open class PollingViewController : IdsvrHaapiUIKit.BaseViewController<any IdsvrHaapiUIKit.PollingModel, IdsvrHaapiUIKit.PollingViewControllerStyle>, IdsvrHaapiUIKit.PollingModelUpdatable {
   @_Concurrency.MainActor @preconcurrency public init(_ model: any IdsvrHaapiUIKit.PollingModel, style: IdsvrHaapiUIKit.PollingViewControllerStyle, commonStyle: IdsvrHaapiUIKit.HaapiUIViewControllerStyle, notificationCenter: Foundation.NotificationCenter = NotificationCenter.default)
   @_Concurrency.MainActor @preconcurrency override convenience public init(_ model: any IdsvrHaapiUIKit.PollingModel, style: IdsvrHaapiUIKit.PollingViewControllerStyle, commonStyle: IdsvrHaapiUIKit.HaapiUIViewControllerStyle)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -1373,7 +1436,7 @@ public class ViewControllerFactoryRegistry {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency public func update(model: any IdsvrHaapiUIKit.PollingModel)
+  @_Concurrency.MainActor public func update(model: any IdsvrHaapiUIKit.PollingModel)
   @_Concurrency.MainActor @preconcurrency override public func hasLoading() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency override public func apply(style: IdsvrHaapiUIKit.PollingViewControllerStyle)
 }
@@ -2297,18 +2360,22 @@ public enum MimeTypes : Swift.String {
     get
     set
   }
+  @available(*, deprecated, message: "Use `setLogType(...)` instead. Support for this property will be removed in a future major version.")
   @objc public static var isDebugEnabled: Swift.Bool {
     @objc get
     @objc set
   }
+  @available(*, deprecated, message: "Use `setLogType(...)` instead. Support for this property will be removed in a future major version.")
   @objc public static var isInfoEnabled: Swift.Bool {
     @objc get
     @objc set
   }
+  @available(*, deprecated, message: "Use `setLogType(...)` instead. Support for this property will be removed in a future major version.")
   @objc public static var isWarningEnabled: Swift.Bool {
     @objc get
     @objc set
   }
+  @available(*, deprecated, message: "Use `setLogType(...)` instead. Support for this property will be removed in a future major version.")
   @objc public static var isErrorEnabled: Swift.Bool {
     @objc get
     @objc set
@@ -2318,13 +2385,14 @@ public enum MimeTypes : Swift.String {
     @objc set
   }
   public static func appendLogSink(_ logSink: any IdsvrHaapiUIKit.LogSink)
+  public static func setLogType(_ logType: IdsvrHaapiUIKit.LogType)
   @objc deinit
 }
 public enum LogType : Swift.String {
-  case debug
   case error
-  case info
   case warning
+  case info
+  case debug
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
@@ -2700,7 +2768,19 @@ extension IdsvrHaapiUIKit.UIModel {
     get
   }
 }
-public protocol UIOperationModel : IdsvrHaapiUIKit.UIModel {
+public protocol HaapiResponseTypeable : IdsvrHaapiUIKit.UIModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var representationType: Swift.String? { get }
+  #endif
+}
+extension IdsvrHaapiUIKit.HaapiResponseTypeable {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var representationType: Swift.String? {
+    get
+  }
+  #endif
+}
+public protocol UIOperationModel : IdsvrHaapiUIKit.HaapiResponseTypeable {
   associatedtype InteractionModelType
   associatedtype ErrorInteractionModelType
   #if compiler(>=5.3) && $NonescapableTypes
@@ -2714,13 +2794,13 @@ public protocol UIOperationModel : IdsvrHaapiUIKit.UIModel {
   #endif
   var problem: any IdsvrHaapiUIKit.UIProblemModel { get }
 }
-public protocol UIProblemModel : IdsvrHaapiUIKit.UIModel {
+public protocol UIProblemModel : IdsvrHaapiUIKit.HaapiResponseTypeable {
   #if compiler(>=5.3) && $NonescapableTypes
   var title: Swift.String? { get }
   #endif
   var message: Swift.String { get }
 }
-public protocol UIInteractionModel : IdsvrHaapiUIKit.UIModel {
+public protocol UIInteractionModel : IdsvrHaapiUIKit.HaapiResponseTypeable {
   #if compiler(>=5.3) && $NonescapableTypes
   var templateArea: Swift.String? { get }
   #endif
@@ -2788,7 +2868,16 @@ public protocol PollingModel : IdsvrHaapiUIKit.UIInteractionModel {
   @available(iOS 14.0, *)
   var status: IdsvrHaapiUIKit.PollingStatus { get }
   var linkItems: [any IdsvrHaapiUIKit.LinkItemModel] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
+  var maxWaitTime: Foundation.TimeInterval? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  var maxWaitRemainingTime: Foundation.TimeInterval? { get }
+  #endif
   func isEqualTo(_ other: any IdsvrHaapiUIKit.PollingModel) -> Swift.Bool
+}
+@available(iOS 14.0, *)
+public protocol BankIdModel : IdsvrHaapiUIKit.PollingModel {
 }
 public protocol AuthorizationRequestModel : IdsvrHaapiUIKit.UIInteractionModel {
   var code: Swift.String { get }
@@ -2912,8 +3001,14 @@ extension IdsvrHaapiUIKit.InteractionItemModel {
 }
 public protocol InteractionValueModel : Swift.Sendable {
   @_Concurrency.MainActor var value: Swift.String { get set }
+  var isRequired: Swift.Bool { get }
 }
-public protocol InteractionActionModel {
+extension IdsvrHaapiUIKit.InteractionValueModel {
+  public var isRequired: Swift.Bool {
+    get
+  }
+}
+public protocol InteractionActionModel : Swift.Sendable {
   var action: any IdsvrHaapiUIKit.RepresentationActionModel { get }
 }
 public protocol InteractionItemSectionModel : IdsvrHaapiUIKit.InteractionItemModel {
