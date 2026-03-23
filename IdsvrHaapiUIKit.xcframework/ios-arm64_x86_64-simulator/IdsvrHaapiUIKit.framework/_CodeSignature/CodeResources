@@ -6,15 +6,15 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		IuYVno1sQVwJLqW3Nv0CLdOUGyQ=
+		or4A1IOfeKf5krG9xxkE4wsV99w=
 		</data>
 		<key>HaapiFlowViewController.nib</key>
 		<data>
-		Hn21k8vVVcNXSjZT4RJUg1cpiVs=
+		F+OtE3AuM7oPsXHJ2bLqrR2Fa94=
 		</data>
 		<key>Headers/IdsvrHaapiUIKit-Swift.h</key>
 		<data>
-		cpapITOCZRDoyFXiRJgrdsmEiBU=
+		EMuA/RV+C9XvzzjAFDO3UnaphQo=
 		</data>
 		<key>Headers/IdsvrHaapiUIKit.h</key>
 		<data>
@@ -22,51 +22,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		58howCvBzPXowJdW6AHsPnhoqbI=
+		+rDiWK0wtAQvuGowaOsba9L6rMg=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
-		yRS/2oGFX7tCSGUuUfDpm5C6cRM=
+		GoEsVMCVxij9v9geEjxBhc2Irp0=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		kN4Dz45ztfeXAywmMZqT3EFOLc0=
+		00APLNgPQ3ZjB9iHqPszjfzSBZ4=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		tNX2bjsVtsCPOmIeat3q1Wvg6kg=
+		o2AIBsCRihwsmMzGYO8GzWcK6/w=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		wHUXLSfCJKIYaOJRSGUeILA7ljE=
+		yoY/lmT5PXi5C2tJCWTxzBD86AE=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		tNX2bjsVtsCPOmIeat3q1Wvg6kg=
+		o2AIBsCRihwsmMzGYO8GzWcK6/w=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		W9sVJG49VOW/i1bn8w+geZWibis=
+		+O1fxvIlStXA4LMcXPaGX+c/fLM=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		kN4Dz45ztfeXAywmMZqT3EFOLc0=
+		00APLNgPQ3ZjB9iHqPszjfzSBZ4=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		kYrVa7+c/OUfW0kv7X8RyGWhtHY=
+		Va4fTjSC9OZ7A8hYP0entT3AgR0=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Po2qO1F2ilFzjrIH2nj/EWSBaWY=
+		OIM0O0/rvMgGxw9fS0LEfb5Mt7c=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		kYrVa7+c/OUfW0kv7X8RyGWhtHY=
+		Va4fTjSC9OZ7A8hYP0entT3AgR0=
 		</data>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xeGNEqhQmwb9SWtFaiwevP6Zt9Y=
+		GiEme0CO7quhgITodQztq1afFOg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -122,8 +122,17 @@
 		</data>
 		<key>Theme.plist</key>
 		<data>
-		80uiDutooQb1WNIeyXysSdhtd/w=
+		JeZsjbIVaWVwoh6y4S/ZdDzAoWg=
 		</data>
+		<key>en.lproj/Localizable.stringsdict</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W67xNsHde5luxGlGpBAjjaZJO+8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -131,21 +140,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B/hli2g701yx9KuPS0x59OnVSbPYYeu5ZhCQrFU/s/o=
+			z4KiB2fIQEUDc1D1cITCmsMG+hfYrkt+eB3DeXj2nSs=
 			</data>
 		</dict>
 		<key>HaapiFlowViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zfG0I/BQh3BCkrvEyskPMY2S9SsAd0ZnHCGLT/ottVM=
+			S4nn1e1gsQnps3Nndb0J4NavAmaOoDavKmvXU3PBb74=
 			</data>
 		</dict>
 		<key>Headers/IdsvrHaapiUIKit-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wKKMoQyBszcHQhgStBdlXRAvQ1dtMhM9k2XVRiK6ySM=
+			g0djDBvt62x6Wctt+oFRG0N1MfIenzO0RgxHbaLGu/8=
 			</data>
 		</dict>
 		<key>Headers/IdsvrHaapiUIKit.h</key>
@@ -159,77 +168,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/EegPuweLbLb+Zo9wpR1gPLN5wn+SbbbPLxIbnaVzIU=
+			XYk/zZXKfpueU91DNCTnZll7OK2jG2CKdBX8jp1ne5Y=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G4CCnoFi+OFp9dQxDuuY2hy+JrysS7yrVZ3cGjzDQ6c=
+			cORlrIW9q5Pd+AtrqAAVhFJg8Ix8jwfUTjLooozz2AE=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Epfj35LebL/iRCI+gi4KZwMI5SpE8V5dvV+0OCl0uHQ=
+			e6Nt027KuWJR21EOWqKjcLmDq121Slsa4ZLUGF/AMcA=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YwnU78HGr9Nms2/IFQ3+2kJ6jVUT8nqvkgz7tHvt3b8=
+			FsLdkRJyl1vrEXAvvYdq++5Lu3cm9iHgqTFSzZFLWkM=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Epfj35LebL/iRCI+gi4KZwMI5SpE8V5dvV+0OCl0uHQ=
+			e6Nt027KuWJR21EOWqKjcLmDq121Slsa4ZLUGF/AMcA=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PnY72DZg6/lPNxL3WHXmTSgCmK5Reav9ijxUUA5GWM4=
+			J04mWQjjPpJzgwVaeV9ccrOmg4J2f3ZaN8kYtmmRhBQ=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G4CCnoFi+OFp9dQxDuuY2hy+JrysS7yrVZ3cGjzDQ6c=
+			cORlrIW9q5Pd+AtrqAAVhFJg8Ix8jwfUTjLooozz2AE=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PGEycC/WWbWwnLfAVY2r5HxUrllp2er9vEwWAuOFMvs=
+			ljyPdIP53T4QLuyxRlevboJqM6nwu2Ncz8O7GVv34eY=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WfJRg6Imh6r5nj7uyDCEnIOH0GgE5U3xm7tUs5b9+wc=
+			Fg2TVCOikIOqQXNF4QuHCVwaqltcFkFPs3o4jr7BAZI=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PGEycC/WWbWwnLfAVY2r5HxUrllp2er9vEwWAuOFMvs=
+			ljyPdIP53T4QLuyxRlevboJqM6nwu2Ncz8O7GVv34eY=
 			</data>
 		</dict>
 		<key>Modules/IdsvrHaapiUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qRTjQmR/DRjtF2LjZaMUr+I23ora/fKm4gjGE3eCiJg=
+			xrxdUhzOQmqztYbwj3YU83FQn3zjWrqMG6bWNLtm/l8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -327,8 +336,17 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WYHqVFLeT44ozg5FUvnDHnmftHbpIb8bjcQUyp6hn8w=
+			ggDsd6WAmawqf9ARbfHpy9bERDs+rmL56zg77AA/CK0=
 			</data>
+		</dict>
+		<key>en.lproj/Localizable.stringsdict</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OpCX8Iep7gp6DDWVijZkaB6Ca05/ywaoF+3x8WWx7VA=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>
