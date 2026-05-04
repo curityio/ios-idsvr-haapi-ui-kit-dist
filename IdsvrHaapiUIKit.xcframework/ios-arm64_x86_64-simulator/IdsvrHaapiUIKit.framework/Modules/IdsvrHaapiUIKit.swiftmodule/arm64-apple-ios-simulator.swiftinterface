@@ -1155,7 +1155,7 @@ extension IdsvrHaapiUIKit.HaapiModel {
   public enum PropertiesFactory {
     public static func generic(rawJsonString: Swift.String) -> IdsvrHaapiUIKit.GenericProperties
     #if compiler(>=5.3) && $NonescapableTypes
-    public static func polling(rawJsonString: Swift.String, recipientOfCommunication: Swift.String?, status: IdsvrHaapiUIKit.PollingStatus, maxWaitTime: Swift.String? = nil, maxWaitRemainingTime: Swift.String? = nil) -> IdsvrHaapiUIKit.PollingProperties
+    public static func polling(rawJsonString: Swift.String, recipientOfCommunication: Swift.String?, status: IdsvrHaapiUIKit.PollingStatus, maxWaitTime: Swift.String? = nil, maxWaitRemainingTime: Swift.String? = nil, interval: Swift.String? = nil) -> IdsvrHaapiUIKit.PollingProperties
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
     public static func oAuthAuthorizationResponse(rawJsonString: Swift.String, scope: Swift.String?, state: Swift.String?, code: Swift.String?, idToken: Swift.String?, rawJson: [Swift.String : Swift.String]) -> IdsvrHaapiUIKit.OAuthAuthorizationResponseProperties
@@ -1206,7 +1206,7 @@ public struct InvalidInputProblem : IdsvrHaapiUIKit.ProblemRepresentation {
 @available(iOS 14, *)
 public struct HaapiUIViewControllerStyle : Swift.Sendable {
   public struct MessageViewStyles : Swift.Sendable {
-    public init(error: IdsvrHaapiUIKit.MessageViewStyle, warn: IdsvrHaapiUIKit.MessageViewStyle, info: IdsvrHaapiUIKit.MessageViewStyle, recipientOfCommunication: IdsvrHaapiUIKit.MessageViewStyle, content: IdsvrHaapiUIKit.MessageViewStyle, heading: IdsvrHaapiUIKit.MessageViewStyle, username: IdsvrHaapiUIKit.MessageViewStyle)
+    public init(error: IdsvrHaapiUIKit.MessageViewStyle, warn: IdsvrHaapiUIKit.MessageViewStyle, info: IdsvrHaapiUIKit.MessageViewStyle, recipientOfCommunication: IdsvrHaapiUIKit.MessageViewStyle, content: IdsvrHaapiUIKit.MessageViewStyle, heading: IdsvrHaapiUIKit.MessageViewStyle, username: IdsvrHaapiUIKit.MessageViewStyle, userCode: IdsvrHaapiUIKit.MessageViewStyle)
   }
 }
 @available(iOS 14, *)
@@ -1632,6 +1632,7 @@ public struct PollingProperties : IdsvrHaapiUIKit.Properties {
   public let status: IdsvrHaapiUIKit.PollingStatus
   public let maxWaitTime: Swift.String?
   public let maxWaitRemainingTime: Swift.String?
+  public let interval: Swift.String?
   public let rawJsonString: Swift.String
   public static func == (a: IdsvrHaapiUIKit.PollingProperties, b: IdsvrHaapiUIKit.PollingProperties) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
@@ -2728,10 +2729,12 @@ extension IdsvrHaapiUIKit.HaapiTokenManager {
   @objc final public func getHaapiToken(forceFresh: Swift.Bool = false, completionHandler: @escaping @Sendable (IdsvrHaapiUIKit.DpopAccessTokenInfo?, (any Swift.Error)?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "The dpopNonce parameter is no longer needed. Use getHaapiTokenAsync(forceFresh:) instead.")
   final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil) async throws -> IdsvrHaapiUIKit.DpopAccessTokenInfo
   #endif
+  final public func getHaapiTokenAsync(forceFresh: Swift.Bool = false) async throws -> IdsvrHaapiUIKit.DpopAccessTokenInfo
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(*, deprecated, message: "This function will not be supported in the next major version. Please use getHaapiTokenAsync")
+  @available(*, deprecated, message: "Use getHaapiTokenAsync(forceFresh:) instead.")
   final public func getHaapiToken(forceFresh: Swift.Bool = false, dpopNonce: Swift.String? = nil, completionHandler: @escaping @Sendable (Swift.Result<IdsvrHaapiUIKit.DpopAccessTokenInfo, IdsvrHaapiUIKit.HaapiError>) -> Swift.Void)
   #endif
   @objc final public func close()
@@ -2973,6 +2976,7 @@ public enum MessageStyleAttribute : Swift.String, Swift.Codable, Swift.Sendable 
   case recipientofcommunication
   case content
   case username
+  case usercode
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
