@@ -7,5 +7,4 @@ framework module IdsvrHaapiUIKit {
 
 module IdsvrHaapiUIKit.Swift {
   header "IdsvrHaapiUIKit-Swift.h"
-  requires objc
 }
