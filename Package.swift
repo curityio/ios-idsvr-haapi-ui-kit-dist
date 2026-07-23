@@ -11,6 +11,9 @@ let package = Package(
         .library(
             name: "IdsvrHaapiUIKit",
             targets: ["IdsvrHaapiUIKit"]),
+        .library(
+            name: "IdsvrHaapiUIKitPreviewer",
+            targets: ["IdsvrHaapiUIKitPreviewer"]),
     ],
     dependencies: [
     ],
@@ -18,7 +21,12 @@ let package = Package(
         .binaryTarget(
             name: "IdsvrHaapiUIKit",
             path: "IdsvrHaapiUIKit.xcframework"
-        )
+        ),
+        .target(
+            name: "IdsvrHaapiUIKitPreviewer",
+            dependencies: ["IdsvrHaapiUIKit"],
+            path: "HaapiUIPreviewer"
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
