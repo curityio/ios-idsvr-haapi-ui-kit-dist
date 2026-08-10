@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-compiler-version: Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name IdsvrHaapiUIKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import AuthenticationServices
 import Combine
 import CommonCrypto
@@ -878,10 +878,34 @@ extension IdsvrHaapiUIKit.HaapiModel {
   }
 }
 @available(iOS 14, *)
+public enum StorageOperation : Swift.Sendable {
+  case read
+  case write
+  case delete
+  public static func == (a: IdsvrHaapiUIKit.StorageOperation, b: IdsvrHaapiUIKit.StorageOperation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@available(iOS 14, *)
+public enum StorageItemCategory : Swift.Sendable {
+  case sessionCredential
+  case cryptographicKey
+  case diagnostic
+  case other
+  public static func == (a: IdsvrHaapiUIKit.StorageItemCategory, b: IdsvrHaapiUIKit.StorageItemCategory) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@available(iOS 14, *)
 public enum StorageError : Swift.Error {
   case writeError(cause: any Swift.Error)
   case readError(cause: any Swift.Error)
   case deleteError(cause: any Swift.Error)
+  case unavailable(operation: IdsvrHaapiUIKit.StorageOperation, category: IdsvrHaapiUIKit.StorageItemCategory, code: Swift.Int32?)
 }
 @available(iOS 14, *)
 extension IdsvrHaapiUIKit.StorageError : Foundation.LocalizedError {
@@ -1219,7 +1243,8 @@ public protocol HaapiConfigurable : Swift.Sendable {
   @objc final public let tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)?
   @objc final public let clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod
   final public let riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration?
-  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil, clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod = ClientAuthenticationMethodNone(), riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration? = nil)
+  @nonobjc final public let storage: any IdsvrHaapiUIKit.Storage
+  public init(name: Swift.String, clientId: Swift.String, baseURL: Foundation.URL, tokenEndpointURL: Foundation.URL, authorizationEndpointURL: Foundation.URL, appRedirect: Swift.String, httpHeadersProvider: IdsvrHaapiUIKit.HttpHeadersProvider?, authorizationParametersProvider: IdsvrHaapiUIKit.OAuthAuthorizationParametersProvider?, isAutoRedirect: Swift.Bool = true, urlSession: Foundation.URLSession = URLSession(configuration: .haapi), revocationEndpointURL: Foundation.URL? = nil, minTokenTtl: Foundation.TimeInterval = TimeInterval(floatLiteral: 10.0), attestationConfiguration: IdsvrHaapiUIKit.AttestationConfiguration = AttestationConfiguration(), tokenBoundConfiguration: any IdsvrHaapiUIKit.TokenBoundConfiguration = UnboundedTokenConfiguration(), tokenEndpointResponseListener: (any IdsvrHaapiUIKit.OAuthTokenManager.TokenEndpointResponseListener)? = nil, clientAuthenticationMethod: any IdsvrHaapiUIKit.ClientAuthenticationMethod = ClientAuthenticationMethodNone(), riskAssessmentConfiguration: IdsvrHaapiUIKit.RiskAssessmentConfiguration? = nil, storage: any IdsvrHaapiUIKit.Storage = StorageBuilder.Keychain().build())
   @objc deinit
 }
 @available(iOS 14.0, *)
@@ -1438,12 +1463,27 @@ public struct HiddenFormField : IdsvrHaapiUIKit.FormField {
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (lhs: IdsvrHaapiUIKit.HiddenFormField, rhs: IdsvrHaapiUIKit.HiddenFormField) -> Swift.Bool
 }
-@_hasMissingDesignatedInitializers @available(iOS 14, *)
-final public class KeychainStorage : IdsvrHaapiUIKit.Storage {
-  final public func write(key: Swift.String, data: Foundation.Data) throws
-  final public func read(key: Swift.String) throws -> Foundation.Data?
-  final public func delete(key: Swift.String) throws
-  @objc deinit
+@available(iOS 14, *)
+public enum KeychainAccessibility : Swift.Sendable {
+  case afterFirstUnlockThisDeviceOnly
+  case whenUnlockedThisDeviceOnly
+  public static func == (a: IdsvrHaapiUIKit.KeychainAccessibility, b: IdsvrHaapiUIKit.KeychainAccessibility) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@available(iOS 14, *)
+public enum StorageBuilder {
+  final public class Keychain {
+    public init()
+    @discardableResult
+    final public func accessGroup(_ accessGroup: Swift.String?) -> IdsvrHaapiUIKit.StorageBuilder.Keychain
+    @discardableResult
+    final public func accessibility(_ accessibility: IdsvrHaapiUIKit.KeychainAccessibility) -> IdsvrHaapiUIKit.StorageBuilder.Keychain
+    final public func build() -> any IdsvrHaapiUIKit.Storage
+    @objc deinit
+  }
 }
 @_hasMissingDesignatedInitializers @available(iOS 14, *)
 final public class SelectorViewControllerStyle : IdsvrHaapiUIKit.UIViewControllerStyle {
@@ -1692,6 +1732,8 @@ public class HaapiUIKitConfigurationBuilder {
   public func setRevocationEndpointUrl(endpoint: Foundation.URL) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setDCRConfiguration(configuration: IdsvrHaapiUIKit.DCRConfiguration) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
+  @discardableResult
+  public func setStorage(_ storage: any IdsvrHaapiUIKit.Storage) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
   public func setShouldClearExistingDCRClient(value: Swift.Bool) -> IdsvrHaapiUIKit.HaapiUIKitConfigurationBuilder
   @discardableResult
@@ -2074,6 +2116,68 @@ extension IdsvrHaapiUIKit.CommonUIStyle : IdsvrHaapiUIKit.UIStyle {
     get
   }
 }
+@_spi(HaapiPreview) @_hasMissingDesignatedInitializers @available(iOS 14.0, *)
+@_Concurrency.MainActor final public class HaapiPreviewThemeHandle {
+  @_spi(HaapiPreview) @_Concurrency.MainActor final public var commonStyle: IdsvrHaapiUIKit.HaapiUIViewControllerStyle {
+    @_spi(HaapiPreview) get
+  }
+  @_spi(HaapiPreview) @_Concurrency.MainActor final public var themeDelegate: any IdsvrHaapiUIKit.UIStylableThemeDelegate {
+    @_spi(HaapiPreview) get
+  }
+  @_spi(HaapiPreview) @_Concurrency.MainActor final public func style<T>(stylableType: any IdsvrHaapiUIKit.UIStylable.Type) throws -> T where T : IdsvrHaapiUIKit.UIStyle
+  @_spi(HaapiPreview) @objc deinit
+}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+@_Concurrency.MainActor public enum HaapiPreviewConnector {
+  @_spi(HaapiPreview) public enum ButtonVariant {
+    @_spi(HaapiPreview) case primary, secondary, text, link
+    @_spi(HaapiPreview) public static func == (a: IdsvrHaapiUIKit.HaapiPreviewConnector.ButtonVariant, b: IdsvrHaapiUIKit.HaapiPreviewConnector.ButtonVariant) -> Swift.Bool
+    @_spi(HaapiPreview) public func hash(into hasher: inout Swift.Hasher)
+    @_spi(HaapiPreview) public var hashValue: Swift.Int {
+      @_spi(HaapiPreview) get
+    }
+  }
+  @_spi(HaapiPreview) public enum MessageVariant {
+    @_spi(HaapiPreview) case error, warn, info, recipientOfCommunication, content, heading, username
+    @_spi(HaapiPreview) public static func == (a: IdsvrHaapiUIKit.HaapiPreviewConnector.MessageVariant, b: IdsvrHaapiUIKit.HaapiPreviewConnector.MessageVariant) -> Swift.Bool
+    @_spi(HaapiPreview) public func hash(into hasher: inout Swift.Hasher)
+    @_spi(HaapiPreview) public var hashValue: Swift.Int {
+      @_spi(HaapiPreview) get
+    }
+  }
+  @_spi(HaapiPreview) public enum InputTextFieldVariant : Swift.String {
+    @_spi(HaapiPreview) case curity, filled, outlined
+    @_spi(HaapiPreview) public init?(rawValue: Swift.String)
+    @_spi(HaapiPreview) @available(iOS 14.0, *)
+    public typealias RawValue = Swift.String
+    @_spi(HaapiPreview) public var rawValue: Swift.String {
+      @_spi(HaapiPreview) get
+    }
+  }
+  @_spi(HaapiPreview) public enum BannerVariant {
+    @_spi(HaapiPreview) case standard, success
+    @_spi(HaapiPreview) public static func == (a: IdsvrHaapiUIKit.HaapiPreviewConnector.BannerVariant, b: IdsvrHaapiUIKit.HaapiPreviewConnector.BannerVariant) -> Swift.Bool
+    @_spi(HaapiPreview) public func hash(into hasher: inout Swift.Hasher)
+    @_spi(HaapiPreview) public var hashValue: Swift.Int {
+      @_spi(HaapiPreview) get
+    }
+  }
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeThemeHandle(theme: Swift.String, bundle: Foundation.Bundle) throws -> IdsvrHaapiUIKit.HaapiPreviewThemeHandle
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func specializedRepresentation(from step: IdsvrHaapiUIKit.GenericRepresentationStep) throws -> any IdsvrHaapiUIKit.HaapiRepresentation
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func bindFlowResolver(on viewController: IdsvrHaapiUIKit.GenericViewController, themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle)
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func installPreviewSafeWebAuthnEngine(on viewController: IdsvrHaapiUIKit.WebAuthnViewController)
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeFlowContainer(wrapping childViewController: UIKit.UIViewController, themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle) throws -> UIKit.UIViewController
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeActionableButton(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, variant: IdsvrHaapiUIKit.HaapiPreviewConnector.ButtonVariant, title: Swift.String) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeMessageView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, variant: IdsvrHaapiUIKit.HaapiPreviewConnector.MessageVariant, text: Swift.String) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeUserCodeMessageView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, codes: [Swift.String]) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeInputTextField(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, variant: IdsvrHaapiUIKit.HaapiPreviewConnector.InputTextFieldVariant, label: Swift.String, placeholder: Swift.String, errorText: Swift.String?) throws -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeCheckboxView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, title: Swift.String, isChecked: Swift.Bool) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeHeaderView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeLinkView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, text: Swift.String) -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeNotificationBanner(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, variant: IdsvrHaapiUIKit.HaapiPreviewConnector.BannerVariant, title: Swift.String, actionTitle: Swift.String?) throws -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeExpandableView(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle, title: Swift.String, content: Swift.String) throws -> UIKit.UIView
+  @_spi(HaapiPreview) @_Concurrency.MainActor public static func makeLoadingIndicator(themeHandle: IdsvrHaapiUIKit.HaapiPreviewThemeHandle) -> UIKit.UIView
+}
 @objc @available(iOS 14.0, *)
 @objcMembers final public class OAuthAuthorizationParameters : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let scopes: [Swift.String]
@@ -2406,10 +2510,10 @@ public struct SelectorAction : IdsvrHaapiUIKit.Action {
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (lhs: IdsvrHaapiUIKit.SelectorAction, rhs: IdsvrHaapiUIKit.SelectorAction) -> Swift.Bool
 }
-@objc @available(iOS 14, *)
+@objc @_hasMissingDesignatedInitializers @available(iOS 14, *)
 final public class DCRConfiguration : ObjectiveC.NSObject, Swift.Sendable {
   @objc convenience public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL)
-  public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL, storage: any IdsvrHaapiUIKit.Storage)
+  convenience public init(templateClientId: Swift.String, clientRegistrationEndpointUrl: Foundation.URL, storage: any IdsvrHaapiUIKit.Storage)
   @objc deinit
 }
 @available(iOS 14, *)
@@ -2847,6 +2951,14 @@ extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.Equatable {}
 extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.Hashable {}
 @available(*, deprecated, message: "    This enum will not be supported in the next major version and will be removed.\n    Please use the provided specific build methods instead.")
 extension IdsvrHaapiUIKit.HaapiAccessorOption : Swift.RawRepresentable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.StorageOperation : Swift.Equatable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.StorageOperation : Swift.Hashable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.StorageItemCategory : Swift.Equatable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.StorageItemCategory : Swift.Hashable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.JWTAsymmetricAlgorithm : Swift.Equatable {}
 @available(iOS 14.0, *)
@@ -2866,6 +2978,10 @@ extension IdsvrHaapiUIKit.DriverFollowUpTag : Swift.RawRepresentable {}
 extension IdsvrHaapiUIKit.PaddingStyle : Swift.Sendable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.TextFormField.Kind : Swift.Sendable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.KeychainAccessibility : Swift.Equatable {}
+@available(iOS 14, *)
+extension IdsvrHaapiUIKit.KeychainAccessibility : Swift.Hashable {}
 @available(iOS 14.0, *)
 extension IdsvrHaapiUIKit.PollingStatus : Swift.Hashable {}
 @available(iOS 14.0, *)
@@ -2883,6 +2999,28 @@ extension IdsvrHaapiUIKit.ClientOperationName : Swift.Sendable {}
 extension IdsvrHaapiUIKit.TokenRevocationResponse : Swift.Sendable {}
 @available(iOS 14, *)
 extension IdsvrHaapiUIKit.CommonViewControllerStyle : Swift.Sendable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewThemeHandle : Swift.Sendable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector : Swift.Sendable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.ButtonVariant : Swift.Equatable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.ButtonVariant : Swift.Hashable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.MessageVariant : Swift.Equatable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.MessageVariant : Swift.Hashable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.InputTextFieldVariant : Swift.Equatable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.InputTextFieldVariant : Swift.Hashable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.InputTextFieldVariant : Swift.RawRepresentable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.BannerVariant : Swift.Equatable {}
+@_spi(HaapiPreview) @available(iOS 14.0, *)
+extension IdsvrHaapiUIKit.HaapiPreviewConnector.BannerVariant : Swift.Hashable {}
 @available(iOS 14, *)
 extension IdsvrHaapiUIKit.MimeTypes : Swift.Equatable {}
 @available(iOS 14, *)
