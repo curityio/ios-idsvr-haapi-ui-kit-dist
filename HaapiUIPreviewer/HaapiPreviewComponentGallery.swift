@@ -20,7 +20,6 @@ import UIKit
 /// Each item is rendered as a monospaced label (the variant name) followed by the component view.
 /// Used by `HaapiPreviewFactory` to build per-component gallery previews showing all style variants
 /// side by side in the Xcode canvas.
-@available(iOS 14.0, *)
 @MainActor
 final class HaapiComponentGalleryViewController: UIViewController {
 
@@ -111,7 +110,6 @@ final class HaapiComponentGalleryViewController: UIViewController {
 
 /// Sample text used to populate component instances in the gallery view.
 /// Values are illustrative — they match what a typical HAAPI login flow would display.
-@available(iOS 14.0, *)
 internal enum HaapiPreviewGalleryDefaults {
     
     // MARK: ActionableButton

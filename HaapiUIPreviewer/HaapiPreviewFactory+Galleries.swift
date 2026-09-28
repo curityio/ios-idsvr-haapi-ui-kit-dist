@@ -17,7 +17,6 @@ import UIKit
 
 // MARK: - Component Galleries
 
-@available(iOS 14.0, *)
 extension HaapiPreviewFactory {
 
     /// Creates a gallery showing all `ActionableButton` style variants (Primary, Secondary, Text, Link).

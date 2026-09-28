@@ -13,12 +13,10 @@ import Foundation
 
 #if DEBUG
 
-@available(iOS 14.0, *)
 internal enum HaapiPreviewDefaults {}
 
 // MARK: - Form (Login)
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     static let formJSON: String = """
@@ -77,7 +75,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - Selector (Authenticator Selection)
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     static let selectorJSON: String = """
@@ -127,7 +124,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - Polling
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     static let pollingJSON: String = """
@@ -187,7 +183,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - Problem (Invalid Input)
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     static let problemJSON: String = """
@@ -226,7 +221,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - BankId
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     // swiftlint:disable line_length
@@ -321,7 +315,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - Generic
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
     static let genericJSON: String = """
     {
@@ -419,7 +412,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - WebAuthn Registration
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     // swiftlint:disable line_length
@@ -582,7 +574,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - WebAuthn Authentication
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     // swiftlint:disable line_length
@@ -692,7 +683,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - WebAuthn Additional Registration
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     // swiftlint:disable line_length
@@ -775,7 +765,6 @@ extension HaapiPreviewDefaults {
 
 // MARK: - WebAuthn Platform Only
 
-@available(iOS 14.0, *)
 extension HaapiPreviewDefaults {
 
     // swiftlint:disable line_length
