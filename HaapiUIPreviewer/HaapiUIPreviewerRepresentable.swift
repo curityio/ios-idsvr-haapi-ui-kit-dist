@@ -16,7 +16,6 @@ import SwiftUI
 /// A generic `UIViewControllerRepresentable` wrapper that bridges UIKit view controllers into SwiftUI
 /// for use in Xcode previews. If the builder closure throws, an error placeholder is displayed instead.
 /// - Experiment: This is an experimental API. It may be changed or removed in the future.
-@available(iOS 14.0, *)
 public struct HaapiUIPreviewerRepresentable: UIViewControllerRepresentable {
     private let viewControllerBuilder: @MainActor () throws -> UIViewController
 

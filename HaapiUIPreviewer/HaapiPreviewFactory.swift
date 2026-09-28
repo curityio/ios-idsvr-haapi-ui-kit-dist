@@ -15,7 +15,6 @@ import Foundation
 import UIKit
 @_spi(HaapiPreview) import IdsvrHaapiUIKit
 
-@available(iOS 14.0, *)
 @MainActor
 internal enum HaapiPreviewFactory {
 

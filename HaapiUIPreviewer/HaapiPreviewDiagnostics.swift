@@ -20,7 +20,6 @@ import IdsvrHaapiUIKit
 ///
 /// Uses a singleton pattern to avoid registering multiple log sinks across preview refreshes.
 /// Install via ``install()`` before the preview view controller is created.
-@available(iOS 14.0, *)
 internal final class HaapiPreviewLogCollector: ObservableObject, LogSink, @unchecked Sendable {
 
     struct LogEntry: Identifiable, Sendable {
@@ -69,7 +68,6 @@ internal final class HaapiPreviewLogCollector: ObservableObject, LogSink, @unche
 /// Wraps preview content with an optional diagnostic panel showing theme resolution details
 /// and captured `HaapiLogger` log entries.
 /// The panel is only rendered when `diagnostics` is non-nil.
-@available(iOS 14.0, *)
 internal struct HaapiPreviewDiagnosticWrapper<Content: View>: View {
     let diagnostics: HaapiPreviewDiagnosticInfo?
     @ObservedObject private var logCollector = HaapiPreviewLogCollector.shared
@@ -180,7 +178,6 @@ internal struct HaapiPreviewDiagnosticWrapper<Content: View>: View {
 }
 
 /// Diagnostic information about theme resolution, displayed in the preview canvas overlay.
-@available(iOS 14.0, *)
 internal struct HaapiPreviewDiagnosticInfo {
     let themeName: String
     let preferredBundlePath: String

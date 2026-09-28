@@ -19,7 +19,6 @@ import SwiftUI
 /// Each case maps to a different default JSON fixture that exercises a distinct screen layout
 /// of `WebAuthnViewController`.
 /// - Experiment: This is an experimental API. It may be changed or removed in the future.
-@available(iOS 14.0, *)
 public enum HaapiUIPreviewerWebAuthnVariant {
     /// Options screen showing platform and cross-platform credential buttons (registration flow).
     case registration
@@ -63,7 +62,6 @@ public enum HaapiUIPreviewerWebAuthnVariant {
 /// }
 /// ```
 /// - Experiment: This is an experimental API. It may be changed or removed in the future.
-@available(iOS 14.0, *)
 @MainActor
 public enum HaapiUIPreviewer {
     // MARK: - Form
@@ -451,7 +449,6 @@ public enum HaapiUIPreviewer {
 /// }
 /// ```
 /// - Experiment: This is an experimental API. It may be changed or removed in the future.
-@available(iOS 14.0, *)
 @MainActor
 public struct HaapiUIPreviewerStyleProvider {
     internal let themeHandle: HaapiPreviewThemeHandle
